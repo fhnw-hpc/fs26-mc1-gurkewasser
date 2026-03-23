@@ -56,22 +56,10 @@ class Room:
         self.previous_phase = "outside"
         self.outside_study_minutes_remaining = 0
 
-    def _get_phase(self, current_minute):
 
-        cycle_position = current_minute % 60
+    def update(self, current_phase, current_minute_of_day):
 
-        if current_minute >= 405:
-            return "outside"
-
-        if cycle_position < 45:
-            return "lesson"
-        else:
-            return "break"
-
-
-    def update(self, current_minute):
-
-        current_phase = self._get_phase(current_minute)
+        #current_phase = self._get_phase(current_minute_of_day)
 
         # Transition logic
 
@@ -103,7 +91,7 @@ class Room:
                     self.occupancy = 0
 
             elif self.occupancy > 0:
-                if current_minute % 5 == 0:
+                if current_minute_of_day % 5 == 0:
                     outside_decreaser = random.randint(2, 3)
                     self.occupancy -= outside_decreaser
 
