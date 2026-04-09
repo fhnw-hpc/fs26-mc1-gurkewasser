@@ -1,3 +1,4 @@
+from multiprocessing.sharedctypes import Value
 import threading
 import time
 
@@ -34,8 +35,11 @@ def simple_producer_loop(sim, topic, producer):
     while True:
         room = sim.rooms[room_index]
         message = message_builder.build_simple_message(room, sim)
+        # Old Message and Key Partition DEEPDIVE 1
+        #producer.send(topic, value=message)
 
-        producer.send(topic, value=message)
+        # New Message and Key Partition
+        producer.send(topic, key=room.room_id.encode('utf-8'), value=message)
 
         room_index = (room_index + 1) % num_rooms
         time.sleep(0.1)
@@ -46,7 +50,12 @@ def complex_producer_loop(sim, topic, producer):
 
     while True:
         message = message_builder.build_complex_message(target_room, sim)
-        producer.send(topic, value=message)
+        # Old Message and Key Partition DEEPDIVE 1
+        #producer.send(topic, value=message)
+
+        # New Message and Key Partition
+        producer.send(topic, key=target_room.room_id.encode('utf-8'), value=message)
+
         # Optional: Print to confirm Kafka is getting the same data
         # print(f"[Complex] Sent to {topic} | Room: {target_room.room_id} | Msg: {message}")
         
