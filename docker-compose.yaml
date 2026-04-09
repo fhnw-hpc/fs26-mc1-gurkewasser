@@ -9,7 +9,7 @@ services:
     ports:
       - "8888:8888"
     environment:
-      PYTHONUNBUFFERED: 1 
+      PYTHONUNBUFFERED: 1
       CLUSTER_ID: 'BDb4EWyiS1GjcEKCew2HvQ'
     command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
 
@@ -77,5 +77,39 @@ services:
       - "9000:9000"
     environment:
       KAFKA_BROKERCONNECT: "kafka1:9092,kafka2:9092,kafka3:9092"
-    depends_on: 
+    depends_on:
       - kafka1
+
+  data-generator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: data-generator
+    depends_on:
+      - kafka1
+      - kafka2
+      - kafka3
+    command: [ "python", "run_generators.py" ]
+
+  data-processor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: data-processor
+    depends_on:
+      - kafka1
+      - data-generator
+    command: [ "python", "processing_consumer.py" ]
+
+  data-sink:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: data-sink
+    depends_on:
+      - kafka1
+      - data-generator
+    # Volume mounten, damit man CSVs auf dem Host-System sehen kann
+    volumes:
+      - ./data:/app/data
+    command: [ "python", "data_sink.py" ]

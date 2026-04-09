@@ -8,7 +8,7 @@ class SchoolSimulation:
         self.rooms = [Room(room_id=f"room_{i:02d}") for i in range(1, 16)]
         self.weekdays = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
         self.current_weekday_index = 0
-        self.current_minute_of_day = 0
+        self.current_minute_of_day = 535 # change to 0 for standard use
         self.today_schedule = []
         self.today_double_lesson_period = None
         self.build_day_schedule()

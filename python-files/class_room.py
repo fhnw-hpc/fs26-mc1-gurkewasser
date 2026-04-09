@@ -4,7 +4,7 @@ class Room:
 
     # --- model bounds ---
     TEMP_MIN = 18
-    TEMP_MAX = 32
+    TEMP_MAX = 34
 
     OCCUPANCY_MIN = 0
     OCCUPANCY_MAX = 35
@@ -158,7 +158,7 @@ class Room:
 
         # Temperature update
 
-        temp_occupancy = self.occupancy * random.uniform(0.01, 0.03)
+        temp_occupancy = self.occupancy * random.uniform(0.002, 0.008)
 
         temp_drift = random.uniform(-0.3, 0.3)
 
