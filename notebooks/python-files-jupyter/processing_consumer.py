@@ -1,13 +1,20 @@
 import json
 import time
+import msgpack
 from kafka import KafkaConsumer, KafkaProducer
 
 def run_processing_consumer():
     # Consumer reads from 'room_environment', which has complex messages with CO2 levels, etc.
     consumer = KafkaConsumer(
-        'room_environment',
+        'room_environment_mp',
         bootstrap_servers=['kafka1:9092', 'kafka2:9092', 'kafka3:9092'],
-        value_deserializer=lambda m: json.loads(m.decode('utf-8')),
+
+        # --- BASE SERIALIZATION (JSON) ---
+        #value_serializer=lambda v: json.dumps(v).encode('utf-8')
+        
+        # --- BONUS SERIALIZATION (MessagePack) ---
+        value_deserializer=lambda m: msgpack.unpackb(m, raw=False),
+
         auto_offset_reset='latest',
         group_id='processing_group'
     )
@@ -15,11 +22,16 @@ def run_processing_consumer():
     # Producer writes to 'room_alerts'
     producer = KafkaProducer(
         bootstrap_servers=['kafka1:9092', 'kafka2:9092', 'kafka3:9092'],
-        value_serializer=lambda v: json.dumps(v).encode('utf-8')
+
+        # --- BASE SERIALIZATION (JSON) ---
+        # value_serializer=lambda v: json.dumps(v).encode('utf-8')
+        
+        # --- BONUS SERIALIZATION (MessagePack) ---
+        value_serializer=lambda v: msgpack.packb(v)
     )
 
     print("Running processing consumer.")
-    print("Listening to 'room_environment' and writing enriched data to 'room_alerts'.")
+    print("Listening to 'room_environment_mp' and writing enriched data to 'room_alerts'.")
     print("Press Ctrl+C to stop.")
 
     message_count = 0
@@ -42,7 +54,7 @@ def run_processing_consumer():
             data['processed_timestamp'] = time.time()
             
             # Re-insert processed data into Kafka under a new topic
-            producer.send('room_alerts', value=data)
+            producer.send('room_alerts_mp', value=data)
             
             # Log selectively to avoid spamming the terminal too much
             if message_count % 10 == 0:
