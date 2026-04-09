@@ -12,3 +12,8 @@ getent hosts kafka2
 getent hosts kafka3
 python -c "import socket; print(socket.gethostbyname('kafka1'))"
 exit
+cd /home/jovyan/python-files-jupyter/
+ls
+python run_generators.py 
+pip install kafka-python
+exit
