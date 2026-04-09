@@ -1479,3 +1479,99 @@ Tuesday 09:31,1775739528.3101065,room_01,18.72,31,61,1008,True,2,True,High CO2 L
 Tuesday 09:32,1775739529.3056376,room_01,18.62,31,62,993,True,2,False,CO2 Levels normal.
 Tuesday 09:33,1775739530.3096683,room_01,18.69,30,63,996,False,2,False,CO2 Levels normal.
 Tuesday 09:34,1775739531.3096766,room_01,18.64,34,63,1004,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:35,1775739532.314456,room_01,19.06,31,63,1027,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:36,1775739533.3210845,room_01,19.44,31,63,1053,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:37,1775739534.31802,room_01,19.65,32,63,1058,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:38,1775739535.3179836,room_01,19.92,33,62,1071,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:39,1775739536.3200197,room_01,20.28,34,63,1085,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:40,1775739537.3264294,room_01,20.28,31,64,1067,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:41,1775739538.3345187,room_01,20.29,33,63,1053,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:42,1775739539.339022,room_01,19.86,30,62,1051,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:43,1775739540.3423445,room_01,20.06,30,63,1079,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:44,1775739541.3429585,room_01,20.4,33,63,1088,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:45,1775739542.3444502,room_01,20.47,30,63,1104,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:46,1775739543.351867,room_01,20.22,16,62,1082,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:47,1775739544.3569367,room_01,20.22,15,61,1073,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:48,1775739545.3545518,room_01,20.37,15,61,1066,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:49,1775739546.3581064,room_01,20.51,14,60,1063,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:50,1775739547.3612344,room_01,20.46,13,61,1057,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:51,1775739548.3614323,room_01,20.43,14,60,1030,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:52,1775739549.3711362,room_01,20.53,15,60,1026,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:53,1775739550.365371,room_01,20.6,15,61,1020,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 09:54,1775739551.3711214,room_01,20.31,15,61,991,True,2,False,CO2 Levels normal.
+Tuesday 09:55,1775739552.3755372,room_01,20.1,14,62,968,True,2,False,CO2 Levels normal.
+Tuesday 09:56,1775739553.375821,room_01,20.29,13,62,958,False,2,False,CO2 Levels normal.
+Tuesday 09:57,1775739554.387062,room_01,20.56,12,63,942,False,2,False,CO2 Levels normal.
+Tuesday 09:58,1775739555.381477,room_01,20.54,12,63,924,False,2,False,CO2 Levels normal.
+Tuesday 09:59,1775739556.3908026,room_01,20.29,13,62,888,True,2,False,CO2 Levels normal.
+Tuesday 10:00,1775739557.389846,room_01,20.2,14,61,879,False,2,False,CO2 Levels normal.
+Tuesday 10:01,1775739558.3945305,room_01,20.58,29,60,885,False,2,False,CO2 Levels normal.
+Tuesday 10:02,1775739559.4132452,room_01,20.57,28,61,907,False,2,False,CO2 Levels normal.
+Tuesday 10:03,1775739560.399651,room_01,20.7,29,60,891,True,2,False,CO2 Levels normal.
+Tuesday 10:04,1775739561.4021924,room_01,20.99,27,61,912,False,2,False,CO2 Levels normal.
+Tuesday 10:05,1775739562.401789,room_01,20.87,27,62,893,True,2,False,CO2 Levels normal.
+Tuesday 10:06,1775739563.4111555,room_01,21.2,30,62,917,False,2,False,CO2 Levels normal.
+Tuesday 10:07,1775739564.4183767,room_01,21.46,28,62,940,False,2,False,CO2 Levels normal.
+Tuesday 10:08,1775739565.417144,room_01,21.82,26,63,940,False,2,False,CO2 Levels normal.
+Tuesday 10:09,1775739566.423419,room_01,22.3,30,63,966,False,2,False,CO2 Levels normal.
+Tuesday 10:10,1775739567.4221525,room_01,22.67,29,63,972,False,2,False,CO2 Levels normal.
+Tuesday 10:11,1775739568.4266202,room_01,22.6,30,64,953,True,2,False,CO2 Levels normal.
+Tuesday 10:12,1775739569.4257765,room_01,22.54,26,65,949,True,2,False,CO2 Levels normal.
+Tuesday 10:13,1775739570.4334326,room_01,22.44,29,65,976,False,2,False,CO2 Levels normal.
+Tuesday 10:14,1775739571.4411867,room_01,22.58,27,65,994,False,2,False,CO2 Levels normal.
+Tuesday 10:15,1775739572.4467797,room_01,22.95,28,65,1017,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:16,1775739573.4430742,room_01,23.38,27,65,1025,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:17,1775739574.4476204,room_01,23.3,29,65,1030,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:18,1775739575.451258,room_01,22.86,30,65,1038,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:19,1775739576.452359,room_01,23.18,30,65,1048,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:20,1775739577.4544814,room_01,22.63,28,65,1049,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:21,1775739578.4559789,room_01,22.61,30,64,1057,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:22,1775739579.464472,room_01,22.89,27,64,1066,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:23,1775739580.468814,room_01,23.05,28,65,1068,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:24,1775739581.474441,room_01,23.06,28,65,1061,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:25,1775739582.4785259,room_01,23.13,29,65,1081,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:26,1775739583.4789543,room_01,23.01,29,65,1090,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:27,1775739584.4812639,room_01,23.41,26,65,1097,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:28,1775739585.4861183,room_01,23.46,27,65,1092,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:29,1775739586.4860418,room_01,23.83,29,64,1093,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:30,1775739587.4877858,room_01,23.77,30,64,1107,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:31,1775739588.4958825,room_01,24.1,29,65,1123,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:32,1775739589.4963074,room_01,24.21,29,65,1126,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:33,1775739590.4994645,room_01,23.72,29,64,1129,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:34,1775739591.4970338,room_01,23.96,29,63,1151,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:35,1775739592.5043197,room_01,23.8,29,63,1134,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:36,1775739593.5015368,room_01,23.99,26,63,1133,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:37,1775739594.5094264,room_01,23.54,27,62,1136,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:38,1775739595.509836,room_01,23.57,28,61,1159,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:39,1775739596.515082,room_01,23.58,27,60,1163,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:40,1775739597.5170212,room_01,23.85,27,60,1172,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:41,1775739598.5195534,room_01,23.81,29,59,1184,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:42,1775739599.5236702,room_01,24.13,29,58,1203,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:43,1775739600.5356762,room_01,24.6,29,58,1205,False,3,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:44,1775739601.529264,room_01,25.02,26,57,1204,False,3,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:45,1775739602.531697,room_01,24.86,28,56,1182,True,3,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:46,1775739603.5332224,room_01,24.6,14,55,1148,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:47,1775739604.5380886,room_01,24.4,13,56,1132,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:48,1775739605.5416436,room_01,24.26,14,57,1097,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:49,1775739606.5495737,room_01,24.4,15,58,1086,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:50,1775739607.5504832,room_01,23.9,16,57,1054,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:51,1775739608.5541184,room_01,24.17,17,57,1043,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:52,1775739609.5552316,room_01,24.17,18,56,1025,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:53,1775739610.5665247,room_01,23.75,19,55,1002,True,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:54,1775739611.5660386,room_01,23.95,19,54,1005,False,2,True,High CO2 Levels detected. Please ventilate.
+Tuesday 10:55,1775739612.5671713,room_01,23.77,18,54,985,True,2,False,CO2 Levels normal.
+Tuesday 10:56,1775739613.5718298,room_01,24.05,19,55,992,False,2,False,CO2 Levels normal.
+Tuesday 10:57,1775739614.5748994,room_01,24.28,20,54,983,False,2,False,CO2 Levels normal.
+Tuesday 10:58,1775739615.5823703,room_01,23.97,21,55,958,True,2,False,CO2 Levels normal.
+Tuesday 10:59,1775739616.5823658,room_01,23.43,22,55,944,True,2,False,CO2 Levels normal.
+Tuesday 11:00,1775739617.586142,room_01,23.34,23,56,945,False,2,False,CO2 Levels normal.
+Tuesday 11:01,1775739618.5940711,room_01,23.1,31,57,942,True,2,False,CO2 Levels normal.
+Tuesday 11:02,1775739619.5983677,room_01,23.54,34,58,954,False,2,False,CO2 Levels normal.
+Tuesday 11:03,1775739620.605261,room_01,23.71,32,58,976,False,2,False,CO2 Levels normal.
+Tuesday 11:04,1775739621.6072018,room_01,23.18,32,58,971,True,2,False,CO2 Levels normal.
+Tuesday 11:05,1775739622.6171267,room_01,23.3,32,59,973,False,2,False,CO2 Levels normal.
+Tuesday 11:06,1775739623.6162505,room_01,23.41,30,59,987,False,2,False,CO2 Levels normal.
+Tuesday 11:07,1775739624.6142492,room_01,22.91,31,60,998,True,2,False,CO2 Levels normal.
+Tuesday 11:08,1775739625.6166034,room_01,22.61,32,61,987,True,2,False,CO2 Levels normal.
+Tuesday 11:09,1775739626.6192877,room_01,22.28,30,62,976,True,2,False,CO2 Levels normal.
+Tuesday 11:10,1775739627.6199296,room_01,21.88,30,62,966,True,2,False,CO2 Levels normal.
