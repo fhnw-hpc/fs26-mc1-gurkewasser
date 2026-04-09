@@ -17,3 +17,8 @@ ls
 python run_generators.py 
 pip install kafka-python
 exit
+which pip
+pip install msgpack
+exit
+python -c "import msgpack; print(msgpack.__version__)"
+exit

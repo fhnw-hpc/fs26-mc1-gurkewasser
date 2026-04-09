@@ -5,14 +5,14 @@ from kafka import KafkaConsumer
 def run_simple_consumer():
     # Initialize the Kafka Consumer
     consumer = KafkaConsumer(
-        'room_temperature',
+        'room_temperature_mp',
         bootstrap_servers=['kafka1:9092', 'kafka2:9092', 'kafka3:9092'],
         value_deserializer=lambda m: json.loads(m.decode('utf-8')),
         auto_offset_reset='latest', 
         group_id='simple_temperature_group'
     )
 
-    print("Listening to 'room_temperature' topic. Press Ctrl+C to stop.")
+    print("Listening to 'room_temperature_mp' topic. Press Ctrl+C to stop.")
 
     message_count = 0
     start_time = time.time()
