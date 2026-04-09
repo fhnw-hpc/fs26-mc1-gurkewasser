@@ -90,7 +90,7 @@ services:
       - kafka1
       - kafka2
       - kafka3
-    command: [ "python", "run_generators.py" ]
+    command: sh -c "sleep 15 && python run_generators.py"
 
   data-processor:
     build:
@@ -101,7 +101,7 @@ services:
     depends_on:
       - kafka1
       - data-generator
-    command: [ "python", "processing_consumer.py" ]
+    command: sh -c "sleep 15 && python processing_consumer.py"
 
   data-sink:
     build:
@@ -112,7 +112,6 @@ services:
     depends_on:
       - kafka1
       - data-generator
-    # Volume mounten, damit man CSVs auf dem Host-System sehen kann
     volumes:
       - ./data:/app/data
-    command: [ "python", "data_sink.py" ]
+    command: sh -c "sleep 15 && python data_sink.py"
