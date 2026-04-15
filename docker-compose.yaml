@@ -99,7 +99,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: data-processor
+    # container_name: data-processor
     restart: on-failure
     depends_on:
       - kafka1
