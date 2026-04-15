@@ -46,19 +46,22 @@ def simple_producer_loop(sim, topic, producer):
 
 
 def complex_producer_loop(sim, topic, producer):
-    target_room = sim.rooms[0]
+    room_index = 0
+    num_rooms = len(sim.rooms)
 
     while True:
+        target_room = sim.rooms[room_index]
         message = message_builder.build_complex_message(target_room, sim)
         # Old Message and Key Partition DEEPDIVE 1
         #producer.send(topic, value=message)
-
+        
         # New Message and Key Partition
         producer.send(topic, key=target_room.room_id.encode('utf-8'), value=message)
 
         # Optional: Print to confirm Kafka is getting the same data
         # print(f"[Complex] Sent to {topic} | Room: {target_room.room_id} | Msg: {message}")
-        
+
+        room_index = (room_index + 1) % num_rooms
         time.sleep(1)
 
 
