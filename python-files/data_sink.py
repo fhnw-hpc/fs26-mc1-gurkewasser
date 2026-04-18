@@ -3,8 +3,9 @@ import os
 import threading
 import time
 import json
-
+import pika
 import msgpack
+
 from kafka import KafkaConsumer
 
 
@@ -13,10 +14,14 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
 
+RABBITMQ_URL = os.environ.get('BROKER_URL', 'amqp://admin:admin@localhost:5672/')
 
-def sink_loop(topic, file_name, group_id, fieldnames):
+
+
+def sink_loop(queue_name, file_name, fieldnames):
     file_path = os.path.join(DATA_DIR, file_name)
 
+    """
     consumer = KafkaConsumer(
         topic,
         bootstrap_servers=["kafka1:9092", "kafka2:9092", "kafka3:9092"],
@@ -24,8 +29,13 @@ def sink_loop(topic, file_name, group_id, fieldnames):
         auto_offset_reset="latest",
         group_id=group_id,
     )
+    """
+    connection = pika.BlockingConnection(pika.URLParameters(RABBITMQ_URL))
+    channel = connection.channel()
+    channel.queue_declare(queue=queue_name, durable=True)
 
-    print(f"Started sink for topic '{topic}' -> writing to {file_name}")
+    #print(f"Started sink for topic '{topic}' -> writing to {file_name}")
+    print(f"Started sink for queue '{queue_name}' -> writing to {file_name}")
 
     file_exists = os.path.isfile(file_path)
 
@@ -34,7 +44,8 @@ def sink_loop(topic, file_name, group_id, fieldnames):
 
         if not file_exists:
             writer.writeheader()
-
+        
+        """
         try:
             for message in consumer:
                 data = message.value
@@ -47,6 +58,29 @@ def sink_loop(topic, file_name, group_id, fieldnames):
             print(f"[ERROR in {topic} sink] {e}")
         finally:
             consumer.close()
+        """
+
+        def callback(ch, method, properties, body):
+            try:
+                data = msgpack.unpackb(body, raw=False)
+                row = {field: data.get(field, "") for field in fieldnames}
+                writer.writerow(row)
+                csv_file.flush()
+                ch.basic_ack(delivery_tag=method.delivery_tag)
+            except Exception as e:
+                print(f"[ERROR in {queue_name} sink] {e}")
+                # Im Fehlerfall Nachricht nicht bestätigen (wird erneut eingereiht)
+                ch.basic_nack(delivery_tag=method.delivery_tag, requeue=True)
+
+        channel.basic_qos(prefetch_count=1)
+        channel.basic_consume(queue=queue_name, on_message_callback=callback)
+        
+        try:
+            channel.start_consuming()
+        except Exception as e:
+            print(f"[ERROR in {queue_name} loop] {e}")
+        finally:
+            connection.close()
 
 
 def run_sinks():
@@ -64,7 +98,7 @@ def run_sinks():
         "air_quality_warning",
         "alert_msg",
     ]
-
+    """
     t1 = threading.Thread(
         target=sink_loop,
         args=("room_temperature_mp", "temperature_log.csv", "sink_temp_group_mp", temp_fields),
@@ -74,6 +108,15 @@ def run_sinks():
         target=sink_loop,
         args=("room_alerts_mp", "alerts_log.csv", "sink_alerts_group_mp", alerts_fields),
     )
+    """
+
+    t1 = threading.Thread(
+        target=sink_loop,
+        args=("room_temperature_mp", "temperature_log.csv", temp_fields))
+
+    t2 = threading.Thread(
+        target=sink_loop, 
+        args=("room_alerts_mp", "alerts_log.csv", alerts_fields))
 
     t1.daemon = True
     t2.daemon = True
