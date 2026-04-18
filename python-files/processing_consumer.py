@@ -1,10 +1,16 @@
 import json
 import time
 import msgpack
-from kafka import KafkaConsumer, KafkaProducer
+import pika
+import os
+
+#from kafka import KafkaConsumer, KafkaProducer
+RABBITMQ_URL = os.environ.get('BROKER_URL', 'amqp://admin:admin@localhost:5672/')
+
 
 def run_processing_consumer():
     # Consumer reads from 'room_environment', which has complex messages with CO2 levels, etc.
+    """
     consumer = KafkaConsumer(
         'room_environment_mp',
         bootstrap_servers=['kafka1:9092', 'kafka2:9092', 'kafka3:9092'],
@@ -29,6 +35,7 @@ def run_processing_consumer():
         # --- BONUS SERIALIZATION (MessagePack) ---
         value_serializer=lambda v: msgpack.packb(v)
     )
+    
 
     print("Running processing consumer.")
     print("Listening to 'room_environment_mp' and writing enriched data to 'room_alerts'.")
@@ -66,6 +73,56 @@ def run_processing_consumer():
         consumer.close()
         producer.flush()
         producer.close()
+    """
+    connection = pika.BlockingConnection(pika.URLParameters(RABBITMQ_URL))
+    channel = connection.channel()
+
+    # Queues deklarieren, um sicherzustellen, dass sie existieren
+    channel.queue_declare(queue='room_environment_mp', durable=True)
+    channel.queue_declare(queue='room_alerts_mp', durable=True)
+
+    message_count = 0
+
+    def callback(ch, method, properties, body):
+        nonlocal message_count
+        data = msgpack.unpackb(body, raw=False)
+        message_count += 1
+        
+        # Geschäftslogik aus Kafka-Version
+        co2 = data.get('co2_level', 0)
+        if co2 > 1000:
+            data['air_quality_warning'] = True
+            data['alert_msg'] = "High CO2 Levels detected. Please ventilate."
+        else:
+            data['air_quality_warning'] = False
+            data['alert_msg'] = "CO2 Levels normal."
+
+        data['processed_timestamp'] = time.time()
+        
+        # Angereicherte Daten direkt in die Alerts-Queue publizieren
+        ch.basic_publish(
+            exchange='',
+            routing_key='room_alerts_mp',
+            body=msgpack.packb(data),
+            properties=pika.BasicProperties(delivery_mode=2)
+        )
+        
+        # Nachricht als 'verarbeitet' markieren
+        ch.basic_ack(delivery_tag=method.delivery_tag)
+
+        if message_count % 10 == 0:
+            print(f"[Processor] Processed 10 messages... Last Room: {data.get('room_id')} | CO2: {co2:.0f} | Warning: {data['air_quality_warning']}")
+
+    # Verhindert, dass ein Worker mehr als 1 ungelesene Nachricht auf einmal bekommt
+    channel.basic_qos(prefetch_count=1)
+    channel.basic_consume(queue='room_environment_mp', on_message_callback=callback)
+
+    try:
+        channel.start_consuming()
+    except KeyboardInterrupt:
+        print("\nShutting down processing consumer gracefully.")
+    finally:
+        connection.close()
 
 if __name__ == "__main__":
     run_processing_consumer()
