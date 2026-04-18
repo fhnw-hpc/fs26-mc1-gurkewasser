@@ -1,12 +1,15 @@
-from multiprocessing.sharedctypes import Value
+import os
 import threading
 import time
-
 import msgpack
-from kafka import KafkaProducer
+import pika
+
+#from kafka import KafkaProducer
 
 import message_builder
 from schoolsim import SchoolSimulation
+
+RABBITMQ_URL = os.environ.get('BROKER_URL', 'amqp://admin:admin@localhost:5672/')
 
 
 def simulation_loop(sim):
@@ -28,44 +31,70 @@ def simulation_loop(sim):
         time.sleep(1)
 
 
-def simple_producer_loop(sim, topic, producer):
+def simple_producer_loop(sim, queue_name):
+    # jeder thread braucht seine eigene Verbindung
+    connection = pika.BlockingConnection(pika.URLParameters(RABBITMQ_URL))
+    channel = connection.channel()
+    channel.queue_declare(queue=queue_name, durable=True)
+
     room_index = 0
     num_rooms = len(sim.rooms)
 
     while True:
         room = sim.rooms[room_index]
         message = message_builder.build_simple_message(room, sim)
+
         # Old Message and Key Partition DEEPDIVE 1
         #producer.send(topic, value=message)
 
         # New Message and Key Partition
-        producer.send(topic, key=room.room_id.encode('utf-8'), value=message)
+        #producer.send(topic, key=room.room_id.encode('utf-8'), value=message)
+
+        channel.basic_publish(
+            exchange='',
+            routing_key=queue_name,
+            body=msgpack.packb(message),
+            properties=pika.BasicProperties(delivery_mode=2) # persistente speicherung 
+        )
 
         room_index = (room_index + 1) % num_rooms
         time.sleep(0.1)
 
 
-def complex_producer_loop(sim, topic, producer):
+def complex_producer_loop(sim, queue_name):
+    connection = pika.BlockingConnection(pika.URLParameters(RABBITMQ_URL))
+    channel = connection.channel()
+    channel.queue_declare(queue=queue_name, durable=True)
+
     room_index = 0
     num_rooms = len(sim.rooms)
 
     while True:
         target_room = sim.rooms[room_index]
         message = message_builder.build_complex_message(target_room, sim)
+
         # Old Message and Key Partition DEEPDIVE 1
         #producer.send(topic, value=message)
         
         # New Message and Key Partition
-        producer.send(topic, key=target_room.room_id.encode('utf-8'), value=message)
+        #producer.send(topic, key=target_room.room_id.encode('utf-8'), value=message)
 
         # Optional: Print to confirm Kafka is getting the same data
         # print(f"[Complex] Sent to {topic} | Room: {target_room.room_id} | Msg: {message}")
+
+        channel.basic_publish(
+            exchange='',
+            routing_key=queue_name,
+            body=msgpack.packb(message),
+            properties=pika.BasicProperties(delivery_mode=2)
+        )
 
         room_index = (room_index + 1) % num_rooms
         time.sleep(1)
 
 
 if __name__ == "__main__":
+    """
     producer = KafkaProducer(
         bootstrap_servers=['kafka1:9092', 'kafka2:9092', 'kafka3:9092'],
         # --- BASE SERIALIZATION (JSON) ---
@@ -74,17 +103,21 @@ if __name__ == "__main__":
         # --- BONUS SERIALIZATION (MessagePack) ---
         value_serializer=lambda v: msgpack.packb(v)
     )
+    """
 
     sim = SchoolSimulation()
     
     # JSON: room_temperature, room_environment | MessagePack: room_temperature_mp, room_environment_mp
     sim_thread = threading.Thread(target=simulation_loop, args=(sim,))
-    simple_thread = threading.Thread(
-        target=simple_producer_loop, args=(sim, "room_temperature_mp", producer)
-    )
-    complex_thread = threading.Thread(
-        target=complex_producer_loop, args=(sim, "room_environment_mp", producer)
-    )
+    #simple_thread = threading.Thread(
+    #    target=simple_producer_loop, args=(sim, "room_temperature_mp", producer)
+    #)
+    #complex_thread = threading.Thread(
+    #    target=complex_producer_loop, args=(sim, "room_environment_mp", producer)
+    #)
+
+    simple_thread = threading.Thread(target=simple_producer_loop, args=(sim, "room_temperature_mp"))
+    complex_thread = threading.Thread(target=complex_producer_loop, args=(sim, "room_environment_mp"))
 
     sim_thread.daemon = True
     simple_thread.daemon = True
@@ -100,5 +133,5 @@ if __name__ == "__main__":
             time.sleep(1)
     except KeyboardInterrupt:
         print("\nShutting down gracefully.")
-        producer.flush()
-        producer.close()
+        #producer.flush()
+        #producer.close()
