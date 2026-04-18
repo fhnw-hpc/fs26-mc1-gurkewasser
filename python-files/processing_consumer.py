@@ -110,7 +110,8 @@ def run_processing_consumer():
         # Nachricht als 'verarbeitet' markieren
         ch.basic_ack(delivery_tag=method.delivery_tag)
 
-        if message_count % 10 == 0:
+        #if message_count % 10 == 0:
+        if True:
             print(f"[Processor] Processed 10 messages... Last Room: {data.get('room_id')} | CO2: {co2:.0f} | Warning: {data['air_quality_warning']}")
 
     # Verhindert, dass ein Worker mehr als 1 ungelesene Nachricht auf einmal bekommt
