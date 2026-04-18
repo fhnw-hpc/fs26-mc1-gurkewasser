@@ -1,0 +1,51 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq_broker
+    ports:
+      # AMQP Protokoll Port (für die Python-Skripte)
+      - "5672:5672"
+      # Management Web-UI Port (dein Kafdrop-Ersatz)
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+    healthcheck:
+      test: [ "CMD", "rabbitmq-diagnostics", "q" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  generators:
+    build: .
+    container_name: rmq_generators
+    command: python run_generators.py
+    environment:
+      # Verbindungsstring für Pika/RabbitMQ
+      - BROKER_URL=amqp://admin:admin@rabbitmq:5672/
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  processor:
+    build: .
+    container_name: rmq_processor
+    command: python processing_consumer.py
+    environment:
+      - BROKER_URL=amqp://admin:admin@rabbitmq:5672/
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  sinks:
+    build: .
+    container_name: rmq_sinks
+    command: python data_sink.py
+    environment:
+      - BROKER_URL=amqp://admin:admin@rabbitmq:5672/
+    volumes:
+      # Persistentes Speichern der CSV-Dateien
+      - ./data:/app/data
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
