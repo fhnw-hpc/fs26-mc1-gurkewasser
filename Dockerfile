@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-RUN pip install kafka-python msgpack
+RUN pip install pika msgpack
 
 # Hier laden wir nun den sauberen Ordner in den Container
 COPY python-files/ /app/
