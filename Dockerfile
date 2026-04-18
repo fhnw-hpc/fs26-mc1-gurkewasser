@@ -4,7 +4,6 @@ WORKDIR /app
 
 RUN pip install pika msgpack
 
-# Hier laden wir nun den sauberen Ordner in den Container
 COPY python-files/ /app/
 
-CMD ["python", "-u" "run_generators.py"]
+CMD ["python", "-u", "run_generators.py"]
