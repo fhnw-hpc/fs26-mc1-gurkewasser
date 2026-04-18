@@ -29,10 +29,11 @@ services:
 
   processor:
     build: .
-    container_name: rmq_processor
+    #container_name: rmq_processor
     command: python processing_consumer.py
     environment:
       - BROKER_URL=amqp://admin:admin@rabbitmq:5672/
+      - PYTHONUNBUFFERED=1
     depends_on:
       rabbitmq:
         condition: service_healthy
