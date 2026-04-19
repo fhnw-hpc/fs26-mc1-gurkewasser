@@ -5,9 +5,9 @@ import time
 import json
 import pika
 import msgpack
-
-from kafka import KafkaConsumer
-
+import sys
+import signal
+import cProfile
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 
@@ -15,26 +15,29 @@ if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
 
 RABBITMQ_URL = os.environ.get('BROKER_URL', 'amqp://admin:admin@localhost:5672/')
+PROFILE_DIR = "/app/profiles"
 
+_profiler = None
+_profiler_output = None
+_connections = []
+
+
+def signal_handler(signum):
+    print(f"\nReceived signal {signum}, closing connections to trigger shutdown...")
+    for conn in _connections:
+        if conn.is_open:
+            conn.close()
+    print("Connections closed, will save profile on exit.")
 
 
 def sink_loop(queue_name, file_name, fieldnames):
     file_path = os.path.join(DATA_DIR, file_name)
 
-    """
-    consumer = KafkaConsumer(
-        topic,
-        bootstrap_servers=["kafka1:9092", "kafka2:9092", "kafka3:9092"],
-        value_deserializer=lambda m: msgpack.unpackb(m, raw=False),
-        auto_offset_reset="latest",
-        group_id=group_id,
-    )
-    """
     connection = pika.BlockingConnection(pika.URLParameters(RABBITMQ_URL))
+    _connections.append(connection)
     channel = connection.channel()
     channel.queue_declare(queue=queue_name, durable=True)
 
-    #print(f"Started sink for topic '{topic}' -> writing to {file_name}")
     print(f"Started sink for queue '{queue_name}' -> writing to {file_name}")
 
     file_exists = os.path.isfile(file_path)
@@ -44,21 +47,6 @@ def sink_loop(queue_name, file_name, fieldnames):
 
         if not file_exists:
             writer.writeheader()
-        
-        """
-        try:
-            for message in consumer:
-                data = message.value
-                row = {field: data.get(field, "") for field in fieldnames}
-                
-                writer.writerow(row)
-                csv_file.flush()
-                
-        except Exception as e:
-            print(f"[ERROR in {topic} sink] {e}")
-        finally:
-            consumer.close()
-        """
 
         def callback(ch, method, properties, body):
             try:
@@ -74,13 +62,14 @@ def sink_loop(queue_name, file_name, fieldnames):
 
         channel.basic_qos(prefetch_count=1)
         channel.basic_consume(queue=queue_name, on_message_callback=callback)
-        
+
         try:
             channel.start_consuming()
         except Exception as e:
-            print(f"[ERROR in {queue_name} loop] {e}")
+            print(f"\nSink {queue_name} stopped: {e}")
         finally:
-            connection.close()
+            if connection.is_open:
+                connection.close()
 
 
 def run_sinks():
@@ -98,24 +87,13 @@ def run_sinks():
         "air_quality_warning",
         "alert_msg",
     ]
-    """
-    t1 = threading.Thread(
-        target=sink_loop,
-        args=("room_temperature_mp", "temperature_log.csv", "sink_temp_group_mp", temp_fields),
-    )
-
-    t2 = threading.Thread(
-        target=sink_loop,
-        args=("room_alerts_mp", "alerts_log.csv", "sink_alerts_group_mp", alerts_fields),
-    )
-    """
 
     t1 = threading.Thread(
         target=sink_loop,
         args=("room_temperature_mp", "temperature_log.csv", temp_fields))
 
     t2 = threading.Thread(
-        target=sink_loop, 
+        target=sink_loop,
         args=("room_alerts_mp", "alerts_log.csv", alerts_fields))
 
     t1.daemon = True
@@ -133,4 +111,26 @@ def run_sinks():
 
 
 if __name__ == "__main__":
-    run_sinks()
+    os.makedirs(PROFILE_DIR, exist_ok=True)
+
+    print("Starting data sinks with profiling...")
+    print("Profiling enabled - check /app/profiles for .prof files")
+
+    if "--profile" in sys.argv:
+        print("Running with cProfile profiling...")
+        _profiler_output = os.path.join(PROFILE_DIR, 'rmq_sink.prof')
+        _profiler = cProfile.Profile()
+        _profiler.enable()
+
+        signal.signal(signal.SIGTERM, signal_handler)
+        signal.signal(signal.SIGINT, signal_handler)
+
+        try:
+            run_sinks()
+        finally:
+            _profiler.disable()
+            _profiler.create_stats()
+            _profiler.dump_stats(_profiler_output)
+            print(f"\nProfile saved to {_profiler_output}")
+    else:
+        run_sinks()

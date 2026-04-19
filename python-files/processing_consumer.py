@@ -3,78 +3,30 @@ import time
 import msgpack
 import pika
 import os
+import sys
+import signal
+import cProfile
 
 #from kafka import KafkaConsumer, KafkaProducer
 RABBITMQ_URL = os.environ.get('BROKER_URL', 'amqp://admin:admin@localhost:5672/')
+PROFILE_DIR = "/app/profiles"
+
+_profiler = None
+_profiler_output = None
+_connection = None
 
 
-def run_processing_consumer():
-    # Consumer reads from 'room_environment', which has complex messages with CO2 levels, etc.
-    """
-    consumer = KafkaConsumer(
-        'room_environment_mp',
-        bootstrap_servers=['kafka1:9092', 'kafka2:9092', 'kafka3:9092'],
+def signal_handler(signum):
+    print(f"\nReceived signal {signum}, closing connection to trigger shutdown...")
+    if _connection and _connection.is_open:
+        _connection.close()
+    print("Connection closed, will save profile on exit.")
 
-        # --- BASE SERIALIZATION (JSON) ---
-        #value_serializer=lambda v: json.dumps(v).encode('utf-8')
-        
-        # --- BONUS SERIALIZATION (MessagePack) ---
-        value_deserializer=lambda m: msgpack.unpackb(m, raw=False),
 
-        auto_offset_reset='latest',
-        group_id='processing_group'
-    )
-
-    # Producer writes to 'room_alerts'
-    producer = KafkaProducer(
-        bootstrap_servers=['kafka1:9092', 'kafka2:9092', 'kafka3:9092'],
-
-        # --- BASE SERIALIZATION (JSON) ---
-        # value_serializer=lambda v: json.dumps(v).encode('utf-8')
-        
-        # --- BONUS SERIALIZATION (MessagePack) ---
-        value_serializer=lambda v: msgpack.packb(v)
-    )
-    
-
-    print("Running processing consumer.")
-    print("Listening to 'room_environment_mp' and writing enriched data to 'room_alerts'.")
-    print("Press Ctrl+C to stop.")
-
-    message_count = 0
-
-    try:
-        for message in consumer:
-            data = message.value
-            message_count += 1
-            
-            # Processing: Check if CO2 level is too high
-            co2 = data.get('co2_level', 0)
-            if co2 > 1000:
-                data['air_quality_warning'] = True
-                data['alert_msg'] = "High CO2 Levels detected. Please ventilate."
-            else:
-                data['air_quality_warning'] = False
-                data['alert_msg'] = "CO2 Levels normal."
-
-            # Enrichment: adding processing timestamp
-            data['processed_timestamp'] = time.time()
-            
-            # Re-insert processed data into Kafka under a new topic
-            producer.send('room_alerts_mp', value=data)
-            
-            # Log selectively to avoid spamming the terminal too much
-            if message_count % 10 == 0:
-                print(f"[Processor] Processed 10 messages... Last Room: {data.get('room_id')} | CO2: {co2:.0f} | Warning: {data['air_quality_warning']}")
-            
-    except KeyboardInterrupt:
-        print("\nShutting down processing consumer gracefully.")
-    finally:
-        consumer.close()
-        producer.flush()
-        producer.close()
-    """
+def start_processing_consumer():
+    global _connection
     connection = pika.BlockingConnection(pika.URLParameters(RABBITMQ_URL))
+    _connection = connection
     channel = connection.channel()
 
     # Queues deklarieren, um sicherzustellen, dass sie existieren
@@ -106,12 +58,10 @@ def run_processing_consumer():
             body=msgpack.packb(data),
             properties=pika.BasicProperties(delivery_mode=2)
         )
-        
-        # Nachricht als 'verarbeitet' markieren
+
         ch.basic_ack(delivery_tag=method.delivery_tag)
 
-        #if message_count % 10 == 0:
-        if True:
+        if message_count % 10 == 0:
             print(f"[Processor] Processed 10 messages... Last Room: {data.get('room_id')} | CO2: {co2:.0f} | Warning: {data['air_quality_warning']}")
 
     # Verhindert, dass ein Worker mehr als 1 ungelesene Nachricht auf einmal bekommt
@@ -120,10 +70,34 @@ def run_processing_consumer():
 
     try:
         channel.start_consuming()
-    except KeyboardInterrupt:
-        print("\nShutting down processing consumer gracefully.")
+    except Exception as e:
+        print(f"\nConsumer stopped: {e}")
     finally:
-        connection.close()
+        if connection.is_open:
+            connection.close()
+
 
 if __name__ == "__main__":
-    run_processing_consumer()
+    os.makedirs(PROFILE_DIR, exist_ok=True)
+
+    print("Starting processing consumer with profiling...")
+    print("Profiling enabled - check /app/profiles for .prof files")
+
+    if "--profile" in sys.argv:
+        print("Running with cProfile profiling...")
+        _profiler_output = os.path.join(PROFILE_DIR, 'rmq_consumer.prof')
+        _profiler = cProfile.Profile()
+        _profiler.enable()
+
+        signal.signal(signal.SIGTERM, signal_handler)
+        signal.signal(signal.SIGINT, signal_handler)
+
+        try:
+            start_processing_consumer()
+        finally:
+            _profiler.disable()
+            _profiler.create_stats()
+            _profiler.dump_stats(_profiler_output)
+            print(f"\nProfile saved to {_profiler_output}")
+    else:
+        start_processing_consumer()

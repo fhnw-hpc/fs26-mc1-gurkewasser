@@ -19,21 +19,27 @@ services:
   generators:
     build: .
     container_name: rmq_generators
-    command: python run_generators.py
+    command: python run_generators.py --profile --bottleneck
     environment:
       # Verbindungsstring für Pika/RabbitMQ
       - BROKER_URL=amqp://admin:admin@rabbitmq:5672/
+      - PROFILE_SIMPLE_MSGS=3000
+      - PROFILE_COMPLEX_MSGS=300
+    volumes:
+      - ./profiles:/app/profiles
     depends_on:
       rabbitmq:
         condition: service_healthy
 
   processor:
     build: .
-    #container_name: rmq_processor
-    command: python processing_consumer.py
+    container_name: rmq_processor
+    command: python processing_consumer.py --profile
     environment:
       - BROKER_URL=amqp://admin:admin@rabbitmq:5672/
       - PYTHONUNBUFFERED=1
+    volumes:
+      - ./profiles:/app/profiles
     depends_on:
       rabbitmq:
         condition: service_healthy
@@ -41,12 +47,13 @@ services:
   sinks:
     build: .
     container_name: rmq_sinks
-    command: python data_sink.py
+    command: python data_sink.py --profile
     environment:
       - BROKER_URL=amqp://admin:admin@rabbitmq:5672/
     volumes:
       # Persistentes Speichern der CSV-Dateien
       - ./data:/app/data
+      - ./profiles:/app/profiles
     depends_on:
       rabbitmq:
         condition: service_healthy

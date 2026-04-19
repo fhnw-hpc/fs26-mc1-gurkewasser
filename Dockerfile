@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-RUN pip install pika msgpack
+RUN pip install pika msgpack snakeviz
 
 COPY python-files/ /app/
 
