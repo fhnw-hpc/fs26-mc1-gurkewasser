@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 from pathlib import Path
 
-profiles_dir = Path(__file__).parent / 'profiles'
+profiles_dir = Path(__file__).parent / 'profiles/short_test'
 
-baseline = pstats.Stats(f'{profiles_dir}/rmq_producer_baseline.prof')
-bottleneck = pstats.Stats(f'{profiles_dir}/rmq_producer_bottleneck.prof')
+baseline = pstats.Stats(f'{profiles_dir}/rmq_producer_baseline_run1.prof')
+bottleneck = pstats.Stats(f'{profiles_dir}/rmq_producer_bottleneck_run1.prof')
 
 baseline_time = baseline.total_tt
 bottleneck_time = bottleneck.total_tt

@@ -172,9 +172,9 @@ if __name__ == "__main__":
         print("Running with cProfile profiling...")
 
         if "--bottleneck" in sys.argv:
-            _profiler_output = os.path.join(PROFILE_DIR, 'rmq_producer_bottleneck.prof')
+            _profiler_output = os.path.join(PROFILE_DIR, os.environ.get('PROFILE_OUTPUT', 'rmq_producer_bottleneck.prof'))
         else:
-            _profiler_output = os.path.join(PROFILE_DIR, 'rmq_producer_baseline.prof')
+            _profiler_output = os.path.join(PROFILE_DIR, os.environ.get('PROFILE_OUTPUT', 'rmq_producer_baseline.prof'))
 
         signal.signal(signal.SIGTERM, signal_handler)
         signal.signal(signal.SIGINT, signal_handler)
