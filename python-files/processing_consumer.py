@@ -1,26 +1,50 @@
 import json
 import time
+import os
+import sys
+import signal
+import cProfile
 import msgpack
 from kafka import KafkaConsumer, KafkaProducer
 
-def run_processing_consumer():
-    # Consumer reads from 'room_environment', which has complex messages with CO2 levels, etc.
-    consumer = KafkaConsumer(
+PROFILE_DIR = "/app/profiles"
+
+_profiler = None
+_profiler_output = None
+_consumer = None
+_producer = None
+_shutdown_requested = False
+
+
+def signal_handler(signum, frame):
+    global _shutdown_requested
+    print(f"\nReceived signal {signum}, closing Kafka connections...")
+    _shutdown_requested = True
+    if _consumer:
+        try:
+            _consumer.close()
+        except:
+            pass
+    if _producer:
+        try:
+            _producer.flush()
+            _producer.close()
+        except:
+            pass
+
+
+def start_processing_consumer():
+    global _consumer, _producer
+
+    _consumer = KafkaConsumer(
         'room_environment_mp',
         bootstrap_servers=['kafka1:9092', 'kafka2:9092', 'kafka3:9092'],
-
-        # --- BASE SERIALIZATION (JSON) ---
-        #value_serializer=lambda v: json.dumps(v).encode('utf-8')
-        
-        # --- BONUS SERIALIZATION (MessagePack) ---
         value_deserializer=lambda m: msgpack.unpackb(m, raw=False),
-
         auto_offset_reset='latest',
         group_id='processing_group'
     )
 
-    # Producer writes to 'room_alerts'
-    producer = KafkaProducer(
+    _producer = KafkaProducer(
         bootstrap_servers=['kafka1:9092', 'kafka2:9092', 'kafka3:9092'],
 
         # --- BASE SERIALIZATION (JSON) ---
@@ -31,13 +55,13 @@ def run_processing_consumer():
     )
 
     print("Running processing consumer.")
-    print("Listening to 'room_environment_mp' and writing enriched data to 'room_alerts'.")
+    print("Listening to 'room_environment_mp' and writing enriched data to 'room_alerts_mp'.")
     print("Press Ctrl+C to stop.")
 
     message_count = 0
 
     try:
-        for message in consumer:
+        for message in _consumer:
             data = message.value
             message_count += 1
             
@@ -50,22 +74,44 @@ def run_processing_consumer():
                 data['air_quality_warning'] = False
                 data['alert_msg'] = "CO2 Levels normal."
 
-            # Enrichment: adding processing timestamp
             data['processed_timestamp'] = time.time()
-            
-            # Re-insert processed data into Kafka under a new topic
-            producer.send('room_alerts_mp', value=data)
-            
-            # Log selectively to avoid spamming the terminal too much
+
+            _producer.send('room_alerts_mp', value=data)
+
             if message_count % 10 == 0:
                 print(f"[Processor] Processed 10 messages... Last Room: {data.get('room_id')} | CO2: {co2:.0f} | Warning: {data['air_quality_warning']}")
-            
-    except KeyboardInterrupt:
-        print("\nShutting down processing consumer gracefully.")
+
+    except Exception as e:
+        print(f"\nConsumer stopped: {e}")
     finally:
-        consumer.close()
-        producer.flush()
-        producer.close()
+        if _consumer:
+            _consumer.close()
+        if _producer:
+            _producer.flush()
+            _producer.close()
+
 
 if __name__ == "__main__":
-    run_processing_consumer()
+    os.makedirs(PROFILE_DIR, exist_ok=True)
+
+    print("Starting processing consumer with profiling...")
+    print("Profiling enabled - check /app/profiles for .prof files")
+
+    if "--profile" in sys.argv:
+        print("Running with cProfile profiling...")
+        _profiler_output = os.path.join(PROFILE_DIR, 'kafka_consumer.prof')
+        _profiler = cProfile.Profile()
+        _profiler.enable()
+
+        signal.signal(signal.SIGTERM, signal_handler)
+        signal.signal(signal.SIGINT, signal_handler)
+
+        try:
+            start_processing_consumer()
+        finally:
+            _profiler.disable()
+            _profiler.create_stats()
+            _profiler.dump_stats(_profiler_output)
+            print(f"\nProfile saved to {_profiler_output}")
+    else:
+        start_processing_consumer()

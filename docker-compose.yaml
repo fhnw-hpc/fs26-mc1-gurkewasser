@@ -87,34 +87,48 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: data-generator
+    container_name: kafka_generators
     restart: on-failure
     depends_on:
       - kafka1
       - kafka2
       - kafka3
-    command: sh -c "sleep 15 && python run_generators.py"
+    command: sh -c "sleep 15 && exec python run_generators.py --profile --bottleneck"
+    environment:
+      - PROFILE_SIMPLE_MSGS=3000
+      - PROFILE_COMPLEX_MSGS=300
+      - PROFILE_OUTPUT=kafka_producer_bottleneck_2.prof
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./profiles:/app/profiles
 
   data-processor:
     build:
       context: .
       dockerfile: Dockerfile
-    # container_name: data-processor
+    container_name: kafka_processor
     restart: on-failure
     depends_on:
       - kafka1
       - data-generator
-    command: sh -c "sleep 15 && python processing_consumer.py"
+    command: sh -c "sleep 15 && exec python processing_consumer.py --profile"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./profiles:/app/profiles
 
   data-sink:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: data-sink
+    container_name: kafka_sinks
     restart: on-failure
     depends_on:
       - kafka1
       - data-generator
+    command: sh -c "sleep 15 && exec python data_sink.py --profile"
+    environment:
+      - PYTHONUNBUFFERED=1
     volumes:
       - ./data:/app/data
-    command: sh -c "sleep 15 && python data_sink.py"
+      - ./profiles:/app/profiles

@@ -2,16 +2,35 @@ import csv
 import os
 import threading
 import time
-import json
+import sys
+import signal
+import cProfile
 
 import msgpack
 from kafka import KafkaConsumer
-
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 
 if not os.path.exists(DATA_DIR):
     os.makedirs(DATA_DIR)
+
+PROFILE_DIR = "/app/profiles"
+
+_profiler = None
+_profiler_output = None
+_consumers = []
+_shutdown_requested = False
+
+
+def signal_handler(signum, frame):
+    global _shutdown_requested
+    print(f"\nReceived signal {signum}, closing Kafka consumers...")
+    _shutdown_requested = True
+    for c in _consumers:
+        try:
+            c.close()
+        except:
+            pass
 
 
 def sink_loop(topic, file_name, group_id, fieldnames):
@@ -24,6 +43,7 @@ def sink_loop(topic, file_name, group_id, fieldnames):
         auto_offset_reset="latest",
         group_id=group_id,
     )
+    _consumers.append(consumer)
 
     print(f"Started sink for topic '{topic}' -> writing to {file_name}")
 
@@ -39,13 +59,14 @@ def sink_loop(topic, file_name, group_id, fieldnames):
             for message in consumer:
                 data = message.value
                 row = {field: data.get(field, "") for field in fieldnames}
-                
                 writer.writerow(row)
                 csv_file.flush()
-                
+
         except Exception as e:
             print(f"[ERROR in {topic} sink] {e}")
         finally:
+            if consumer in _consumers:
+                _consumers.remove(consumer)
             consumer.close()
 
 
@@ -83,11 +104,33 @@ def run_sinks():
     t2.start()
 
     try:
-        while True:
+        while not _shutdown_requested:
             time.sleep(1)
     except KeyboardInterrupt:
         print("\nShutting down sinks gracefully.")
 
 
 if __name__ == "__main__":
-    run_sinks()
+    os.makedirs(PROFILE_DIR, exist_ok=True)
+
+    print("Starting data sinks with profiling...")
+    print("Profiling enabled - check /app/profiles for .prof files")
+
+    if "--profile" in sys.argv:
+        print("Running with cProfile profiling...")
+        _profiler_output = os.path.join(PROFILE_DIR, 'kafka_sink.prof')
+        _profiler = cProfile.Profile()
+        _profiler.enable()
+
+        signal.signal(signal.SIGTERM, signal_handler)
+        signal.signal(signal.SIGINT, signal_handler)
+
+        try:
+            run_sinks()
+        finally:
+            _profiler.disable()
+            _profiler.create_stats()
+            _profiler.dump_stats(_profiler_output)
+            print(f"\nProfile saved to {_profiler_output}")
+    else:
+        run_sinks()
