@@ -2,6 +2,7 @@ import csv
 import os
 import sys
 import statistics
+import argparse
 
 try:
     import matplotlib
@@ -15,8 +16,10 @@ except ImportError:
 E2E_DIR = os.environ.get("E2E_DATA_DIR", "e2e_data")
 
 
-def load_csv(filename):
-    filepath = os.path.join(E2E_DIR, filename)
+def load_csv(filename, data_dir=None):
+    if data_dir is None:
+        data_dir = E2E_DIR
+    filepath = os.path.join(data_dir, filename)
     if not os.path.isfile(filepath):
         print(f"[WARN] File not found: {filepath}")
         return []
@@ -167,7 +170,7 @@ def analyze_stability(simple_rows, alerts_rows):
         print(f"    Min bucket avg: {min_avg:.2f}ms | Max bucket avg: {max_avg:.2f}ms")
         print(f"    Latency drift: {drift_pct:+.1f}%")
         if abs(drift_pct) > 20:
-            print(f"    ⚠ REGRESSION DETECTED ({drift_pct:+.1f}%)")
+            print(f"    ❌ REGRESSION DETECTED ({drift_pct:+.1f}%)")
         elif abs(drift_pct) > 10:
             print(f"    ⚠ Moderate drift ({drift_pct:+.1f}%)")
         else:
@@ -277,15 +280,17 @@ def plot_latency_breakdown(alerts_rows, output_path):
     print(f"[PLOT] Saved: {output_path}")
 
 
-def main():
-    print("=" * 60)
-    print("  E2E PERFORMANCE ANALYSIS")
-    print("=" * 60)
+def analyze_directory(data_dir, label=""):
+    if label:
+        print(f"\n{'#'*60}")
+        print(f"  ANALYZING: {label}")
+        print(f"  Directory: {data_dir}")
+        print(f"{'#'*60}")
 
-    simple_rows = load_csv("e2e_simple_latency.csv")
-    alerts_rows = load_csv("e2e_alerts_latency.csv")
-    tp_simple_rows = load_csv("e2e_throughput_simple.csv")
-    tp_alerts_rows = load_csv("e2e_throughput_alerts.csv")
+    simple_rows = load_csv("e2e_simple_latency.csv", data_dir)
+    alerts_rows = load_csv("e2e_alerts_latency.csv", data_dir)
+    tp_simple_rows = load_csv("e2e_throughput_simple.csv", data_dir)
+    tp_alerts_rows = load_csv("e2e_throughput_alerts.csv", data_dir)
 
     simple_stats = analyze_latency(simple_rows, "room_temperature_mp (simple)", latency_field='e2e_latency_ms')
     alerts_stats = analyze_latency(alerts_rows, "room_alerts_mp (alerts)", latency_field='e2e_total_latency_ms')
@@ -297,7 +302,7 @@ def main():
 
     analyze_stability(simple_rows, alerts_rows)
 
-    out_dir = os.path.join(E2E_DIR, "plots")
+    out_dir = os.path.join(data_dir, "plots")
     os.makedirs(out_dir, exist_ok=True)
 
     plot_latency_over_time(simple_rows, "room_temperature_mp", os.path.join(out_dir, "e2e_latency_simple.png"))
@@ -306,7 +311,60 @@ def main():
     plot_throughput_over_time(tp_alerts_rows, "room_alerts_mp", os.path.join(out_dir, "e2e_throughput_alerts.png"))
     plot_latency_breakdown(alerts_rows, os.path.join(out_dir, "e2e_pipeline_breakdown.png"))
 
-    print("\n[Done] Analysis complete. Plots saved to:", out_dir)
+    print(f"\n[Done] Analysis complete. Plots saved to: {out_dir}")
+
+    return {
+        "simple": simple_stats,
+        "alerts": alerts_stats,
+        "tp_simple": tp_simple_stats,
+        "tp_alerts": tp_alerts_stats,
+    }
+
+
+def main():
+    parser = argparse.ArgumentParser(description="E2E Performance Analysis")
+    parser.add_argument("--dir", "-d", default=None,
+                        help="Data directory to analyze (default: E2E_DATA_DIR env var or 'e2e_data')")
+    parser.add_argument("--multi", "-m", default=None,
+                        help="Parent directory containing exp1_*/exp2_*/exp3_*/ subdirectories for multi-experiment analysis")
+    args = parser.parse_args()
+
+    data_dir = args.dir or E2E_DIR
+
+    if args.multi:
+        parent_dir = args.multi
+        subdirs = sorted([d for d in os.listdir(parent_dir)
+                          if os.path.isdir(os.path.join(parent_dir, d)) and d.startswith('exp')])
+        if not subdirs:
+            print(f"[ERROR] No exp* subdirectories found in {parent_dir}")
+            sys.exit(1)
+
+        print(f"\nFound {len(subdirs)} experiments in {parent_dir}:")
+        for sd in subdirs:
+            print(f"  - {sd}")
+
+        all_stats = {}
+        for subdir in subdirs:
+            exp_dir = os.path.join(parent_dir, subdir)
+            stats = analyze_directory(exp_dir, label=subdir)
+            all_stats[subdir] = stats
+
+        print(f"\n{'='*60}")
+        print(f"  SUMMARY: ALL {len(subdirs)} EXPERIMENTS")
+        print(f"{'='*60}")
+        for subdir in subdirs:
+            stats = all_stats.get(subdir, {})
+            simple = stats.get('simple', {})
+            alerts = stats.get('alerts', {})
+            if simple or alerts:
+                print(f"\n  {subdir}:")
+                if simple and simple.get('count'):
+                    print(f"    Simple: {simple['count']} msgs, P50={simple['p50_ms']:.2f}ms, P99={simple['p99_ms']:.2f}ms, Avg={simple['avg_msgs_per_sec'] if 'avg_msgs_per_sec' in simple.get('label', '') else simple['avg_ms']:.2f}ms")
+                if alerts and alerts.get('count'):
+                    print(f"    Alerts: {alerts['count']} msgs, P50={alerts['p50_ms']:.2f}ms, P99={alerts['p99_ms']:.2f}ms")
+        print(f"{'='*60}")
+    else:
+        analyze_directory(data_dir)
 
 
 if __name__ == "__main__":
