@@ -74,12 +74,20 @@ def start_processing_consumer():
                 data['air_quality_warning'] = False
                 data['alert_msg'] = "CO2 Levels normal."
 
-            data['processed_timestamp'] = time.time()
+            now = time.time()
+            data['processed_timestamp'] = now
+
+            send_ts = data.get('e2e_send_ts')
+            if send_ts:
+                data['e2e_producer_to_consumer_ms'] = round((now - send_ts) * 1000, 2)
+
+            data['e2e_consumer_done_ts'] = now
 
             _producer.send('room_alerts_mp', value=data)
 
             if message_count % 10 == 0:
-                print(f"[Processor] Processed 10 messages... Last Room: {data.get('room_id')} | CO2: {co2:.0f} | Warning: {data['air_quality_warning']}")
+                lat_str = f" | Latency: {data.get('e2e_producer_to_consumer_ms', 'N/A')}ms" if send_ts else ""
+                print(f"[Processor] {message_count} msgs | Room: {data.get('room_id')} | CO2: {co2:.0f}{lat_str}")
 
     except Exception as e:
         print(f"\nConsumer stopped: {e}")
