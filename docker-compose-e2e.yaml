@@ -1,0 +1,149 @@
+services:
+
+  jupyter1:
+    container_name: jupyter1
+    image: jupyter/scipy-notebook:notebook-7.0.3
+    hostname: jupyter1
+    volumes:
+      - ./notebooks:/home/jovyan/
+    ports:
+      - "8888:8888"
+    environment:
+      PYTHONUNBUFFERED: 1
+      CLUSTER_ID: 'BDb4EWyiS1GjcEKCew2HvQ'
+    command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
+
+  kafka1:
+    image: confluentinc/cp-kafka
+    container_name: kafka1
+    hostname: kafka1
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: 'CONTROLLER:PLAINTEXT,INTERNAL:PLAINTEXT'
+      KAFKA_LISTENERS: 'INTERNAL://kafka1:9092,CONTROLLER://kafka1:9093'
+      KAFKA_ADVERTISED_LISTENERS: 'INTERNAL://kafka1:9092'
+      KAFKA_INTER_BROKER_LISTENER_NAME: 'INTERNAL'
+      KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka1:9093,2@kafka2:9093,3@kafka3:9093'
+      KAFKA_PROCESS_ROLES: 'broker,controller'
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
+      KAFKA_NUM_PARTITIONS: 3
+      CLUSTER_ID: 'BDb4EWyiS1GjcEKCew2HvQ'
+      KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
+
+  kafka2:
+    image: confluentinc/cp-kafka
+    container_name: kafka2
+    hostname: kafka2
+    environment:
+      KAFKA_NODE_ID: 2
+      KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: 'CONTROLLER:PLAINTEXT,INTERNAL:PLAINTEXT'
+      KAFKA_LISTENERS: 'INTERNAL://kafka2:9092,CONTROLLER://kafka2:9093'
+      KAFKA_ADVERTISED_LISTENERS: 'INTERNAL://kafka2:9092'
+      KAFKA_INTER_BROKER_LISTENER_NAME: 'INTERNAL'
+      KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka1:9093,2@kafka2:9093,3@kafka3:9093'
+      KAFKA_PROCESS_ROLES: 'broker,controller'
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
+      KAFKA_NUM_PARTITIONS: 3
+      CLUSTER_ID: 'BDb4EWyiS1GjcEKCew2HvQ'
+      KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
+
+  kafka3:
+    image: confluentinc/cp-kafka
+    container_name: kafka3
+    hostname: kafka3
+    environment:
+      KAFKA_NODE_ID: 3
+      KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: 'CONTROLLER:PLAINTEXT,INTERNAL:PLAINTEXT'
+      KAFKA_LISTENERS: 'INTERNAL://kafka3:9092,CONTROLLER://kafka3:9093'
+      KAFKA_ADVERTISED_LISTENERS: 'INTERNAL://kafka3:9092'
+      KAFKA_INTER_BROKER_LISTENER_NAME: 'INTERNAL'
+      KAFKA_CONTROLLER_QUORUM_VOTERS: '1@kafka1:9093,2@kafka2:9093,3@kafka3:9093'
+      KAFKA_PROCESS_ROLES: 'broker,controller'
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
+      KAFKA_NUM_PARTITIONS: 3
+      CLUSTER_ID: 'BDb4EWyiS1GjcEKCew2HvQ'
+      KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
+
+  kafdrop:
+    image: obsidiandynamics/kafdrop:latest
+    container_name: kafdrop1
+    ports:
+      - "9000:9000"
+    environment:
+      KAFKA_BROKERCONNECT: "kafka1:9092,kafka2:9092,kafka3:9092"
+    depends_on:
+      - kafka1
+
+  data-generator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    #container_name: kafka_generators
+    restart: on-failure
+    depends_on:
+      - kafka1
+      - kafka2
+      - kafka3
+    command: sh -c "sleep 15 && exec python run_generators.py"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./profiles:/app/profiles
+
+  data-processor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    depends_on:
+      - kafka1
+      - data-generator
+    command: sh -c "sleep 15 && exec python processing_consumer.py"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./profiles:/app/profiles
+
+  data-sink:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kafka_sinks
+    restart: on-failure
+    depends_on:
+      - kafka1
+      - data-generator
+    command: sh -c "sleep 15 && exec python data_sink.py"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./data:/app/data
+      - ./profiles:/app/profiles
+
+  e2e-monitor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: e2e_monitor
+    restart: on-failure
+    depends_on:
+      - kafka1
+      - data-generator
+      - data-processor
+      - data-sink
+    command: sh -c "sleep 20 && exec python e2e_monitor.py all"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - E2E_PUBLISH_INTERVAL=10
+      - E2E_THROUGHPUT_WINDOW=10
+    volumes:
+      - ./e2e_data:/app/e2e_data

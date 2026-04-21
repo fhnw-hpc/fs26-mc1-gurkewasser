@@ -9,7 +9,7 @@ services:
     ports:
       - "8888:8888"
     environment:
-      PYTHONUNBUFFERED: 1 
+      PYTHONUNBUFFERED: 1
       CLUSTER_ID: 'BDb4EWyiS1GjcEKCew2HvQ'
     command: "start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''"
 
@@ -29,6 +29,7 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
+      KAFKA_NUM_PARTITIONS: 3
       CLUSTER_ID: 'BDb4EWyiS1GjcEKCew2HvQ'
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
 
@@ -48,6 +49,7 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
+      KAFKA_NUM_PARTITIONS: 3
       CLUSTER_ID: 'BDb4EWyiS1GjcEKCew2HvQ'
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
 
@@ -67,6 +69,7 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
+      KAFKA_NUM_PARTITIONS: 3
       CLUSTER_ID: 'BDb4EWyiS1GjcEKCew2HvQ'
       KAFKA_LOG_DIRS: '/tmp/kraft-combined-logs'
 
@@ -77,5 +80,55 @@ services:
       - "9000:9000"
     environment:
       KAFKA_BROKERCONNECT: "kafka1:9092,kafka2:9092,kafka3:9092"
-    depends_on: 
+    depends_on:
       - kafka1
+
+  data-generator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kafka_generators
+    restart: on-failure
+    depends_on:
+      - kafka1
+      - kafka2
+      - kafka3
+    command: sh -c "sleep 15 && exec python run_generators.py --profile --bottleneck"
+    environment:
+      - PROFILE_SIMPLE_MSGS=3000
+      - PROFILE_COMPLEX_MSGS=300
+      - PROFILE_OUTPUT=kafka_producer_bottleneck_2.prof
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./profiles:/app/profiles
+
+  data-processor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kafka_processor
+    restart: on-failure
+    depends_on:
+      - kafka1
+      - data-generator
+    command: sh -c "sleep 15 && exec python processing_consumer.py --profile"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./profiles:/app/profiles
+
+  data-sink:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kafka_sinks
+    restart: on-failure
+    depends_on:
+      - kafka1
+      - data-generator
+    command: sh -c "sleep 15 && exec python data_sink.py --profile"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./data:/app/data
+      - ./profiles:/app/profiles
