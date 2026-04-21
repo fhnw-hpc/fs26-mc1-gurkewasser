@@ -87,7 +87,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: kafka_generators
+    #container_name: kafka_generators
     restart: on-failure
     depends_on:
       - kafka1
