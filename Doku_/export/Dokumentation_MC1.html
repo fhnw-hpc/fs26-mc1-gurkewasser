@@ -1,0 +1,3047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+  @font-face {
+  font-family: octicons-link;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #24292e;
+  line-height: 1.5;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body .pl-c {
+  color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #6f42c1;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #24292e;
+}
+
+.markdown-body .pl-ent {
+  color: #22863a;
+}
+
+.markdown-body .pl-k {
+  color: #d73a49;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #032f62;
+}
+
+.markdown-body .pl-smw,
+.markdown-body .pl-v {
+  color: #e36209;
+}
+
+.markdown-body .pl-bu {
+  color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b31d28;
+  color: #fafbfc;
+}
+
+.markdown-body .pl-c2 {
+  background-color: #d73a49;
+  color: #fafbfc;
+}
+
+.markdown-body .pl-c2:before {
+  content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #22863a;
+  font-weight: 700;
+}
+
+.markdown-body .pl-ml {
+  color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #005cc5;
+  font-weight: 700;
+}
+
+.markdown-body .pl-mi {
+  color: #24292e;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #24292e;
+  font-weight: 700;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffeef0;
+  color: #b31d28;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #f0fff4;
+  color: #22863a;
+}
+
+.markdown-body .pl-mc {
+  background-color: #ffebda;
+  color: #e36209;
+}
+
+.markdown-body .pl-mi2 {
+  background-color: #005cc5;
+  color: #f6f8fa;
+}
+
+.markdown-body .pl-mdr {
+  color: #6f42c1;
+  font-weight: 700;
+}
+
+.markdown-body .pl-ba {
+  color: #586069;
+}
+
+.markdown-body .pl-sg {
+  color: #959da5;
+}
+
+.markdown-body .pl-corl {
+  color: #032f62;
+  text-decoration: underline;
+}
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+}
+
+.markdown-body hr:before {
+  content: "";
+  display: table;
+}
+
+.markdown-body hr:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.markdown-body .border {
+  border: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .border-0 {
+  border: 0!important;
+}
+
+.markdown-body .border-bottom {
+  border-bottom: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .rounded-1 {
+  border-radius: 3px!important;
+}
+
+.markdown-body .bg-white {
+  background-color: #fff!important;
+}
+
+.markdown-body .bg-gray-light {
+  background-color: #fafbfc!important;
+}
+
+.markdown-body .text-gray-light {
+  color: #6a737d!important;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-bottom: 8px!important;
+  margin-top: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-bottom: 0!important;
+  padding-top: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-bottom: 8px!important;
+  padding-top: 8px!important;
+}
+
+.markdown-body .pl-3,
+.markdown-body .px-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .px-3 {
+  padding-right: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .f6 {
+  font-size: 12px!important;
+}
+
+.markdown-body .lh-condensed {
+  line-height: 1.25!important;
+}
+
+.markdown-body .text-bold {
+  font-weight: 600!important;
+}
+
+.markdown-body:before {
+  content: "";
+  display: table;
+}
+
+.markdown-body:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+.markdown-body hr {
+  background-color: #e1e4e8;
+  border: 0;
+  height: .25em;
+  margin: 24px 0;
+  padding: 0;
+}
+
+.markdown-body blockquote {
+  border-left: .25em solid #dfe2e5;
+  color: #6a737d;
+  padding: 0 1em;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #fafbfc;
+  border: 1px solid #c6cbd1;
+  border-bottom-color: #959da5;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #959da5;
+  color: #444d56;
+  display: inline-block;
+  font-size: 11px;
+  line-height: 10px;
+  padding: 3px 5px;
+  vertical-align: middle;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: .3em;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+}
+
+.markdown-body h6 {
+  color: #6a737d;
+  font-size: .85em;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: 16px;
+  padding: 0;
+}
+
+.markdown-body dl dd {
+  margin-bottom: 16px;
+  padding: 0 16px;
+}
+
+.markdown-body table {
+  display: block;
+  overflow: auto;
+  width: 100%;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  border: 1px solid #dfe2e5;
+  padding: 6px 13px;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-body img {
+  background-color: #fff;
+  box-sizing: content-box;
+  max-width: 100%;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+  font-size: 85%;
+  margin: 0;
+  padding: .2em .4em;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  background: transparent;
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  word-break: normal;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+
+.markdown-body pre code {
+  background-color: transparent;
+  border: 0;
+  display: inline;
+  line-height: inherit;
+  margin: 0;
+  max-width: auto;
+  overflow: visible;
+  padding: 0;
+  word-wrap: normal;
+}
+
+.markdown-body .commit-tease-sha {
+  color: #444d56;
+  display: inline-block;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 90%;
+}
+
+.markdown-body .blob-wrapper {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.markdown-body .blob-wrapper-embedded {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.markdown-body .blob-num {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  color: rgba(27,31,35,.3);
+  cursor: pointer;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+  line-height: 20px;
+  min-width: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: right;
+  user-select: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 1%;
+}
+
+.markdown-body .blob-num:hover {
+  color: rgba(27,31,35,.6);
+}
+
+.markdown-body .blob-num:before {
+  content: attr(data-line-number);
+}
+
+.markdown-body .blob-code {
+  line-height: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+  vertical-align: top;
+}
+
+.markdown-body .blob-code-inner {
+  color: #24292e;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  font-size: 12px;
+  overflow: visible;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+.markdown-body .pl-token.active,
+.markdown-body .pl-token:hover {
+  background: #ffea7f;
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-bottom-color: #c6cbd1;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #c6cbd1;
+  color: #444d56;
+  display: inline-block;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  line-height: 10px;
+  padding: 3px 5px;
+  vertical-align: middle;
+}
+
+.markdown-body :checked+.radio-label {
+  border-color: #0366d6;
+  position: relative;
+  z-index: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="1"] {
+  -moz-tab-size: 1;
+  tab-size: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="2"] {
+  -moz-tab-size: 2;
+  tab-size: 2;
+}
+
+.markdown-body .tab-size[data-tab-size="3"] {
+  -moz-tab-size: 3;
+  tab-size: 3;
+}
+
+.markdown-body .tab-size[data-tab-size="4"] {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+.markdown-body .tab-size[data-tab-size="5"] {
+  -moz-tab-size: 5;
+  tab-size: 5;
+}
+
+.markdown-body .tab-size[data-tab-size="6"] {
+  -moz-tab-size: 6;
+  tab-size: 6;
+}
+
+.markdown-body .tab-size[data-tab-size="7"] {
+  -moz-tab-size: 7;
+  tab-size: 7;
+}
+
+.markdown-body .tab-size[data-tab-size="8"] {
+  -moz-tab-size: 8;
+  tab-size: 8;
+}
+
+.markdown-body .tab-size[data-tab-size="9"] {
+  -moz-tab-size: 9;
+  tab-size: 9;
+}
+
+.markdown-body .tab-size[data-tab-size="10"] {
+  -moz-tab-size: 10;
+  tab-size: 10;
+}
+
+.markdown-body .tab-size[data-tab-size="11"] {
+  -moz-tab-size: 11;
+  tab-size: 11;
+}
+
+.markdown-body .tab-size[data-tab-size="12"] {
+  -moz-tab-size: 12;
+  tab-size: 12;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body hr {
+  border-bottom-color: #eee;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .pl-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .pl-7 {
+  padding-left: 48px!important;
+}
+
+.markdown-body .pl-8 {
+  padding-left: 64px!important;
+}
+
+.markdown-body .pl-9 {
+  padding-left: 80px!important;
+}
+
+.markdown-body .pl-10 {
+  padding-left: 96px!important;
+}
+
+.markdown-body .pl-11 {
+  padding-left: 112px!important;
+}
+
+.markdown-body .pl-12 {
+  padding-left: 128px!important;
+}
+
+/*# sourceURL=webpack://./node_modules/github-markdown-css/github-markdown.css */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL25vZGVfbW9kdWxlcy9naXRodWItbWFya2Rvd24tY3NzL2dpdGh1Yi1tYXJrZG93bi5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSwwQkFBMEI7RUFDMUIsMkRBQXF0RTtBQUN2dEU7O0FBRUE7RUFDRSxxQkFBcUI7RUFDckIsa0JBQWtCO0VBQ2xCLDJCQUEyQjtBQUM3Qjs7QUFFQTtFQUNFLFdBQVc7RUFDWCxjQUFjO0VBQ2Qsa0JBQWtCO0VBQ2xCLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGFBQWE7QUFDZjs7QUFFQTs7Ozs7O0VBTUUsY0FBYztFQUNkLHNCQUFzQjtFQUN0QixrQkFBa0I7QUFDcEI7O0FBRUE7Ozs7OztFQU1FLHFCQUFxQjtBQUN2Qjs7QUFFQTs7Ozs7O0VBTUUsbUJBQW1CO0FBQ3JCOztBQUVBO0VBQ0UsMEJBQTBCO0VBQzFCLDhCQUE4QjtFQUM5QixjQUFjO0VBQ2QsZ0JBQWdCO0VBQ2hCLGtJQUFrSTtFQUNsSSxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7O0VBRUUsY0FBYztBQUNoQjs7QUFFQTs7RUFFRSxjQUFjO0FBQ2hCOztBQUVBOztFQUVFLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSxjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsY0FBYztBQUNoQjs7QUFFQTs7Ozs7OztFQU9FLGNBQWM7QUFDaEI7O0FBRUE7O0VBRUUsY0FBYztBQUNoQjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSx5QkFBeUI7RUFDekIsY0FBYztBQUNoQjs7QUFFQTtFQUNFLHlCQUF5QjtFQUN6QixjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsYUFBYTtBQUNmOztBQUVBO0VBQ0UsY0FBYztFQUNkLGdCQUFnQjtBQUNsQjs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7OztFQUdFLGNBQWM7RUFDZCxnQkFBZ0I7QUFDbEI7O0FBRUE7RUFD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 */
+  </style>
+  <style>
+  /**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.token.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #9a6e3a;
+	/* This background color was intended by the author of this theme. */
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function,
+.token.class-name {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+
+/*# sourceURL=webpack://./node_modules/prismjs/themes/prism.css */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL25vZGVfbW9kdWxlcy9wcmlzbWpzL3RoZW1lcy9wcmlzbS5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7RUFJRTs7QUFFRjs7Q0FFQyxZQUFZO0NBQ1osZ0JBQWdCO0NBQ2hCLHdCQUF3QjtDQUN4QixzRUFBc0U7Q0FDdEUsY0FBYztDQUNkLGdCQUFnQjtDQUNoQixnQkFBZ0I7Q0FDaEIsb0JBQW9CO0NBQ3BCLGtCQUFrQjtDQUNsQixpQkFBaUI7Q0FDakIsZ0JBQWdCOztDQUVoQixnQkFBZ0I7Q0FDaEIsY0FBYztDQUNkLFdBQVc7O0NBRVgscUJBQXFCO0NBQ3JCLGtCQUFrQjtDQUNsQixpQkFBaUI7Q0FDakIsYUFBYTtBQUNkOztBQUVBOztDQUVDLGlCQUFpQjtDQUNqQixtQkFBbUI7QUFDcEI7O0FBRUE7O0NBRUMsaUJBQWlCO0NBQ2pCLG1CQUFtQjtBQUNwQjs7QUFFQTtDQUNDOztFQUVDLGlCQUFpQjtDQUNsQjtBQUNEOztBQUVBLGdCQUFnQjtBQUNoQjtDQUNDLFlBQVk7Q0FDWixjQUFjO0NBQ2QsY0FBYztBQUNmOztBQUVBOztDQUVDLG1CQUFtQjtBQUNwQjs7QUFFQSxnQkFBZ0I7QUFDaEI7Q0FDQyxhQUFhO0NBQ2IsbUJBQW1CO0NBQ25CLG1CQUFtQjtBQUNwQjs7QUFFQTs7OztDQUlDLGdCQUFnQjtBQUNqQjs7QUFFQTtDQUNDLFdBQVc7QUFDWjs7QUFFQTtDQUNDLFdBQVc7QUFDWjs7QUFFQTs7Ozs7OztDQU9DLFdBQVc7QUFDWjs7QUFFQTs7Ozs7O0NBTUMsV0FBVztBQUNaOztBQUVBOzs7OztDQUtDLGNBQWM7Q0FDZCxvRUFBb0U7Q0FDcEUsaUNBQWlDO0FBQ2xDOztBQUVBOzs7Q0FHQyxXQUFXO0FBQ1o7O0FBRUE7O0NBRUMsY0FBYztBQUNmOztBQUVBOzs7Q0FHQyxXQUFXO0FBQ1o7O0FBRUE7O0NBRUMsaUJBQWlCO0FBQ2xCO0FBQ0E7Q0FDQyxrQkFBa0I7QUFDbkI7O0FBRUE7Q0FDQyxZQUFZO0FBQ2IiLCJzb3VyY2VSb290IjoiIn0= */
+  </style>
+  <style>
+  
+  </style>
+  <style>
+    .markdown-body {
+      font-family: -apple-system,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+      box-sizing: border-box;
+      min-width: 200px;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 45px;
+    }
+
+    @media not print {
+      .markdown-body {
+        padding: 45px;
+      }
+
+      @media (max-width: 767px) {
+        .markdown-body {
+          padding: 15px;
+        }
+      }
+    }
+
+    .hf-container {
+      color: #24292e;
+      line-height: 1.3;
+    }
+
+    .markdown-body .highlight pre,
+    .markdown-body pre {
+      white-space: pre-wrap;
+    }
+    .markdown-body table {
+      display: table;
+    }
+    .markdown-body img[data-align="center"] {
+      display: block;
+      margin: 0 auto;
+    }
+    .markdown-body img[data-align="right"] {
+      display: block;
+      margin: 0 0 0 auto;
+    }
+    .markdown-body li.task-list-item {
+      list-style-type: none;
+    }
+    .markdown-body li > [type=checkbox] {
+      margin: 0 0 0 -1.3em;
+    }
+    .markdown-body input[type="checkbox"] ~ p {
+      margin-top: 0;
+      display: inline-block;
+    }
+    .markdown-body ol ol,
+    .markdown-body ul ol {
+      list-style-type: decimal;
+    }
+    .markdown-body ol ol ol,
+    .markdown-body ol ul ol,
+    .markdown-body ul ol ol,
+    .markdown-body ul ul ol {
+      list-style-type: decimal;
+    }
+  </style>
+  <style>.markdown-body a.footnote-ref {
+  text-decoration: none;
+}
+
+.footnotes {
+  font-size: .85em;
+  opacity: .8;
+}
+
+.footnotes li[role="doc-endnote"] {
+  position: relative;
+}
+
+.footnotes .footnote-back {
+  position: absolute;
+  font-family: initial;
+  top: .2em;
+  right: 1em;
+  text-decoration: none;
+}
+
+.inline-math.invalid,
+.multiple-math.invalid {
+  color: rgb(255, 105, 105);
+}
+
+.toc-container {
+  width: 100%;
+}
+
+.toc-container .toc-title {
+  font-weight: 700;
+  font-size: 1.2em;
+  margin-bottom: 0;
+}
+
+.toc-container li,
+.toc-container ul,
+.toc-container ul li {
+  list-style: none !important;
+}
+
+.toc-container > ul {
+  padding-left: 0;
+}
+
+.toc-container ul li span {
+  display : flex;
+}
+
+.toc-container ul li span a {
+  color: inherit;
+  text-decoration: none;
+}
+.toc-container ul li span a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.toc-container ul li span span.dots {
+  flex: 1;
+  height: 0.65em;
+  margin: 0 10px;
+  border-bottom: 2px dotted black;
+}
+
+/*# sourceURL=webpack://./src/muya/lib/assets/styles/exportStyle.css */
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9tdXlhL2xpYi9hc3NldHMvc3R5bGVzL2V4cG9ydFN0eWxlLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLHFCQUFxQjtBQUN2Qjs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixXQUFXO0FBQ2I7O0FBRUE7RUFDRSxrQkFBa0I7QUFDcEI7O0FBRUE7RUFDRSxrQkFBa0I7RUFDbEIsb0JBQW9CO0VBQ3BCLFNBQVM7RUFDVCxVQUFVO0VBQ1YscUJBQXFCO0FBQ3ZCOztBQUVBOztFQUVFLHlCQUF5QjtBQUMzQjs7QUFFQTtFQUNFLFdBQVc7QUFDYjs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixnQkFBZ0I7RUFDaEIsZ0JBQWdCO0FBQ2xCOztBQUVBOzs7RUFHRSwyQkFBMkI7QUFDN0I7O0FBRUE7RUFDRSxlQUFlO0FBQ2pCOztBQUVBO0VBQ0UsY0FBYztBQUNoQjs7QUFFQTtFQUNFLGNBQWM7RUFDZCxxQkFBcUI7QUFDdkI7QUFDQTtFQUNFLGNBQWM7RUFDZCxxQkFBcUI7QUFDdkI7O0FBRUE7RUFDRSxPQUFPO0VBQ1AsY0FBYztFQUNkLGNBQWM7RUFDZCwrQkFBK0I7QUFDakMiLCJzb3VyY2VSb290IjoiIn0= */</style>
+  <style>.markdown-body{}pre.front-matter{display:none!important;}</style>
+</head>
+<body>
+  <article class="markdown-body"><h1 class="atx" id="part-1-kafka-cluster-and-application-setup">Part 1: Kafka Cluster and Application Setup</h1>
+<h2 class="atx" id="einleitung-school-simulation--luftqualitatsuberwachung-in-schulgebauden">Einleitung: School Simulation – Luftqualitätsüberwachung in Schulgebäuden</h2>
+<h3 class="atx" id="ausgangslage">Ausgangslage</h3>
+<p>In Schulgebäuden verbringen hunderte Schülerinnen und Schüler sowie Lehrpersonen täglich mehrere Stunden in denselben Räumen. Die Qualität der Raumluft – beeinflusst durch Faktoren wie CO2-Konzentration, Temperatur, Luftfeuchtigkeit und Belegung – hat einen direkten Einfluss auf Konzentrationsfähigkeit, Wohlbefinden und Gesundheit. Besonders in der kalten Jahreszeit, wenn Fenster geschlossen bleiben, steigen die CO2-Werte oft unbemerkt auf kritische Werte an, was zu Müdigkeit, Kopfschmerzen und verminderter Leistungsfähigkeit führt.</p>
+<h3 class="atx" id="problemstellung">Problemstellung</h3>
+<p>Bisher fehlt in vielen Schulgebäuden ein kontinuierliches, automatisiertes Monitoring-System, das Sensordaten in Echtzeit erfasst, auswertet und bei kritischen Werten rechtzeitig warnt. Eine manuelle Überwachung ist aufgrund der Vielzahl an Räumen und der dynamischen Belegungssituation praktisch nicht umsetzbar. Das Ziel dieser Anwendung ist es, diese Lücke zu schliessen: Ein verteiltes Sensor-Netzwerk soll kontinuierlich Umgebungsdaten aus allen Räumen einer Schule erfassen, den Datenstrom in Echtzeit verarbeiten und bei Überschreitung definiertter Schwellenwerte (z.B. CO2 &gt; 1000 ppm) automatisch Warnungen generieren.</p>
+<h3 class="atx" id="daten-der-anwendung">Daten der Anwendung</h3>
+<p>Die Anwendung simuliert eine Schule mit 15 Räumen, wobei jeder Raum folgende variable Sensordaten liefert:</p>
+<ul>
+<li><strong>Temperatur</strong> – Raumtemperatur in °C, abhängig von Tageszeit, Belegung und Lüftungsverhalten</li>
+<li><strong>CO2-Konzentration</strong> – in ppm, korreliert direkt mit der Belegungsdichte und dem Lüftungsstatus</li>
+<li><strong>Luftfeuchtigkeit</strong> – in %, beeinflusst durch Belegung und Fensterstatus</li>
+<li><strong>Belegung</strong> – aktuelle Anzahl Personen im Raum basierend auf einem simulierten Stundenplan</li>
+<li><strong>Fensterstatus</strong> – offen/geschlossen, steuert den Luftaustausch</li>
+<li><strong>Lüftungsstufe</strong> – ventilatorbasierte Lüftung in mehreren Stufen</li>
+</ul>
+<p>Die Daten werden von einer physikalisch motivierten Simulation (<code>SchoolSimulation</code>) erzeugt, die realistische Korrelationen zwischen den Messgrössen abbildet: steigt die Belegung, erhöht sich der CO2-Wert; wird gelüftet, sinken sowohl CO2 als auch Temperatur. Dadurch entsteht ein konsistenter, realistischer Datenstrom, der wie von echten Sensoren stammen könnte.</p>
+<h3 class="atx" id="losungsansatz">Lösungsansatz</h3>
+<p>Die Umsetzung erfolgt als verteilte Microservice-Architektur mit Apache Kafka als zentralem Daten-Streaming-System. Daten-Generatoren (Producers) lesen den Zustand der Simulation und publishen ihn auf Kafka-Topics. Ein Processing Consumer reichert den Datenstrom in Echtzeit mit Warnungen bei schlechter Luftqualität an. Data Sinks persistieren die Rohdaten sowie die angereicherten Warnungen als CSV-Dateien zur späteren Analyse. Das System ist vollständig containerisiert und horizontal skalierbar, sodass es bei Bedarf auf tausende Räume erweitert werden kann.</p>
+<p><img alt="Kafka Topic data flow chart" src="images/Kafka_Topic_Data_Flow_Aufabe_1.png"></p>
+<hr>
+<h2 class="atx" id="1-daten-generatoren-consumer-und-sinks">1. Daten-Generatoren, Consumer und Sinks</h2>
+<h3 class="atx" id="11-data-generators-producers">1.1 Data Generators (Producers)</h3>
+<p>Ich habe zwei verschiedene Daten-Generatoren implementiert, die beide von derselben <code>SchoolSimulation</code> lesen:</p>
+<p><strong>Simple Producer</strong> (<code>room_temperature_mp</code>):</p>
+<ul>
+<li><strong>Frequenz:</strong> 10 Hz (0.1s Sleep zwischen Nachrichten)</li>
+<li><strong>Nachrichten-Schema:</strong> <code>{ timestamp, room_id, temperature }</code></li>
+<li><strong>Zweck:</strong> Leichtgewichtige Temperatur-Updates für alle 15 Räume im Round-Robin-Verfahren</li>
+</ul>
+<p><strong>Complex Producer</strong> (<code>room_environment_mp</code>):</p>
+<ul>
+<li><strong>Frequenz:</strong> 1 Hz (1.0s Sleep zwischen Nachrichten)</li>
+<li><strong>Nachrichten-Schema:</strong> <code>{ timestamp, room_id, temperature, occupancy, humidity, co2_level, window_open, ventilation_level }</code></li>
+<li><strong>Zweck:</strong> Vollständige Umgebungsdaten eines Raumes mit allen Sensormetriken</li>
+</ul>
+<p>Beide Producer verwenden <code>msgpack</code> als Serialisierungsformat und senden die <code>room_id</code> als Message Key, um das Partition-Routing zu steuern (siehe Deep Dive 1).</p>
+<h3 class="atx" id="12-processing-consumer">1.2 Processing Consumer</h3>
+<p>Der <code>processing_consumer.py</code> liest kontinuierlich aus dem Topic <code>room_environment_mp</code> (Consumer Group: <code>processing_group</code>) und reichert jede Nachricht mit folgenden Feldern an:</p>
+<ul>
+<li><code>air_quality_warning</code>: <code>True</code> wenn CO2 &gt; 1000 ppm, sonst <code>False</code></li>
+<li><code>alert_msg</code>: Warnungstext bei schlechter Luftqualität</li>
+<li><code>processed_timestamp</code>: Zeitstempel der Verarbeitung</li>
+</ul>
+<p>Die angereicherte Nachricht wird in das Topic <code>room_alerts_mp</code> geschrieben.</p>
+<h3 class="atx" id="13-data-sinks">1.3 Data Sinks</h3>
+<p>Zwei unabhängige Sink-Consumer schreiben Daten als <code>.csv</code>-Dateien auf die Festplatte:</p>
+<table>
+<thead>
+<tr>
+<th>Sink</th>
+<th>Topic</th>
+<th>Consumer Group</th>
+<th>Ausgabedatei</th>
+<th>Spalten</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Temperature Sink</td>
+<td><code>room_temperature_mp</code></td>
+<td><code>sink_temp_group_mp</code></td>
+<td><code>temperature_log.csv</code></td>
+<td>timestamp, room_id, temperature</td>
+</tr>
+<tr>
+<td>Alerts Sink</td>
+<td><code>room_alerts_mp</code></td>
+<td><code>sink_alerts_group_mp</code></td>
+<td><code>alerts_log.csv</code></td>
+<td>timestamp, processed_timestamp, room_id, temperature, occupancy, humidity, co2_level, window_open, ventilation_level, air_quality_warning, alert_msg</td>
+</tr>
+</tbody></table>
+<h2 class="atx" id="2-architecture-and-design-overview-questions-andamp-answers">2. Architecture and Design Overview (Questions &amp; Answers)</h2>
+<p><strong><em>What are the tasks of the components?</em></strong></p>
+<ul>
+<li><strong>School Simulation:</strong> Verwaltet den Status der Räume (Temperatur, Belegung, CO2, etc.) basierend auf einem simulierten Tagesablauf. Sie agiert als Ground Truth.</li>
+<li><strong>Generators (Producers):</strong> Lesen den Raumstatus periodisch aus, verpacken die Daten (einfach vs. komplex) und senden sie an das Kafka-Cluster.</li>
+<li><strong>Processing Consumer:</strong> Liest den komplexen Datenstrom, wertet Metriken aus (z. B. CO2-Gehalt &gt; 1000 ppm) und reichert die Nachrichten mit Warnungen und Verarbeitungszeitstempeln an, bevor sie in ein neues Topic geschrieben werden.</li>
+<li><strong>Data Sinks:</strong> Konsumieren Daten aus spezifischen Topics und persistieren sie kontinuierlich als <code>.csv</code>-Dateien auf der Festplatte.</li>
+</ul>
+<p><strong><em>Which interfaces do the components have?</em></strong></p>
+<ul>
+<li><strong>Python Object Interface:</strong> Die Generatoren greifen intern im Speicher auf die Objekte der <code>SchoolSimulation</code> zu.</li>
+<li><strong>Kafka Network Interface (TCP/IP):</strong> Die Kommunikation zwischen Producers/Consumers und dem Kafka-Cluster läuft über TCP auf Port 9092.</li>
+<li><strong>Serialization Interface:</strong> Daten werden vor dem Senden in das binäre <strong>MessagePack</strong>-Format (<code>msgpack</code>) serialisiert und beim Empfang deserialisiert. Wurden zuvor mit JSON serializiert.</li>
+<li><strong>File System Interface:</strong> Die Data Sinks nutzen lokales File I/O (mit Python's <code>csv</code> Modul), um Daten auf das gemappte Docker-Volume zu schreiben.</li>
+</ul>
+<p><strong><em>Why did you decide to use these components?</em></strong></p>
+<ul>
+<li>Die Entkopplung von Simulation und Datengenerierung erlaubt realistische, physikalisch korrelierende Sensordaten, ohne die Kafka-Logik zu verkomplizieren.</li>
+<li>Durch den <em>Processing Consumer</em> wird das Konzept der Stream-Verarbeitung (Lesen -&gt; Bereichern -&gt; Schreiben) demonstriert.</li>
+<li><em>MessagePack</em> wurde anstelle von JSON gewählt (Bonus-Aufgabe), da es als binäres Format performanter ist und die Netzwerkbandbreite schont.</li>
+</ul>
+<p><strong><em>Are there any other design decisions you have made? Which requirements does a component have?</em></strong></p>
+<ul>
+<li><strong>Shared State Design:</strong> Anstatt zufällige Daten zu senden, lesen alle Generatoren von derselben Simulation. Dies sorgt dafür, dass Temperatur und CO2-Werte logisch zusammenpassen und nicht asynchron springen.</li>
+<li><strong>Graceful Shutdown:</strong> Alle Kafka-Verbindungen (<code>consumer.close()</code>, <code>producer.flush()</code>) werden durch Exception-Handling sauber geschlossen, um Datenverlust beim Beenden der Container zu vermeiden.</li>
+<li><strong>Requirements:</strong> Die Komponenten erfordern Python 3.11, die Bibliotheken <code>kafka-python</code> und <code>msgpack</code> sowie eine funktionierende Netzwerkverbindung zu den Kafka-Brokern.</li>
+</ul>
+<p><strong><em>Which features of Kafka do you use and how does this correlate to the cluster / topic settings you choose?</em></strong></p>
+<ul>
+<li><strong>Topics:</strong> Werden zur logischen Trennung der Datenströme genutzt (<code>room_temperature_mp</code>, <code>room_environment_mp</code>, <code>room_alerts_mp</code>).</li>
+<li><strong>Consumer Groups:</strong> Jeder Consumer und Sink verwendet eine explizite <code>group_id</code> (z. B. <code>processing_group</code>, <code>sink_temp_group_mp</code>). Dies ermöglicht es Kafka, den Offset (welche Nachricht zuletzt gelesen wurde) zu speichern. So können Consumer horizontal skaliert werden oder nach einem Absturz genau dort weiterlesen, wo sie aufgehört haben.</li>
+<li><strong>Replication / HA:</strong> Durch das Setup mit 3 Brokern und <code>KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3</code> ist das Cluster ausfallsicher konfiguriert.</li>
+</ul>
+<p><strong><em>Describe the Docker setup of your application.</em></strong></p>
+<ul>
+<li>Die Anwendung nutzt Docker Compose zur Orchestrierung.</li>
+<li><strong>Kafka Cluster:</strong> Drei Broker laufen im modernen KRaft-Modus (ohne Zookeeper) zur reinen Datenverwaltung. Zusätzlich läuft <code>kafdrop</code> als UI-Monitor.</li>
+<li><strong>Application Services:</strong> Für die Python-Logik wurde ein lokales Image (<code>python:3.11-slim</code>) mittels Dockerfile gebaut. Dieses Image wird von drei separaten Services (<code>data-generator</code>, <code>data-processor</code>, <code>data-sink</code>) gestartet, die somit als isolierte Microservices agieren.</li>
+<li><strong>Volumes:</strong> Der Ordner <code>/app/data</code> im <code>data-sink</code> Container ist via Bind-Mount mit dem Host-System verbunden, um die CSV-Dateien dauerhaft zugänglich zu machen.</li>
+</ul>
+<hr>
+<h1 class="atx" id="part-2-performance-analysis-and-evaluation-of-kafka">Part 2: Performance Analysis and Evaluation of Kafka</h1>
+<h2 class="atx" id="deep-dive-1-message-keys-und-partitioning">Deep Dive 1: Message Keys und Partitioning</h2>
+<p><strong>Mein Ziel:</strong> Ich wollte herausfinden, wie ein Message Key aussieht, wie ich ihn optimal gestalten sollte und welchen konkreten Einfluss er auf das Routing-Verhalten meines Kafka-Clusters hat.</p>
+<p><strong>Einleitung:</strong>
+Um die Last zu verteilen und mein System horizontal skalierbar zu machen, habe ich in meinem Setup die Topics in mehrere Partitionen unterteilt (konkret <code>KAFKA_NUM_PARTITIONS: 3</code>). Wenn mein Producer nun Nachrichten an ein Topic sendet, muss Kafka entscheiden, auf welcher Partition diese landen. 
+In diesem Deep Dive habe ich untersucht, wie sich das Routing-Verhalten von Kafka unterscheidet, je nachdem, ob ich definierte Message Keys verwende oder nicht. Besonders wichtig war mir dabei zu verstehen, wie ich die garantierte Reihenfolge (Ordering) meiner Sensordaten sicherstellen kann.</p>
+<h3 class="atx" id="szenario-a-das-standardverhalten-ohne-message-keys">Szenario A: Das Standardverhalten (Ohne Message Keys)</h3>
+<p>In meiner ersten Implementierung (Teil 1) habe ich die Sensordaten der Raum-Simulation noch ganz einfach ohne spezifischen Key gesendet:</p>
+<p><code>producer.send(topic, value=message)</code></p>
+<p>Da der Key in diesem Fall <code>empty</code> (bzw. <code>None</code>) war, erwartete ich, dass Kafka standardmässig eine Round-Robin-Strategie (oder den Sticky Partitioner) anwendet. Das heisst, meine produzierten Nachrichten sollten möglichst gleichmässig über alle verfügbaren Partitionen verteilt werden, um die Last auf den Brokern bestmöglich auszugleichen.</p>
+<p><strong>Mein Experiment A:</strong> Um das zu überprüfen, habe ich 1000 generierte Nachrichten ausgelesen und gefiltert. Der folgende Plot zeigt das Resultat: die Verteilung der Nachrichten für einen spezifischen Raum in diesem ersten Szenario:</p>
+<pre><code class="fenced-code-block language-python"><span class="token keyword">from</span> kafka <span class="token keyword">import</span> KafkaConsumer
+<span class="token keyword">import</span> msgpack
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">from</span> collections <span class="token keyword">import</span> Counter
+<span class="token keyword">from</span> tqdm <span class="token keyword">import</span> tqdm
+
+<span class="token comment"># 'latest' ich will nur die live generierten Daten lesen!</span>
+consumer <span class="token operator">=</span> KafkaConsumer<span class="token punctuation">(</span>
+    <span class="token string">'room_temperature_mp'</span><span class="token punctuation">,</span>
+    bootstrap_servers<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'kafka1:9092'</span><span class="token punctuation">,</span> <span class="token string">'kafka2:9092'</span><span class="token punctuation">,</span> <span class="token string">'kafka3:9092'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+    value_deserializer<span class="token operator">=</span><span class="token keyword">lambda</span> m<span class="token punctuation">:</span> msgpack<span class="token punctuation">.</span>unpackb<span class="token punctuation">(</span>m<span class="token punctuation">,</span> raw<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    auto_offset_reset<span class="token operator">=</span><span class="token string">'latest'</span><span class="token punctuation">,</span>  
+    consumer_timeout_ms<span class="token operator">=</span><span class="token number">5000</span> 
+<span class="token punctuation">)</span>
+
+partition_counts <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+max_messages <span class="token operator">=</span> <span class="token number">1000</span>
+message_count <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Warte auf 1000 frische Nachrichten vom Generator..."</span><span class="token punctuation">)</span>
+
+<span class="token keyword">with</span> tqdm<span class="token punctuation">(</span>total<span class="token operator">=</span>max_messages<span class="token punctuation">,</span> desc<span class="token operator">=</span><span class="token string">"Lese Nachrichten"</span><span class="token punctuation">,</span> unit<span class="token operator">=</span><span class="token string">"msg"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> pbar<span class="token punctuation">:</span>
+    <span class="token keyword">for</span> msg <span class="token keyword">in</span> consumer<span class="token punctuation">:</span>
+        message_count <span class="token operator">+=</span> <span class="token number">1</span>
+        partition <span class="token operator">=</span> msg<span class="token punctuation">.</span>partition 
+        room_id <span class="token operator">=</span> msg<span class="token punctuation">.</span>value<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'room_id'</span><span class="token punctuation">)</span> 
+
+        <span class="token keyword">if</span> room_id<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> room_id <span class="token keyword">not</span> <span class="token keyword">in</span> partition_counts<span class="token punctuation">:</span>
+                partition_counts<span class="token punctuation">[</span>room_id<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+            partition_counts<span class="token punctuation">[</span>room_id<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>partition<span class="token punctuation">)</span>
+
+        pbar<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> message_count <span class="token operator">&gt;=</span> max_messages<span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+
+<span class="token comment"># automatisch den ersten raum nehem</span>
+target_room <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>partition_counts<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">if</span> partition_counts <span class="token keyword">else</span> <span class="token boolean">None</span>
+
+<span class="token keyword">if</span> target_room<span class="token punctuation">:</span>
+    counts <span class="token operator">=</span> Counter<span class="token punctuation">(</span>partition_counts<span class="token punctuation">[</span>target_room<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"\nVerteilung der Nachrichten für </span><span class="token interpolation"><span class="token punctuation">{</span>target_room<span class="token punctuation">}</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">{</span>counts<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+    <span class="token comment"># Plotting</span>
+    plt<span class="token punctuation">.</span>bar<span class="token punctuation">(</span>counts<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> counts<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'lightcoral'</span><span class="token punctuation">,</span> edgecolor<span class="token operator">=</span><span class="token string">'black'</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>xticks<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'Kafka Partition'</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Anzahl Nachrichten'</span><span class="token punctuation">)</span>
+
+    plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Verteilung für </span><span class="token interpolation"><span class="token punctuation">{</span>target_room<span class="token punctuation">}</span></span><span class="token string"> (Szenario A: Ohne Keys)'</span></span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Keine Räume gefunden."</span><span class="token punctuation">)</span></code></pre>
+<p><img alt="output" src="images/output1_without_message_keys.png"></p>
+<p><strong>Meine Beobachtung:</strong> Aus dem Plot konnte ich klar ablesen, dass die Nachrichten eines einzelnen Raumes völlig zufällig über alle drei Partitionen verstreut wurden. 
+<strong>Das Problem dabei:</strong> Da Kafka mir die strikte zeitliche Reihenfolge von Nachrichten <em>nur innerhalb einer einzelnen Partition</em> garantiert, geht die wichtige Chronologie meiner Sensordaten komplett verloren, sobald ich mehrere Consumer einsetze, die die Partitionen parallel auslesen. Als Resultat könnte beispielsweise ein Temperaturanstieg fälschlicherweise vor einem eigentlich vorher aufgetretenen, niedrigeren Messwert verarbeitet werden – was die Daten unbrauchbar machen würde.</p>
+<h3 class="atx" id="szenario-b-gezieltes-partitioning-mit-message-keys">Szenario B: Gezieltes Partitioning (Mit Message Keys)</h3>
+<p>Um das Problem der verlorenen Chronologie in den Griff zu bekommen, habe ich meinen Producer-Code angepasst. Ich habe entschieden, jeder Nachricht die eindeutige <code>room_id</code> als Message Key mitzugeben:</p>
+<p><code>producer.send(topic, key=target_room.room_id.encode('utf-8'), value=message)</code></p>
+<p>Meine Erwartung war folgende: Wenn ein Key vorhanden ist, nutzt Kafka eine Hash-Funktion (<code>hash(key) % num_partitions</code>), um die Ziel-Partition zu berechnen. Somit müssten alle Daten eines Raumes auf derselben Partition landen. </p>
+<p><strong>Mein Experiment B:</strong>
+Nach der Anpassung im Code habe ich das Experiment exakt gleich mit 1000 neuen Nachrichten wiederholt. Der Plot zeigt mir nun sehr schön das veränderte Routing-Verhalten:</p>
+<pre><code class="fenced-code-block language-python"><span class="token keyword">from</span> kafka <span class="token keyword">import</span> KafkaConsumer
+<span class="token keyword">import</span> msgpack
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">from</span> collections <span class="token keyword">import</span> Counter
+<span class="token keyword">from</span> tqdm <span class="token keyword">import</span> tqdm
+
+<span class="token comment"># 'latest' ich will nur die live generierten Daten lesen!</span>
+consumer <span class="token operator">=</span> KafkaConsumer<span class="token punctuation">(</span>
+    <span class="token string">'room_temperature_mp'</span><span class="token punctuation">,</span>
+    bootstrap_servers<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'kafka1:9092'</span><span class="token punctuation">,</span> <span class="token string">'kafka2:9092'</span><span class="token punctuation">,</span> <span class="token string">'kafka3:9092'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 
+    value_deserializer<span class="token operator">=</span><span class="token keyword">lambda</span> m<span class="token punctuation">:</span> msgpack<span class="token punctuation">.</span>unpackb<span class="token punctuation">(</span>m<span class="token punctuation">,</span> raw<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    auto_offset_reset<span class="token operator">=</span><span class="token string">'latest'</span><span class="token punctuation">,</span>  
+    consumer_timeout_ms<span class="token operator">=</span><span class="token number">5000</span> 
+<span class="token punctuation">)</span>
+
+partition_counts <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+max_messages <span class="token operator">=</span> <span class="token number">1000</span>
+message_count <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Warte auf 1000 frische Nachrichten vom Generator..."</span><span class="token punctuation">)</span>
+
+<span class="token keyword">with</span> tqdm<span class="token punctuation">(</span>total<span class="token operator">=</span>max_messages<span class="token punctuation">,</span> desc<span class="token operator">=</span><span class="token string">"Lese Nachrichten"</span><span class="token punctuation">,</span> unit<span class="token operator">=</span><span class="token string">"msg"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> pbar<span class="token punctuation">:</span>
+    <span class="token keyword">for</span> msg <span class="token keyword">in</span> consumer<span class="token punctuation">:</span>
+        message_count <span class="token operator">+=</span> <span class="token number">1</span>
+        partition <span class="token operator">=</span> msg<span class="token punctuation">.</span>partition 
+        room_id <span class="token operator">=</span> msg<span class="token punctuation">.</span>value<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'room_id'</span><span class="token punctuation">)</span> 
+
+        <span class="token keyword">if</span> room_id<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> room_id <span class="token keyword">not</span> <span class="token keyword">in</span> partition_counts<span class="token punctuation">:</span>
+                partition_counts<span class="token punctuation">[</span>room_id<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+            partition_counts<span class="token punctuation">[</span>room_id<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>partition<span class="token punctuation">)</span>
+
+        pbar<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>  <span class="token comment"># &lt;-- Fortschrittsbalken um 1 aktualisieren</span>
+
+        <span class="token keyword">if</span> message_count <span class="token operator">&gt;=</span> max_messages<span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+
+<span class="token comment"># automatisch den ersten Raum</span>
+target_room <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>partition_counts<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">if</span> partition_counts <span class="token keyword">else</span> <span class="token boolean">None</span>
+
+<span class="token keyword">if</span> target_room<span class="token punctuation">:</span>
+    counts <span class="token operator">=</span> Counter<span class="token punctuation">(</span>partition_counts<span class="token punctuation">[</span>target_room<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"\nVerteilung der Nachrichten für </span><span class="token interpolation"><span class="token punctuation">{</span>target_room<span class="token punctuation">}</span></span><span class="token string">: </span><span class="token interpolation"><span class="token punctuation">{</span>counts<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+    <span class="token comment"># Plotting</span>
+    plt<span class="token punctuation">.</span>bar<span class="token punctuation">(</span>counts<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> counts<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'lightgreen'</span><span class="token punctuation">,</span> edgecolor<span class="token operator">=</span><span class="token string">'black'</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>xticks<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>xlabel<span class="token punctuation">(</span><span class="token string">'Kafka Partition'</span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>ylabel<span class="token punctuation">(</span><span class="token string">'Anzahl Nachrichten'</span><span class="token punctuation">)</span>
+
+    plt<span class="token punctuation">.</span>title<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'Verteilung für </span><span class="token interpolation"><span class="token punctuation">{</span>target_room<span class="token punctuation">}</span></span><span class="token string"> (Szenario B: Mit Keys)'</span></span><span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Keine Räume gefunden."</span><span class="token punctuation">)</span></code></pre>
+<p><img alt="output 2" src="images/outpu2_with_message_keys.png"></p>
+<p><img alt="kafdrop" src="images/DeepDive2.png"></p>
+<p><strong>Mein Resultat:</strong> Die Anpassung war ein voller Erfolg. Wie ich im Plot sehen kann, landen nun alle Nachrichten für den spezifizierten Raum zu 100 % auf exakt derselben Partition.</p>
+<h3 class="atx" id="mein-fazit">Mein Fazit</h3>
+<p>Für meine Schul-Simulation hat sich die Einführung eines Message Keys als essenziell herausgestellt. 
+Ich finde, dass ein guter Message Key idealerweise ein Attribut sein sollte, das logisch zusammenhängende Ereignisse gruppiert. Für meinen Anwendungsfall ist die <code>room_id</code> dafür der absolute perfekte Key. </p>
+<p>Durch das Hashing dieses Keys zwinge ich Kafka jetzt dazu, alle Temperatur-, CO2- und Belegungs-Updates eines spezifischen Raumes konsequent auf dieselbe Partition zu schreiben. So stelle ich sicher, dass mein <code>Processing Consumer</code> die Events für einen Raum auch exakt in der Reihenfolge verarbeitet, in der sie in meiner Simulation generiert wurden.</p>
+<h2 class="atx" id="deep-dive-2-consumer-groups-und-horizontale-skalierung">Deep Dive 2: Consumer Groups und horizontale Skalierung</h2>
+<p><strong>Mein Ziel:</strong> In diesem Abschnitt wollte ich praktisch erproben, wie ich Consumer Groups nutzen kann, um die Last meiner Datenverarbeitung horizontal auf mehrere Instanzen zu verteilen (zu skalieren), und beobachten, wie sich mein Kafka-Cluster dabei verhält.</p>
+<p><strong>Einleitung:</strong>
+Consumer Groups sind in Kafka genau dafür gedacht, das Lesen von Nachrichten aus einem Topic auf mehrere Instanzen aufzuteilen. Mir war bewusst, dass Kafka dabei strikt garantiert, dass eine Partition immer nur von maximal einem Consumer innerhalb derselben Gruppe gelesen wird. 
+Da mein Cluster von Anfang an nicht so konfiguriert war, das es mehrere Partitionen hat, habe ich im nachhinein die <code>docker-compose</code> file angepasst mit (<code>KAFKA_NUM_PARTITIONS: 3</code>) und somit sollte es bereit für diesen Deep Dive sein.</p>
+<h3 class="atx" id="mein-skalierungs-experiment">Mein Skalierungs-Experiment</h3>
+<p>Um Kafka's Skalierungs-Feature zu testen, habe ich mich entschieden, meinen <code>data-processor</code> (den Processing Consumer), der das Topic <code>room_environment_mp</code> ausliest und anreichert, zu skalieren.</p>
+<p><strong>Schritt 1: Vorbereitung meiner Orchestrierung</strong>
+Zuerst habe ich in meiner <code>docker-compose.yaml</code> den fest vergebenen <code>container_name</code> für den <code>data-processor</code> Service auskommentiert. Das musste ich tun, da Docker beim Befehl zum Skalieren automatisch dynamische Namen vergeben muss, um Namenskonflikte zu vermeiden.</p>
+<p><strong>Schritt 2: Horizontale Skalierung durchführen</strong>
+Anschliessend habe ich den Service über folgenden Docker-Befehl von ursprünglich einer auf drei Instanzen hochskaliert:
+<code>docker compose up -d --scale data-processor=3</code></p>
+<p>Wie erhofft, starteten dadurch zwei weitere völlig voneinander isolierte Python-Container, die sich allesamt mit exakt derselben <code>group_id</code> (<code>processing_group</code>) an meinem Kafka-Cluster angemeldet haben.</p>
+<p><img alt="3 data processor" src="images/3-dataprocessors.png"></p>
+<h3 class="atx" id="meine-auswertung-und-der-beweis-fur-das-rebalancing">Meine Auswertung und der Beweis für das Rebalancing</h3>
+<p>Um nun live zu überprüfen, wie mein Kafka-Cluster auf die neu hinzugekommenen Consumer reagiert hat, habe ich das offizielle Kafka-CLI-Tool direkt auf dem Broker ausgeführt:
+<code>docker compose exec kafka1 kafka-consumer-groups --bootstrap-server kafka1:9092 --describe --group processing_group</code></p>
+<p><img alt="Kafka Consumer" src="images/DeepDive_ConsumerGroups.png"></p>
+<p><strong>Wie ich diese Ergebnisse interpretiere:</strong>
+Der abgebildete Output liefert mir den eindeutigen und sichtbaren Beweis für das funktionierende Rebalancing meiner Consumer Group:</p>
+<ul>
+<li><strong>PARTITION:</strong> Ich sehe, dass das Topic korrekt die Partitionen 0, 1 und 2 besitzt.</li>
+<li><strong>HOST / CONSUMER-ID:</strong> Ich kann drei verschiedene IP-Adressen (z. B. <code>/172.18.0.10</code>, <code>/172.18.0.11</code>, <code>/172.18.0.8</code>) und drei dazu passende, eindeutige IDs erkennen. Das bestätigt mir erfolgreich, dass meine drei getrennten Docker-Container aktiv arbeiten.</li>
+<li><strong>Zuweisung:</strong> Das Resultat ist grossartig: Kafka hat meine Last perfekt aufgeteilt. Mein Consumer A liest exklusiv Partition 2, Consumer B liest exklusiv Partition 0 und mein Consumer C liest Partition 1. </li>
+<li><strong>LAG:</strong> Der Lag (also die Anzahl der Nachrichten, die momentan noch auf Verarbeitung warten) ist bei allen meinen Consumern minimal (nur 0-2). Das beweist mir abschliessend, dass meine Lastverteilung extrem effizient funktioniert und die erzeugten Datenströme wirklich in Echtzeit abgearbeitet werden.</li>
+</ul>
+<h3 class="atx" id="mein-fazit-1">Mein Fazit</h3>
+<p>Durch diesen Deep Dive konnte ich am eigenen System sehen, dass Consumer Groups ein extrem mächtiges Werkzeug zur horizontalen Skalierung sind. 
+Wenn ich für zukünftige Ausbaustufen meiner Schul-Simulation die Anzahl der Räume von derzeit 10 auf beispielsweise 10.000 massiv erhöhen würde, würde mein einzelner <code>data-processor</code> diese Datenmenge vermutlich nicht mehr rechtzeitig schaffen (mein "Lag" würde exponentiell steigen). </p>
+<p>Dank der Consumer Groups kann ich in so einem Fall ohne eine einzige Code-Änderung einfach weitere Container starten (z.B. per <code>--scale</code>). Kafka führt dann wie beobachtet automatisch ein "Rebalancing" durch und verteilt die Partitionen fair auf die neuen Container.
+<strong>Eine Limitierung, die ich dabei beachtet habe:</strong> Die maximale Anzahl an effektiven Consumern in meiner Gruppe ist exakt gleich der Anzahl der Partitionen. Hätte ich mein System direkt mit einem vierten Container skaliert, wäre dieser Container in meinem aktuellen Setup "Idle" (bzw. arbeitslos) geblieben, da ich für dieses Topic nur 3 Partitionen eingerichtet habe. Aus diesem praktischen Test erkenne ich, warum die initial gewählte Partitionsanzahl (hier 3) ein extrem wichtiges und zukunftsweisendes Design-Kriterium beim Setup eines jeden Kafka-Clusters ist.</p>
+<h2 class="atx" id="deep-dive-3-bonus-offsets-und-reprocessing">Deep Dive 3 (Bonus): Offsets und Reprocessing</h2>
+<p><strong>Fragestellung:</strong> Wie speichert Kafka den Fortschritt von Consumern und wie kann man alte Daten gezielt neu verarbeiten (Reprocessing)?</p>
+<p><strong>Einleitung:</strong>
+Im Gegensatz zu traditionellen Message Queues, bei denen Nachrichten nach dem Konsumieren gelöscht werden, speichert Kafka Daten persistent als Log. Ein Consumer merkt sich lediglich seine aktuelle Leseposition, den sogenannten <strong>Offset</strong>. 
+Dieses Architekturmuster ermöglicht "Time Travel": Wenn beispielsweise ein Fehler in der Anreicherungslogik unseres <code>data-processor</code> entdeckt und behoben wird, können wir den Offset gezielt zurücksetzen, um historische Daten mit der neuen, korrigierten Logik erneut zu verarbeiten.</p>
+<h3 class="atx" id="das-reprocessing-experiment">Das Reprocessing-Experiment</h3>
+<p>Um ein Reprocessing zu erzwingen, wurde die Consumer Group des Processing Consumers manuell manipuliert.</p>
+<p><strong>Schritt 1: Consumer isolieren</strong>
+Ein Offset-Reset ist nur möglich, wenn kein Consumer aktiv liest. Daher wurde der Service temporär gestoppt:
+<code>docker compose up -d --scale data-processor=0</code></p>
+<p><strong>Schritt 2: Offset Reset erzwingen</strong>
+Über das Kafka-CLI-Tool wurde der Offset für das Topic <code>room_environment_mp</code> auf den frühestmöglichen Zeitpunkt zurückgesetzt (<code>--to-earliest</code>):
+<code>docker compose exec kafka1 kafka-consumer-groups --bootstrap-server kafka1:9092 --group processing_group --topic room_environment_mp --reset-offsets --to-earliest --execute</code></p>
+<p><img alt="Schritt 2 Deep Dive 3" src="images/deepdive3_schritt2.png"></p>
+<h3 class="atx" id="auswertung-der-andquotlagandquot-als-indikator">Auswertung: Der "Lag" als Indikator</h3>
+<p>Unmittelbar nach dem Zurücksetzen wurde der Status der Consumer Group abgefragt, um die Auswirkungen zu verifizieren:</p>
+<h2 class="setext" id="lag-anezeigen"><img alt="LAG anezeigen" src="images/deepdive3_schritt2.5_LAG-ansicht.png"></h2>
+<p><img alt="Schritt 3 Deep Dive 3" src="images/deepdive3_schritt3.png"></p>
+<p><strong>Interpretation der Ergebnisse:</strong>
+Der Output zeigt eindrücklich das Prinzip von Offsets in Kafka:</p>
+<ul>
+<li><strong>CURRENT-OFFSET:</strong> Wurde auf <code>0</code> (bzw. den Startwert der Retention) zurückgesetzt. Das ist die Position, an der die Consumer Group weiterlesen wird.</li>
+<li><strong>LOG-END-OFFSET:</strong> Bleibt hoch, da die eigentlichen Daten im Topic durch den Reset nicht gelöscht oder angetastet wurden.</li>
+<li><strong>LAG:</strong> Der Lag repräsentiert die Differenz (Rückstand). Er ist nun massiv angestiegen, was bedeutet, dass tausende Nachrichten auf die erneute Verarbeitung warten.</li>
+</ul>
+<p>Als der <code>data-processor</code> anschliessend wieder auf eine Instanz hochskaliert wurde (<code>--scale data-processor=1</code>), verarbeitete er den gesamten Lag in Höchstgeschwindigkeit, bis er wieder bei den Echtzeit-Daten (Lag ~ 0) ankam.</p>
+<h3 class="atx" id="kurzes-fazit-or-zweites-experiment">kurzes Fazit | zweites Experiment</h3>
+<p>Das zeigt mir das es die messages die im LAG sehr schnell wieder bearbeitet hat nachdem ich den <code>data-processors</code> wieder gestartet habe. Dies könnte hilfreich sein wenn man später für die Schule ein Machine-Learning-Modell entwickeln will, das Muster für schelchte Luftqualität besser erkennt, kann man einfach eine neue Consumer Group erstellen (die bei Offset 0 startet) und das Modell mit allen historischen Sensordatne der letzte Monate trainieren. </p>
+<p>Aber ich will irgendwie noch eine Parktische Anwendung sehen. Zum Beispiel mit dem <code>data-sink</code>. Wenn ich das richtig verstanden habe, sollte somit auch möglich sein die <code>.csv</code> Dateien "wiederherzustellen".</p>
+<p>Dieses Experiment versuchen ich nun:</p>
+<p>Zuerst stoppe ich den <code>data-sink</code> container mit:</p>
+<p><code>docker compose stop data-sink</code></p>
+<p>Und zugleich lösche ich die alten Daten von <code>data</code>.</p>
+<p><code>rm data/alerts_log.csv</code> und <code>rm data/temperature_log.csv</code></p>
+<p><img alt="Zweites Experiment Deep Dive 2_3" src="images/deepdive4_schritt1.png"></p>
+<p>Und nun muss ich auch die Offsets von <code>Alerts</code> und <code>Temperature</code> zurücksetzen. Dass kann ich mit diesen Befehlen ausführen:</p>
+<p><code>docker compose exec kafka1 kafka-consumer-groups --bootstrap-server kafka1:9092 --group sink_alerts_group_mp --topic room_alerts_mp --reset-offsets --to-earliest --execute</code></p>
+<p><code>docker compose exec kafka1 kafka-consumer-groups --bootstrap-server kafka1:9092 --group sink_temp_group_mp --topic room_temperature_mp --reset-offsets --to-earliest --execute</code></p>
+<p>und die Offset sind wieder zurückgesetzt:</p>
+<p><img alt="Offset zurücksetzen" src="images/deepdive4_schritt2.png"></p>
+<p>Nun starte ich den <code>data-sink</code> Container wieder neu. Und man sieht mit dem Befehl <code>wc -l data/temperature_log.csv</code> (wordcount lines) sehr schnell als Beweis wie die Zahl der Wörter in die Höhe schiesst.</p>
+<p><img alt="Data Sink restart" src="images/deepdive4_schritt3.png"></p>
+<p>Man sieht sofort nach dem Neustart des <code>data-sink</code> Containers begannen die Consumer, den massiven Lag abzuarbeiten.</p>
+<p>Mit diesem Experiment habe ich eindrücklich bewiesen, dass Kafka nicht nur ein Nachrichtentransporter ist, sondern als robuste, persistente Event-Source-Datenbank agieren kann. </p>
+<hr>
+<h1 class="atx" id="part-3-communication-patterns">Part 3: Communication Patterns</h1>
+<p>Bevor wir uns die Vergleiche ansehen versuche ich kurz die Unterschiede grob zu erklären.</p>
+<h2 class="atx" id="vergleich-der-kommunikationsmuster-kafka-vs-rabbitmq"><strong>Vergleich der Kommunikationsmuster (Kafka vs. RabbitMQ)</strong></h2>
+<p>Beide Systeme agieren als Nachrichten-Broker und denoch basieren sie auf fundamental unterschiedlichen Paradigmen:</p>
+<h3 class="atx" id="architektur-paradigma"><strong>Architektur-Paradigma:</strong></h3>
+<ul>
+<li><p><strong>Kafka (Event Streaming Platform):</strong> Kafka nutzt ein <strong>Log-basiertes</strong> Paradigma. Man nennt es auch "Dumb Broker / Smart Consumer". Nachrichten werden als unverändliche Events sequenziell auf die Festplatte geschrieben (in Partitionen). Der Broker merkt sich nicht welche Nachricht gelesen wurde, stattdessen verwaltet der Konsument seinen eigenen Lese-Fortschritt (Offset).</p>
+</li>
+<li><p><strong>RabbitMQ (Message Broker)</strong>: RabbitMQ nutzt ein tradtionelles <strong>Queue-basiertes</strong> Paradigma. Es ist sogesagt der Gegenteil von Kafka "Smart Broker / Dumb Consumer". Der Broker merkt sich den Status jeder Nachricht. Wenn ein Konsument eine Nachricht liest und bestätigt (Ack), wird diese standardmässig gelöscht.</p>
+</li>
+</ul>
+<h3 class="atx" id="routing"><strong>Routing</strong>:</h3>
+<ul>
+<li><p><strong>Kafka</strong>: Ziemlich rudimentär. Man sendet an ein Topic und Nachrichten werden anhand eines Keys auf Partitionen verteilt.</p>
+</li>
+<li><p><strong>RabbitMQ</strong>: Sehr mächtig. Es nutzt das AMQP-Protokoll<sup>*</sup> mit exchanges und Bindings. Nachrichten können nach exakten Mustern (Direct), Themen oder an alle verteilt werden, bevor sie in der Queue landen.</p>
+</li>
+</ul>
+<p><small>* Advanced Message Queuing Protocol, man kann sich das wie ein Paketpost vorstellen: <br> Sender (Produzent) -&gt; Postamt (Broker/RabbitMQ) -&gt; Empfänger (Konsument)</small></p>
+<h3 class="atx" id="vorteile--nachteile"><strong>Vorteile / Nachteile</strong>:</h3>
+<ul>
+<li><p>Kafka Vorteil: Persistent und "Time-Travel". Mann kann alte Events jederzeit neu abspielen (wie in Deep Dive gezeigt bei Aufgabe 2)</p>
+</li>
+<li><p>RabbitMQ Vorteil: Flexibles Routing und exzellente Unterstützung für das klassische "Worker-Queue"-Muster (Competing Consumers).</p>
+</li>
+<li><p>Kafka Nachteil: Komplexer im Setup und in der Skalierung (limitiert durch die Anzahl der Partitionen).</p>
+</li>
+<li><p>RabbitMQ Nachteil: Nicht für die dauerhafte Speicherung historischer Daten gedacht.</p>
+</li>
+</ul>
+<h3 class="atx" id="bekannte-probleme-und-deren-mitigation"><strong>Bekannte Probleme und deren Mitigation</strong></h3>
+<p>Beide Systeme haben unter hoher Last spezifische Schwachstellen:</p>
+<ul>
+<li><p><strong>RabbitMQ: Queue Buildup &amp; OOM (Out of Memory)</strong></p>
+</li>
+<li><p>Problem: Wenn die Data Sinks (Konsumenten) langsamer schreiben als die Generatoren produzieren, stauen sich die Nachrichten in der Queue. Da RabbitMQ versucht, Queues im RAM zu halten (für maximale Geschwindigkeit), kann dies den Arbeitsspeicher des Servers sprengen und den Broker zum Absturz bringen.</p>
+</li>
+<li><p>Mitigation: Nutzung von "Lazy Queues" (die Nachrichten direkt auf die Disk schreiben) oder das Setzen einer TTL (Time-To-Live) mit einer "Dead Letter Exchange" (DLX), um unlesbare Nachrichten auszusortieren, bevor sie das System überlasten.</p>
+</li>
+<li><p><strong>Kafka: Rebalancing Storms &amp; Head-of-Line Blocking</strong></p>
+</li>
+<li><p>Problem: Wenn in einer Consumer Group (wie bei der Skalierung im Deep Dive 2) ständig Instanzen hoch- und runterfahren, stoppt Kafka kurzzeitig die Verarbeitung, um die Partitionen neu zuzuweisen. Zudem blockiert eine fehlerhafte Nachricht in einer Partition alle nachfolgenden Nachrichten in derselben Partition.</p>
+</li>
+<li><p>Mitigation: Erhöhung von Timeouts (session.timeout.ms), um unnötige Rebalances zu vermeiden, und Implementierung von isolierten "Dead Letter Topics" in der Applikationslogik für fehlerhafte Nachrichten.</p>
+</li>
+</ul>
+<h3 class="atx" id="skalierbarkeit-herausforderungen-beider-ansatze"><strong>Skalierbarkeit: Herausforderungen beider Ansätze</strong></h3>
+<ul>
+<li><p><strong>Kafka (Skalierung durch Partitionen):</strong></p>
+</li>
+<li><p>Die Skalierung ist vertikal an das Topic-Design gebunden. Wenn ein Topic 3 Partitionen hat, können maximal 3 Konsumenten in einer Consumer Group aktiv gleichzeitig Daten verarbeiten. Führt man einen 4. Konsumenten hinzu, bleibt dieser untätig (Idle). Um weiter zu skalieren, müssen die Partitionen im laufenden Betrieb erhöht werden, was den Message-Key-Hash (wie in Deep Dive 1 analysiert) brechen kann.</p>
+</li>
+<li><p><strong>RabbitMQ (Skalierung durch Competing Consumers):</strong></p>
+</li>
+<li><p>Hier ist die Skalierung der Konsumenten beinahe unbegrenzt. Man kann problemlos 50 Worker-Container starten, die alle aus derselben room_environment_mp-Queue lesen. RabbitMQ verteilt die Nachrichten per Round-Robin.</p>
+</li>
+<li><p>Herausforderung: Der Flaschenhals ist die Queue selbst. Eine Standard-Queue lebt nur auf einem einzigen Broker-Knoten. Wenn dieser Knoten ausfällt, ist die Queue weg. Dies muss durch "Quorum Queues" mitigiert werden, die über mehrere Nodes repliziert werden, was wiederum massiv Netzwerkbandbreite kostet.</p>
+</li>
+</ul>
+<h2 class="atx" id="experiment-skalierbarkeit-in-der-praxis">Experiment: Skalierbarkeit in der Praxis</h2>
+<p>Um die theoretischen Unterschiede praktisch zu veranschaulichen, haben wir das System mit 5 Prozessoren getestet:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Consumer</th>
+<th align="center">Kafka (3 Partitionen)</th>
+<th align="center">RabbitMQ (1 Queue)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>processor-1</strong></td>
+<td align="center">✅ Active</td>
+<td align="center">✅ Active</td>
+</tr>
+<tr>
+<td align="left"><strong>processor-2</strong></td>
+<td align="center">✅ Active</td>
+<td align="center">✅ Active</td>
+</tr>
+<tr>
+<td align="left"><strong>processor-3</strong></td>
+<td align="center">✅ Active</td>
+<td align="center">✅ Active</td>
+</tr>
+<tr>
+<td align="left"><strong>processor-4</strong></td>
+<td align="center">❌ Idle (wartet)</td>
+<td align="center">✅ Active</td>
+</tr>
+<tr>
+<td align="left"><strong>processor-5</strong></td>
+<td align="center">❌ Idle (wartet)</td>
+<td align="center">✅ Active</td>
+</tr>
+</tbody></table>
+<br>
+
+<pre><code class="fenced-code-block language-text">┌─────────────────────────────────────────────────────────────────────────────┐
+│                        SCALABILITY COMPARISON                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  KAFKA                                    RABBITMQ                          │
+│  ══════                                   ═════════                         │
+│  ┌─────────────┐                          ┌─────────────┐                   │
+│  │   Topic     │                          │   Queue     │                   │
+│  │ room_env_mp │                          │ room_env_mp │                   │
+│  │ Part 0      │◄──── consumer-1          │             │◄──── consumer-1   │
+│  │ Part 1      │◄──── consumer-2          │  Messages   │◄──── consumer-2   │
+│  │ Part 2      │◄──── consumer-3          │  Round-     │◄──── consumer-3   │
+│  │             │     (idle) consumer-4 ───┼─ Robin ─────│◄──── consumer-4   │
+│  └─────────────┘                          │             │◄──── consumer-5   │
+│       ▲                                   └─────────────┘                   │
+│       │                                         ▲                           │
+│   Producers                                  Producers                      │
+│                                                                             │
+│  MAX ACTIVE CONSUMERS: 3 (partitions)     MAX ACTIVE CONSUMERS: ALL (N)     │
+└─────────────────────────────────────────────────────────────────────────────┘</code></pre>
+<blockquote>
+<p>↑ erstellt mit AI ↑</p>
+</blockquote>
+<p><strong>Beobachtung / Interpretation:</strong></p>
+<ul>
+<li><strong>Kafka</strong>: Die Skalierung ist durch die Anzahl Partitionen begrenzt. Mit <code>NUM_PARTITIONS=3</code> können maximal 3 Konsumenten aktiv arbeiten. Consumer 4 &amp; 5 bleiben im Leerlauf.</li>
+<li><strong>RabbitMQ</strong>: Alle 5 Consumer empfangen Nachrichten im Round-Robin-Verfahren. Solange Nachrichten in der Queue sind, bleiben alle Consumer aktiv beschäftigt.</li>
+</ul>
+<p><img alt="RabbitMQ scalability" src="images/task3_scalability.png"></p>
+<hr>
+<h1 class="atx" id="part-4-performance-analysis-and-evaluation-of-your-application">Part 4: Performance Analysis and Evaluation of your Application</h1>
+<p>Da ich mit zwei branches arbeite <code>main</code> für kafka und <code>rabbitmq</code> für RabbitMQ und da ich in Part 3 RabbitMQ implementiert habe Analysiere ich auch direkt gleich RabbitMQ. Zum die <code>producers</code> und <code>consumers</code>/<code>data-sink</code> profilen mit <a href="https://www.turing.com/kb/python-code-with-cprofile">cProfile</a>, muss ich alle Skripts umändern (<code>run_generators.py</code>, <code>processing_consumers.py</code>, <code>data_sink.py</code>) und natürlich auch das <code>Dockerfile</code> und <code>docker-compose-rmq.yml</code></p>
+<p>Hier sind die Änderunge die ich im Code gemacht habe dass es profilen kann und die <code>.prof</code> speichern kann.</p>
+<h2 class="atx" id="python-scripts">Python scripts</h2>
+<h3 class="atx" id="importe">Importe</h3>
+<pre><code class="fenced-code-block language-python"><span class="token keyword">import</span> cProfile
+<span class="token keyword">import</span> sys
+<span class="token keyword">import</span> signal
+<span class="token keyword">import</span> json
+<span class="token keyword">import</span> hashlib</code></pre>
+<p> <code>json</code> und <code>hashlib</code> habe ich benötigt für den bottleneck und <code>sys</code> und <code>signal</code> für einge Probleme die ich später erkläre.</p>
+<h3 class="atx" id="bottleneck">Bottleneck</h3>
+<pre><code class="fenced-code-block language-python">time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">)</span>              <span class="token comment"># 200ms künstliche Verzögerung</span>
+json_temp <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>message<span class="token punctuation">)</span>   <span class="token comment"># überflüssige Serialisierung (msgpack wäre effizienter)</span>
+json_temp <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>json_temp<span class="token punctuation">)</span> <span class="token comment"># überflüssige Deserialisierung</span>
+_ <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>sha256<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># CPU-intensive Hash-Berechnung</span></code></pre>
+<p>200ms sleep pro complex-Nachricht, JSON-Serialisierung anstelle des bereits verwendeten msgpack (da msgpack effizienter ist) und einen CPU-Overhead mit <code>sha256</code>. Diese drei Operationen simulieren typische Code-Level-Bottlenecks: I/O-Warten, ineffiziente Serialisierung und unnötige CPU-Arbeit.</p>
+<h3 class="atx" id="cprofile">cProfile</h3>
+<p>cProfile wird nun verwendet um zu sehen wie viel Zeit RabbitMQ-Aufrufe oder Datenverarbeitungen (json.dumps) benötigen. cProfile kann sich auch einfach vorstellen wie eine Stopuhr mit Notizbuch, dessen Aufgabe wäre es zu sehen wieso ein Programm langsam ist oder was genau darin passiert.</p>
+<pre><code class="fenced-code-block language-python">_profiler <span class="token operator">=</span> cProfile<span class="token punctuation">.</span>Profile<span class="token punctuation">(</span><span class="token punctuation">)</span>
+_profiler<span class="token punctuation">.</span>runctx<span class="token punctuation">(</span><span class="token string">"run_profiled()"</span><span class="token punctuation">,</span> <span class="token builtin">globals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">locals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+_profiler<span class="token punctuation">.</span>dump_stats<span class="token punctuation">(</span>_profiler_output<span class="token punctuation">)</span></code></pre>
+<h4 class="atx" id="run_generatorspy">run_generators.py</h4>
+<p>Die Funktion <code>run_profiled()</code> ruft die Producer-Funktionen direkt auf (nicht in Hintergrund-Threads), sodass cProfile alle Funktionsaufrufe erfassen kann, darunter <code>basic_publish</code>, <code>json.dumps</code>, <code>sha256</code> usw.</p>
+<p>Bottleneck mode: Wenn das Flag <code>--bottleneck</code> gesetzt ist, werden künstliche Verzögerungen hinzugefügt:</p>
+<ul>
+<li>time.sleep(0.2) - künstliche Verzögerung</li>
+<li>json.dumps() / json.loads() - überflüssige Serializierung</li>
+<li>hashlib.sha256() - kryptografischer Aufwand</li>
+</ul>
+<h4 class="atx" id="processing_consumerpy">processing_consumer.py</h4>
+<p>Verwendet das <code>enable()/disable()</code>-Muster für einen lang laufenden Consumer.</p>
+<pre><code class="fenced-code-block language-python"><span class="token keyword">try</span><span class="token punctuation">:</span>
+    start_processing_consumer<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">finally</span><span class="token punctuation">:</span>
+    _profiler<span class="token punctuation">.</span>disable<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    _profiler<span class="token punctuation">.</span>create_stats<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    _profiler<span class="token punctuation">.</span>dump_stats<span class="token punctuation">(</span>_profiler_output<span class="token punctuation">)</span></code></pre>
+<p>Signal-Handler: Fängt SIGTERM/SIGINT ab, schliesst die Pika-Verbindung, was in start_consuming() eine Ausnahme auslöst und den finally-Block aktiviert, um das Profil zu speichern.</p>
+<h3 class="atx" id="dockerfile">Dockerfile</h3>
+<p>Hier gab es keinen grossen Unterschied. Ich habe einfach <code>snakeviz</code> hinzugefügt.</p>
+<h3 class="atx" id="docker-compose">docker compose</h3>
+<p>Beim compose file habe ich die <code>/app/profiles</code> in allen services gemounted:</p>
+<pre><code class="fenced-code-block language-yaml"><span class="token key atrule">generators</span><span class="token punctuation">:</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> ./profiles<span class="token punctuation">:</span>/app/profiles
+
+<span class="token key atrule">processor</span><span class="token punctuation">:</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> ./profiles<span class="token punctuation">:</span>/app/profiles
+
+<span class="token key atrule">sinks</span><span class="token punctuation">:</span>
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+     <span class="token punctuation">-</span> ./profiles<span class="token punctuation">:</span>/app/profiles</code></pre>
+<p>und ich habe bei den commands (python ausführungs befehl) den flag <code>--profile</code> hinzugefügt.</p>
+<pre><code class="fenced-code-block language-yaml"><span class="token key atrule">generators</span><span class="token punctuation">:</span>
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> python run_generators.py <span class="token punctuation">-</span><span class="token punctuation">-</span>profile oder <span class="token punctuation">-</span><span class="token punctuation">-</span>bottleneck
+
+<span class="token key atrule">processor</span><span class="token punctuation">:</span>
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> python processing_consumer.py <span class="token punctuation">-</span><span class="token punctuation">-</span>profile
+
+<span class="token key atrule">sinks</span><span class="token punctuation">:</span>
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> python data_sink.py <span class="token punctuation">-</span><span class="token punctuation">-</span>profile</code></pre>
+<h2 class="atx" id="probleme">Probleme</h2>
+<p>Als ich das erste mal <code>cProfile</code> implementiert habe stiess ich auf einige Probleme. cProfile erfasst standardmässig nur Funktionsaufrufe im Hauptthread und unser code sah so aus:</p>
+<pre><code class="fenced-code-block language-python"><span class="token keyword">def</span> <span class="token function">start_all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Main thread creates background threads</span>
+    simple_thread <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>simple_producer_loop<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">(</span>sim<span class="token punctuation">,</span> <span class="token string">"room_temperature_mp"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    simple_thread<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># Main thread then sleeps for 3 minutes keeping container alive</span>
+    <span class="token keyword">while</span> <span class="token keyword">not</span> _shutdown_requested<span class="token punctuation">:</span>
+        time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>  <span class="token comment"># &lt;-- Main thread just sleeps!</span></code></pre>
+<ul>
+<li><strong>Nur</strong> <code>time.sleep</code> wird im Hauptthread aufgerufen</li>
+<li><strong>Keine</strong> Einblick in die tatsächlichen Produktionsvorgänge, die in Hintergrund-Threads ablaufen</li>
+</ul>
+<p><code>cProfile</code> funktioniert durch die Instrumentierung von Funktionsaufrufen. Wenn man <code>cProfile.runtctx()</code> aufruft, wird alles profiliert was im <strong>aufrufenden Thread</strong> (Hauptthread) geschieht. Über <code>threading.Thread</code> gestartete Hindergrundthreads laufen unabhängig und ihre Aktivitäten werden hier nicht erfasst.</p>
+<p><img alt="cprofile visual proof" src="images/cprofile_error_proof.png"></p>
+<p>Ich habe auch nie irgendeine <code>.prof</code> Datei im <code>/profiles</code> Directory erhalten. Es konnte es nie speichern.</p>
+<h2 class="atx" id="losungsversuche">Lösungsversuche</h2>
+<h3 class="atx" id="versuch-1-hinzufugen-von-signal-handlers">Versuch 1: Hinzufügen von Signal-Handlers</h3>
+<blockquote>
+<p>Ein Signal-Handler ist eine spezielle Funktion in einem Programm, die auf bestimmte Ereignisse (Signale) vom Betriebssystem reagiert. Man kann sie sich wie einen „Notfall-Plan“ vorstellen, der ausgeführt wird, wenn das Programm von aussen unterbrochen wird.</p>
+</blockquote>
+<p>Ich habe Signal-Handler hinzugefügt, um <code>SIGTERM</code> abzufangen und das Profil bei einem ordnungsgemässen Herunterfahren zu speichern. Dadurch habe ich sichergestellt, dass das Profil gespeichert wurde, wenn der Container gestoppt wurde.</p>
+<p><strong>Problem gelöst:</strong> Das Profil wird beim Stoppen des Containers korrekt gespeichert.</p>
+<p><strong>Problem nicht gelöst:</strong> Das Profil zeigte weiterhin nur <code>time.sleep</code> an, da cProfile nach wie vor nur den Hauptthread erfasste.</p>
+<h3 class="atx" id="versuch-2-analyse-des-infinite-loop">Versuch 2: Analyse des Infinite Loop</h3>
+<p>Ich habe auch versucht <code>cProfile.Profile()</code> mit manuellen enable/disable.</p>
+<pre><code class="fenced-code-block language-python">_profiler <span class="token operator">=</span> cProfile<span class="token punctuation">.</span>Profile<span class="token punctuation">(</span><span class="token punctuation">)</span>
+_profiler<span class="token punctuation">.</span>enable<span class="token punctuation">(</span><span class="token punctuation">)</span>
+start_all<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># Infinite loop in background threads</span>
+_profiler<span class="token punctuation">.</span>disable<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<p>Aber auch hier das gleiche Problem, der Hauptthread schläft nur.</p>
+<h3 class="atx" id="die-losung">Die Lösung</h3>
+<p>Als ich mit AI einen Lösungsansatz versuchte, schlug es mir vor das ich Anstatt eine Endlosschleife profiliere, sollte ich eine feste Anzahl von Übermittlungen profilieren die auf natürliche Weise abgeschlossen werden. Also habe ich am im Code angegeben wie viele Nachrichten es Übermitteln soll:</p>
+<pre><code class="fenced-code-block language-python"><span class="token keyword">def</span> <span class="token function">run_profiled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    simple_producer_work<span class="token punctuation">(</span>sim<span class="token punctuation">,</span> <span class="token string">"room_temperature_mp"</span><span class="token punctuation">,</span> SIMPLE_COUNT<span class="token punctuation">)</span>   <span class="token comment"># direct call</span>
+    complex_producer_work<span class="token punctuation">(</span>sim<span class="token punctuation">,</span> <span class="token string">"room_environment_mp"</span><span class="token punctuation">,</span> COMPLEX_COUNT<span class="token punctuation">)</span>  <span class="token comment"># direct call</span></code></pre>
+<p>Durch den <strong>direkten</strong> Aufruf der Produzentenfunktionen (nicht in einem Thread) konnte cProfile alle Funktionsaufrufe erfassen:</p>
+<pre><code class="fenced-code-block language-python">_profiler<span class="token punctuation">.</span>runctx<span class="token punctuation">(</span><span class="token string">"run_profiled()"</span><span class="token punctuation">,</span> <span class="token builtin">globals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">locals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> filename<span class="token operator">=</span><span class="token string">"output.prof"</span><span class="token punctuation">)</span></code></pre>
+<h3 class="atx" id="warum-dies-funktioniert-hat">Warum dies funktioniert hat</h3>
+<ol>
+<li><strong>Kein Multithreading</strong>: Der Producer-Prozess wird im Hauptthread ausgeführt</li>
+<li><strong>Natürlicher Abschluss</strong>: Nach dem Senden von 65 Nachrichten wird die Funktion auf natürliche Weise beendet</li>
+<li><strong>Vollständige Transparenz</strong>: Alle Funktionsaufrufe von <code>basic_publish</code> bis <code>json.dumps</code> werden erfasst</li>
+<li><strong>Präzise Zeitmessung</strong>: cProfile erfasst den vollständigen Aufrufgraphen</li>
+</ol>
+<h2 class="atx" id="performance-analyse">Performance Analyse</h2>
+<h3 class="atx" id="experiment-1---baseline">Experiment 1 - Baseline</h3>
+<pre><code class="fenced-code-block language-bash"><span class="token comment"># alte daten löschen</span>
+<span class="token function">rm</span> -f data/*.csv
+<span class="token function">rm</span> -f profiles/*.prof
+
+<span class="token comment"># baseline (ohne --bottleneck flag)</span>
+<span class="token function">docker</span> compose -f docker-compose-rmq.yaml up --build -d
+
+<span class="token comment"># ca. 20 Sekunden warten (profile wird automatisch vervollständigt)</span>
+
+<span class="token comment"># logs überprüfen</span>
+<span class="token function">docker</span> logs rmq_generators</code></pre>
+<p><img alt="Experiment 1" src="images/part4_experiment_1_baseline.png"></p>
+<p><strong>SnakeViz</strong></p>
+<p><img alt="SnakeViz Preview from baseline" src="images/part4_experiment_1_baseline_preview.png"></p>
+<h3 class="atx" id="experiment-2---bottleneck-mit---bottleneck-flag">Experiment 2 - Bottleneck mit <code>--bottleneck</code> flag</h3>
+<p>Zuerst das flag im container angeben:</p>
+<pre><code class="fenced-code-block language-yaml"><span class="token key atrule">command</span><span class="token punctuation">:</span> python run_generators.py <span class="token punctuation">-</span><span class="token punctuation">-</span>profile <span class="token punctuation">-</span><span class="token punctuation">-</span>bottleneck</code></pre>
+<p>und den kompletten Services entfernen und neustarten.</p>
+<pre><code class="fenced-code-block language-bash"><span class="token function">docker</span> compose -f docker-compose-rmq.yaml down
+<span class="token function">docker</span> compose -f docker-compose-rmq.yaml up --build -d</code></pre>
+<p><img alt="Experiment 2" src="images/part4_experiment_2_bottleneck.png"></p>
+<p><strong>SnakeViz</strong></p>
+<p><img alt="Experiment 2" src="images/part4_experiment_2_bottleneck_preview.png"></p>
+<h2 class="atx" id="resultate-und-analyse">Resultate und Analyse</h2>
+<h3 class="atx" id="wiederholte-messungen-mean--stddev">Wiederholte Messungen (Mean + StdDev)</h3>
+<p>Um verlässliche Aussagen über die Performance zu machen, habe ich jedes Experiment 4-mal wiederholt. Die Resultate:</p>
+<p><strong>Producer — Short Test (~20s)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Konfiguration</th>
+<th>Run 1</th>
+<th>Run 2</th>
+<th>Run 3</th>
+<th>Run 4</th>
+<th>Mean</th>
+<th>StdDev</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Baseline</td>
+<td>20.378s</td>
+<td>20.400s</td>
+<td>20.370s</td>
+<td>20.375s</td>
+<td>20.381s</td>
+<td>0.013s</td>
+</tr>
+<tr>
+<td>Bottleneck</td>
+<td>23.461s</td>
+<td>23.425s</td>
+<td>23.443s</td>
+<td>23.462s</td>
+<td>23.448s</td>
+<td>0.017s</td>
+</tr>
+</tbody></table>
+<p><strong>Overhead durch Bottleneck: +15.0%</strong> (3.07s mehr pro 65 Nachrichten)</p>
+<p>Die sehr kleine Standardabweichung (0.013s bzw. 0.017s) zeigt, dass die Messungen reproduzierbar und stabil sind. Die Messungenauigkeit liegt bei unter 0.1%.</p>
+<p>Mit AI habe ich mir einen Visualisierungsscript erstellen lassen <code>visualize_profiles.py</code> und das ist die Übersicht:</p>
+<pre><code class="fenced-code-block language-bash"><span class="token operator">==</span><span class="token operator">=</span> PROFILING SUMMARY <span class="token operator">==</span><span class="token operator">=</span>
+Baseline producer runtime <span class="token punctuation">(</span>mean<span class="token punctuation">)</span>: <span class="token number">20</span>.381s
+Bottleneck producer runtime <span class="token punctuation">(</span>mean<span class="token punctuation">)</span>: <span class="token number">23</span>.448s
+Overhead: +15.0%</code></pre>
+<h3 class="atx" id="producer-top-3-functions">Producer Top-3 Functions</h3>
+<p>Die folgenden Tabellen zeigen die Top-3 Funktionen pro Experiment, sortiert nach kumulierter Zeit (cumtime). Die erste Tabelle zeigt die Anwendungsfunktionen (z.B. <code>complex_producer_work</code>), die zweite Tabelle zeigt die konkreten Hot-Spot-Funktionen (z.B. <code>time.sleep</code>, <code>json.dumps</code>).</p>
+<p><strong>Anwendungsfunktionen (cumtime)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Experiment</th>
+<th>Runtime</th>
+<th>Function 1 (ncalls, cumtime, %)</th>
+<th>Function 2</th>
+<th>Function 3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Short Baseline (mean)</td>
+<td>20.4s</td>
+<td>run_profiled (1, 20.4s, 100%)</td>
+<td>complex_producer_work (1, 15.1s, 74%)</td>
+<td>simple_producer_work (1, 5.3s, 26%)</td>
+</tr>
+<tr>
+<td>Short Bottleneck (mean)</td>
+<td>23.4s</td>
+<td>run_profiled (1, 23.4s, 100%)</td>
+<td>complex_producer_work (1, 18.2s, 77%)</td>
+<td>simple_producer_work (1, 5.3s, 23%)</td>
+</tr>
+<tr>
+<td>10min Baseline</td>
+<td>618.1s</td>
+<td>run_profiled (1, 618.1s, 100%)</td>
+<td>simple_producer_work (1, 316.5s, 51%)</td>
+<td>complex_producer_work (1, 301.6s, 49%)</td>
+</tr>
+<tr>
+<td>10min Bottleneck</td>
+<td>679.1s</td>
+<td>run_profiled (1, 679.1s, 100%)</td>
+<td>complex_producer_work (1, 362.7s, 53%)</td>
+<td>simple_producer_work (1, 316.4s, 47%)</td>
+</tr>
+</tbody></table>
+<p><strong>Konkrete Hot-Spot-Funktionen (cumtime, über alle Runs)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>Baseline (Short, mean)</th>
+<th>Bottleneck (Short, mean)</th>
+<th>Bottleneck (10min)</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>time.sleep</td>
+<td>~20.3s (99.8%)</td>
+<td>~23.3s (99.3%)</td>
+<td>~676.0s (99.4%)</td>
+<td>Haupt-Zeitverbraucher in allen Runs</td>
+</tr>
+<tr>
+<td>basic_publish</td>
+<td>0.065s (0.3%)</td>
+<td>0.075s (0.3%)</td>
+<td>3.39s (0.5%)</td>
+<td>RabbitMQ-Nachricht senden</td>
+</tr>
+<tr>
+<td>json.dumps</td>
+<td>— (nicht aufgerufen)</td>
+<td>~0.003s (&lt;0.1%)</td>
+<td>~0.06s (&lt;0.1%)</td>
+<td>Nur im Bottleneck-Modus aktiv</td>
+</tr>
+<tr>
+<td>hashlib.sha256</td>
+<td>— (nicht aufgerufen)</td>
+<td>~0.001s (&lt;0.1%)</td>
+<td>~0.03s (&lt;0.1%)</td>
+<td>Nur im Bottleneck-Modus aktiv</td>
+</tr>
+<tr>
+<td>poll (pika)</td>
+<td>0.04s (0.2%)</td>
+<td>0.05s (0.2%)</td>
+<td>1.8s (0.3%)</td>
+<td>Pika-intern: Socket-Polling</td>
+</tr>
+</tbody></table>
+<p><strong>Analyse</strong>: <code>time.sleep</code> dominiert die Laufzeit (über 99%), da die Producer absichtlich zwischen Nachrichten warten (0.1s für simple, 1s für complex). Die eigentliche Arbeit (Nachricht bauen, serialisieren, senden) ist sehr effizient. Im Bottleneck-Modus kommt <code>json.dumps</code>/<code>json.loads</code> und <code>hashlib.sha256</code> dazu, aber ihr Zeitanteil ist vernachlässigbar — der Overhead kommt hauptsächlich vom zusätzlichen <code>time.sleep(0.2)</code> in <code>complex_producer_work</code>.</p>
+<h3 class="atx" id="consumersink-top-3-functions">Consumer/Sink Top-3 Functions</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Runtime</th>
+<th>Function 1 (ncalls, cumtime, %)</th>
+<th>Function 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Consumer Short</td>
+<td>54.7s</td>
+<td>start_processing_consumer (1, 54.72s, 100%)</td>
+<td>callback (15, 0.01s, 0%)</td>
+</tr>
+<tr>
+<td>Sink Short</td>
+<td>54.7s</td>
+<td>run_sinks (1, 54.71s, 100%)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Consumer 10min</td>
+<td>39.9s</td>
+<td>start_processing_consumer (1, 39.93s, 100%)</td>
+<td>callback (15, 0.015s, 0%)</td>
+</tr>
+</tbody></table>
+<p><strong>Consumer Pika-Interna (Short Test)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>ncalls</th>
+<th>cumtime</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>poll (pika)</td>
+<td>82</td>
+<td>54.704s</td>
+<td>Blocking-Wait auf neue Nachrichten</td>
+</tr>
+<tr>
+<td>_flush_output</td>
+<td>54</td>
+<td>54.704s</td>
+<td>Netzwerk-Flush</td>
+</tr>
+<tr>
+<td>start_consuming</td>
+<td>1</td>
+<td>54.7s</td>
+<td>Hauptschleife des Consumers</td>
+</tr>
+</tbody></table>
+<p><strong>Analyse</strong>: Der Consumer und Sink sind <strong>I/O-gebunden</strong> — fast 100% der Zeit wird in pika's <code>poll()</code> verbracht (blockierendes Warten auf neue Nachrichten). Die eigentliche <code>callback</code>-Funktion benötigt nur 0.01s (0.0%), was zeigt dass die Datenverarbeitung extrem effizient ist. Das ist ein typisches Pattern bei Message-Queue-Consumern: sie warten meiste auf Nachrichten und die Verarbeitung selbst ist vernachlässigbar.</p>
+<p>Bei SnakeViz sollte man die <code>hash</code> und <code>dumps</code> sehen, aber bei diesem kleinen Test von 20 Sekunden sieht man diese leider nicht. Also versuche ich den Test auch einmal mit 10 Minuten. Zum diese Zeit zu erreichen muss ich noch die Anzahl Messages ändern auf:</p>
+<ul>
+<li>Simple: 3000 msgs * 0.1s = 300s</li>
+<li>Complex: 300 msgs * 1.0s = 300s</li>
+<li>Total: 10 Minuten</li>
+</ul>
+<p>Und laufe das gleiche Experiment laufen.</p>
+<pre><code class="fenced-code-block language-bash"><span class="token operator">==</span><span class="token operator">=</span> PROFILING SUMMARY <span class="token punctuation">(</span>10min<span class="token punctuation">)</span> <span class="token operator">==</span><span class="token operator">=</span>
+Baseline producer runtime:  <span class="token number">618</span>.144s
+Bottleneck producer runtime: <span class="token number">679</span>.146s
+Overhead: +9.87%</code></pre>
+<p><strong>SnakeViz - Baseline</strong>
+<img alt="Experiment 2 - Baseline - Preview" src="images/part4_experiment2_baseline_preview.png"></p>
+<p><strong>SnakeViz - Bottleneck</strong>
+<img alt="Experiment 2 - Bottleneck - Preview" src="images/part4_experiment2_bottleneck_preview.png"></p>
+<h3 class="atx" id="bonus-4-code-level-bottleneck-mitigation">Bonus 4: Code-Level Bottleneck (Mitigation)</h3>
+<p>Für den Bonus habe ich einen Code-Level-Bottleneck im Producer erzeugt und anschliessend durch die Baseline-Version mitigiert.</p>
+<p><strong>Introduzierter Bottleneck</strong> (<code>run_generators.py:complex_producer_work()</code> mit <code>--bottleneck</code> Flag):</p>
+<ol>
+<li><strong><code>time.sleep(0.2)</code></strong> — 200ms künstliche Verzögerung pro complex-Nachricht</li>
+<li><strong><code>json.dumps()</code> + <code>json.loads()</code></strong> — Überflüssige Serialisierung/Deserialisierung. Die Nachricht wird mit msgpack serialisiert, aber im Bottleneck-Modus wird zusätzlich ein JSON-Roundtrip durchgeführt, der keine Funktion erfüllt.</li>
+<li><strong><code>hashlib.sha256(str(time.time()).encode()).hexdigest()</code></strong> — CPU-intensive kryptografische Hash-Berechnung, deren Ergebnis ignoriert wird (<code>_ = ...</code>).</li>
+</ol>
+<p><strong>Mitigation</strong>: Die Baseline-Version (ohne <code>--bottleneck</code> Flag) vermeidet alle drei Operationen:</p>
+<table>
+<thead>
+<tr>
+<th>Bottleneck-Quelle</th>
+<th>Baseline</th>
+<th>Bottleneck</th>
+<th>Auswirkung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>time.sleep(0.2)</td>
+<td>Nicht vorhanden</td>
+<td>+0.2s pro complex msg</td>
+<td>~3s Overhead bei 15 msgs</td>
+</tr>
+<tr>
+<td>json roundtrip</td>
+<td>Nicht vorhanden</td>
+<td>+~0.003s pro msg</td>
+<td>Vernachlässigbar</td>
+</tr>
+<tr>
+<td>sha256 hash</td>
+<td>Nicht vorhanden</td>
+<td>+~0.001s pro msg</td>
+<td>Vernachlässigbar</td>
+</tr>
+<tr>
+<td><strong>Gesamt-Overhead</strong></td>
+<td><strong>20.381s</strong></td>
+<td><strong>23.448s</strong></td>
+<td><strong>+15.0%</strong></td>
+</tr>
+</tbody></table>
+<p>Der Haupt-Overhead stammt vom <code>time.sleep(0.2)</code>, während <code>json.dumps</code> und <code>hashlib.sha256</code> bei dieser Nachrichtenrate vernachlässigbar sind. Bei höheren Nachrichtenraten würde die CPU-intensive <code>sha256</code>-Berechnung jedoch deutlich mehr ins Gewicht fallen.</p>
+<h1 class="atx" id="kafka---analisierung"><strong>Kafka - Analisierung</strong></h1>
+<p>Die gleiche cProfile-Infrastruktur wurde für Kafka angewendet. Der einzige Unterschied zum RabbitMQ-Setup ist die Kommunikation: anstelle von <code>pika basic_publish</code> verwendet Kafka <code>KafkaProducer.send()</code>, und anstelle von <code>pika poll()</code> verwendet der Consumer <code>KafkaConsumer.__next__()</code> / <code>_message_generator_v2()</code>.</p>
+<p>Das <code>--bottleneck</code> Flag wurde identisch implementiert (time.sleep(0.2), json roundtrip, sha256).</p>
+<h3 class="atx" id="wiederholte-messungen-mean--stddev-1">Wiederholte Messungen (Mean + StdDev)</h3>
+<p><strong>Kafka Producer — Short Test (~20s)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Konfiguration</th>
+<th>Run 1</th>
+<th>Run 2</th>
+<th>Run 3</th>
+<th>Run 4</th>
+<th>Mean</th>
+<th>StdDev</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Baseline</td>
+<td>20.482s</td>
+<td>20.395s</td>
+<td>20.512s</td>
+<td>20.398s</td>
+<td>20.447s</td>
+<td>0.059s</td>
+</tr>
+<tr>
+<td>Bottleneck</td>
+<td>23.466s</td>
+<td>23.425s</td>
+<td>23.434s</td>
+<td>23.469s</td>
+<td>23.449s</td>
+<td>0.022s</td>
+</tr>
+</tbody></table>
+<p><strong>Overhead durch Bottleneck: +14.7%</strong> (3.00s mehr pro 65 Nachrichten)</p>
+<p>Die Standardabweichung ist etwas grösser als bei RabbitMQ (0.059s vs 0.013s), was auf leichte Schwankungen beim Kafka-Metadaten-Caching hindeutet. Dennoch ist die Messung mit unter 0.3% sehr stabil.</p>
+<p><strong>SnakeViz - short baseline</strong></p>
+<p><img alt="image short test baseline" src="images/part4_experiment_kafka_short_baseline.png"></p>
+<p><strong>SnakeViz - short bottleneck</strong></p>
+<p><img alt="image short test bottleneck" src="images/part4_experiement_kafka_short_bottleneck.png"></p>
+<h3 class="atx" id="kafka-producer-top-3-functions">Kafka Producer Top-3 Functions</h3>
+<p><strong>Anwendungsfunktionen (cumtime)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Experiment</th>
+<th>Runtime</th>
+<th>Function 1 (ncalls, cumtime, %)</th>
+<th>Function 2</th>
+<th>Function 3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Short Baseline (mean)</td>
+<td>20.4s</td>
+<td>run_profiled (1, 20.4s, 100%)</td>
+<td>complex_producer_work (1, 15.1s, 74%)</td>
+<td>simple_producer_work (1, 5.3s, 26%)</td>
+</tr>
+<tr>
+<td>Short Bottleneck (mean)</td>
+<td>23.4s</td>
+<td>run_profiled (1, 23.4s, 100%)</td>
+<td>complex_producer_work (1, 18.1s, 77%)</td>
+<td>simple_producer_work (1, 5.3s, 23%)</td>
+</tr>
+<tr>
+<td>10min Baseline</td>
+<td>609.4s</td>
+<td>run_profiled (1, 609.4s, 100%)</td>
+<td>simple_producer_work (1, 308.5s, 51%)</td>
+<td>complex_producer_work (1, 300.9s, 49%)</td>
+</tr>
+<tr>
+<td>10min Bottleneck</td>
+<td>670.0s</td>
+<td>run_profiled (1, 670.0s, 100%)</td>
+<td>complex_producer_work (1, 361.7s, 54%)</td>
+<td>simple_producer_work (1, 308.3s, 46%)</td>
+</tr>
+</tbody></table>
+<p><strong>Konkrete Hot-Spot-Funktionen (cumtime)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>Baseline (Short, mean)</th>
+<th>Bottleneck (Short, mean)</th>
+<th>Bottleneck (10min)</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>time.sleep</td>
+<td>~20.3s (99.3%)</td>
+<td>~23.3s (99.2%)</td>
+<td>~666.0s (99.4%)</td>
+<td>Haupt-Zeitverbraucher (identisch wie RMQ)</td>
+</tr>
+<tr>
+<td>send (kafka)</td>
+<td>0.306s (1.5%)</td>
+<td>0.255s (1.1%)</td>
+<td>2.37s (0.4%)</td>
+<td>Kafka-Producer: Nachricht senden</td>
+</tr>
+<tr>
+<td>_wait_on_metadata</td>
+<td>0.268s (1.3%)</td>
+<td>0.225s (1.0%)</td>
+<td>0.40s (0.1%)</td>
+<td>Kafka-intern: Metadaten-Caching</td>
+</tr>
+<tr>
+<td>append (kafka)</td>
+<td>0.014s (0.1%)</td>
+<td>—</td>
+<td>0.80s (0.1%)</td>
+<td>Kafka-intern: Record Batch anhängen</td>
+</tr>
+<tr>
+<td>json.dumps</td>
+<td>—</td>
+<td>~0.003s (&lt;0.1%)</td>
+<td>~0.06s (&lt;0.1%)</td>
+<td>Nur im Bottleneck-Modus</td>
+</tr>
+<tr>
+<td>hashlib.sha256</td>
+<td>—</td>
+<td>~0.001s (&lt;0.1%)</td>
+<td>~0.03s (&lt;0.1%)</td>
+<td>Nur im Bottleneck-Modus</td>
+</tr>
+</tbody></table>
+<p><strong>Analyse</strong>: Wie bei RabbitMQ dominiert <code>time.sleep</code> die Laufzeit. Der bemerkenswerte Unterschied ist, dass Kafkas <code>send()</code> und <code>_wait_on_metadata()</code> zusammen ~2.5–3% der Kurzzeit beanspruchen, während RabbitMQs <code>basic_publish</code> nur ~0.3% benötigt. Das liegt daran, dass <code>KafkaProducer.send()</code> asynchron arbeitet aber beim ersten Aufruf Metadaten vom Broker abruft (Topic-Metadaten, Partitionszuordnung). Bei längeren Läufen (10min) fällt dieser Overhead auf 0.4%, da die Metadaten gecacht werden.</p>
+<h3 class="atx" id="kafka-consumersink-top-3-functions">Kafka Consumer/Sink Top-3 Functions</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Runtime</th>
+<th>Function 1 (ncalls, cumtime, %)</th>
+<th>Function 2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Consumer Short</td>
+<td>26.6s</td>
+<td>start_processing_consumer (1, 26.61s, 100%)</td>
+<td>signal_handler (1, 0.02s, 0%)</td>
+</tr>
+<tr>
+<td>Sink Short</td>
+<td>27.1s</td>
+<td>run_sinks (1, 27.07s, 100%)</td>
+<td>signal_handler (1, 0.24s, 1%)</td>
+</tr>
+<tr>
+<td>Consumer 10min</td>
+<td>677.0s</td>
+<td>start_processing_consumer (1, 677.03s, 100%)</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p><strong>Kafka Consumer-Interna (Short Test)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>ncalls</th>
+<th>cumtime</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>next</strong> (KafkaConsumer)</td>
+<td>16</td>
+<td>26.592s</td>
+<td>Iterator: nächste Nachricht holen</td>
+</tr>
+<tr>
+<td>_message_generator_v2</td>
+<td>31</td>
+<td>26.592s</td>
+<td>Interner Message-Generator</td>
+</tr>
+<tr>
+<td>poll (kafka)</td>
+<td>16</td>
+<td>26.592s</td>
+<td>Blocking-Poll auf neue Nachrichten</td>
+</tr>
+</tbody></table>
+<p><strong>Kafka Consumer-Interna (10min Test)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Funktion</th>
+<th>ncalls</th>
+<th>cumtime</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>next</strong> (KafkaConsumer)</td>
+<td>301</td>
+<td>676.954s</td>
+<td>Iterator: nächste Nachricht holen</td>
+</tr>
+<tr>
+<td>_message_generator_v2</td>
+<td>601</td>
+<td>676.952s</td>
+<td>Interner Message-Generator</td>
+</tr>
+<tr>
+<td>poll (kafka)</td>
+<td>301</td>
+<td>676.948s</td>
+<td>Blocking-Poll auf neue Nachrichten</td>
+</tr>
+</tbody></table>
+<p><strong>Analyse</strong>: Der Kafka-Consumer ist wie der RabbitMQ-Consumer <strong>I/O-gebunden</strong> — <code>poll()</code> dominiert mit fast 100% der Zeit. Die eigentliche Nachrichtenverarbeitung ist vernachlässigbar. Auffällig: Der Kafka Consumer im 10min-Test hat 677s Gesamtzeit und verarbeitete 301 Nachrichten, was zeigt dass er die meiste Zeit auf Nachrichten wartet (RabbitMQ im 10min-Test: 39.9s für nur 15 Nachrichten).</p>
+<h3 class="atx" id="10min-experiment">10min Experiment</h3>
+<pre><code class="fenced-code-block language-bash"><span class="token operator">==</span><span class="token operator">=</span> PROFILING SUMMARY <span class="token punctuation">(</span>10min<span class="token punctuation">)</span> <span class="token operator">==</span><span class="token operator">=</span>
+Kafka Baseline producer runtime:  <span class="token number">609</span>.439s
+Kafka Bottleneck producer runtime: <span class="token number">669</span>.954s
+Overhead: +9.93%</code></pre>
+<h2 class="atx" id="snakeviz-10min-baseline"><strong>SnakeViz 10min Baseline</strong></h2>
+<p><img alt="image 10min baseline" src="images/part4_experiment_kafka_long_baseline.png"></p>
+<h2 class="atx" id="snakeviz-10min-bottleneck"><strong>SnakeViz 10min Bottleneck</strong></h2>
+<p><img alt="image 10min bottleneck" src="images/part4_experiment_kafka_long_bottleneck.png"></p>
+<hr>
+<h2 class="atx" id="kafka-vs-rabbitmq--vergleich">Kafka vs RabbitMQ — Vergleich</h2>
+<h3 class="atx" id="producer-performance-short-test-65-nachrichten">Producer Performance (Short Test, ~65 Nachrichten)</h3>
+<table>
+<thead>
+<tr>
+<th>Metrik</th>
+<th>RabbitMQ</th>
+<th>Kafka</th>
+<th>Unterschied</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Baseline Mean</td>
+<td>20.381s</td>
+<td>20.447s</td>
+<td>+0.3%</td>
+</tr>
+<tr>
+<td>Baseline StdDev</td>
+<td>0.013s</td>
+<td>0.059s</td>
+<td>+0.046s</td>
+</tr>
+<tr>
+<td>Bottleneck Mean</td>
+<td>23.448s</td>
+<td>23.449s</td>
+<td>≈ 0%</td>
+</tr>
+<tr>
+<td>Bottleneck StdDev</td>
+<td>0.017s</td>
+<td>0.022s</td>
+<td>+0.005s</td>
+</tr>
+<tr>
+<td>Bottleneck Overhead</td>
+<td>+15.0%</td>
+<td>+14.7%</td>
+<td>-0.3%</td>
+</tr>
+</tbody></table>
+<h3 class="atx" id="producer-performance-10min-3300-nachrichten">Producer Performance (10min, 3300 Nachrichten)</h3>
+<table>
+<thead>
+<tr>
+<th>Metrik</th>
+<th>RabbitMQ</th>
+<th>Kafka</th>
+<th>Unterschied</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Baseline</td>
+<td>618.1s</td>
+<td>609.4s</td>
+<td><strong>-1.4%</strong> (Kafka schneller)</td>
+</tr>
+<tr>
+<td>Bottleneck</td>
+<td>679.1s</td>
+<td>670.0s</td>
+<td><strong>-1.3%</strong> (Kafka schneller)</td>
+</tr>
+<tr>
+<td>Overhead</td>
+<td>+9.87%</td>
+<td>+9.93%</td>
+<td>≈ gleich</td>
+</tr>
+</tbody></table>
+<h3 class="atx" id="nachrichtensende-overhead-ohne-sleep">Nachrichtensende-Overhead (ohne sleep)</h3>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Funktion</th>
+<th>Short Test (65 msgs)</th>
+<th>10min (3300 msgs)</th>
+<th>pro Nachricht</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RabbitMQ</td>
+<td>basic_publish</td>
+<td>0.065s (0.3%)</td>
+<td>3.39s (0.5%)</td>
+<td>~1.0ms</td>
+</tr>
+<tr>
+<td>Kafka</td>
+<td>send + metadata</td>
+<td>0.574s (2.8%)</td>
+<td>3.73s (0.6%)</td>
+<td>~8.8ms → 1.1ms</td>
+</tr>
+</tbody></table>
+<p><strong>Auswertung</strong>: Bei kurzen Tests ist Kafkas <code>send()</code> + <code>_wait_on_metadata()</code> deutlich teurer als RabbitMQs <code>basic_publish</code> (2.8% vs 0.3%), weil Kafka beim ersten Aufruf Topic-Metadaten und Partitionsinformationen vom Broker abruft. Bei längeren Läufen werden diese Metadaten gecacht und der pro-Nachrichten-Overhead sinkt auf ~1.1ms, was nahe bei RabbitMQs ~1.0ms liegt.</p>
+<h3 class="atx" id="consumer-performance">Consumer Performance</h3>
+<table>
+<thead>
+<tr>
+<th>Metrik</th>
+<th>RabbitMQ (Short)</th>
+<th>Kafka (Short)</th>
+<th>RabbitMQ (10min)</th>
+<th>Kafka (10min)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Gesamtzeit</td>
+<td>54.7s</td>
+<td>26.6s</td>
+<td>39.9s</td>
+<td>677.0s</td>
+</tr>
+<tr>
+<td>Nachrichten verarbeitet</td>
+<td>15</td>
+<td>16</td>
+<td>15</td>
+<td>301</td>
+</tr>
+<tr>
+<td>Blocking-Funktion</td>
+<td>pika poll (100%)</td>
+<td>kafka poll (100%)</td>
+<td>pika poll (100%)</td>
+<td>kafka poll (100%)</td>
+</tr>
+<tr>
+<td>Callback-Zeit</td>
+<td>0.01s</td>
+<td>~0s</td>
+<td>0.015s</td>
+<td>~0s</td>
+</tr>
+</tbody></table>
+<p><strong>Auswertung</strong>: Die Consumer-Verarbeitungszeit ist bei beiden Frameworks vernachlässigbar (&lt;0.1%). Der grosse Unterschied in der Gesamtzeit und Nachrichtenanzahl ist auf die Testarchitektur zurückzuführen: Im Kafka-10min-Test verarbeitete der Consumer 301 Nachrichten (entspricht der Producer-Rate), während der RabbitMQ-10min-Consumer nur 15 Nachrichten verarbeitete. Die consumerseitige Verarbeitungsleistung ist bei beiden Frameworks effizient.</p>
+<h3 class="atx" id="zusammenfassung">Zusammenfassung</h3>
+<ol>
+<li><p><strong>Producer-Geschwindigkeit</strong>: Kafka und RabbitMQ sind nahezu identisch in der Gesamtlaufzeit (+0.3% Unterschied). Der Bottleneck-Overhead ist bei beiden ~15% im Kurztest und ~10% im 10min-Test.</p>
+</li>
+<li><p><strong>Nachrichten-Send-Overhead</strong>: RabbitMQs <code>basic_publish</code> ist bei kurzen Tests ~4x schneller als Kafkas <code>send()</code> (0.3% vs 1.5%), da Kafka Metadaten abruft. Bei längeren Läufen gleicht sich dieser Unterschied aus (0.5% vs 0.6%).</p>
+</li>
+<li><p><strong>Stabilität</strong>: RabbitMQ ist leicht stabiler (StdDev 0.013s vs 0.059s), was an der einfacheren Architektur liegt (kein Metadaten-Caching).</p>
+</li>
+<li><p><strong>Code-Level-Bottleneck</strong>: Der <code>--bottleneck</code> Flag verhält sich bei beiden Frameworks identisch (+15% Overhead), da der Bottleneck im Anwendungscode liegt und nicht im Messaging-Framework.</p>
+</li>
+<li><p><strong>Consumer/Sink</strong>: Beide Consumer sind I/O-gebunden (&gt;99% Wartezeit). Die Wahl des Frameworks hat keinen Einfluss auf die Verarbeitungsleistung.</p>
+</li>
+</ol>
+<hr>
+<h1 class="atx" id="part-5-end-to-end-performance-analysis">Part 5: End-To-End Performance Analysis</h1>
+<p>Während ich bei Part 4 das Code-Level Profiling einzelner Komponenten überprüft habe, analysiere ich bei diesem Teil die Performance des <strong>gesamten Systems</strong> — von der Nachrichtenerzeugung beim Producer bis zum Eintreffen beim Data Sink. Im Fokus stehen End-to-End (E2E) Latenz, Durchsatz und Stabilität unter anhaltender Last.</p>
+<h2 class="atx" id="messinfrastruktur">Messinfrastruktur</h2>
+<h3 class="atx" id="e2e-latenz-messung">E2E Latenz-Messung</h3>
+<p>Um die E2E-Latenz messen zu können, habe in den Nachrichten ein <strong>Timestamp-Injection-Mechanismus</strong> eingebaut:</p>
+<ol>
+<li><p><strong>Producer-Seite:</strong> Jede Nachricht erhält ein Feld <code>e2e_send_ts</code> mit dem Sendezeitpunkt (<code>time.time()</code>) beim Erstellen der Nachricht in <code>message_builder.py</code>.</p>
+</li>
+<li><p><strong>Consumer-Seite (Processing Consumer):</strong> Beim Empfangen wird die Latenz Producer → Consumer berechnet und als <code>e2e_producer_to_consumer_ms</code> in die Nachricht eingefügt. Zudem wird ein <code>e2e_consumer_done_ts</code> gesetzt, wenn die Verarbeitung abgeschlossen ist.</p>
+</li>
+<li><p><strong>E2E Monitor:</strong> Ein separater Consumer (<code>e2e_monitor.py</code>) liest dieselben Topics und misst den Zeitpunkt des Eintreffens. Die Differenz zwischen <code>e2e_send_ts</code> und der Ankunftszeit im Monitor ergibt die <strong>gesamte E2E-Latenz</strong>.</p>
+</li>
+</ol>
+<p><strong>Pipeline-Aufschlüsselung:</strong></p>
+<pre><code class="fenced-code-block language-text">Producer ──→ [Kafka Broker] ──→ Processing Consumer ──→ [Kafka Broker] ──→ Data Sink / E2E Monitor
+
+  t0                                                                     t3
+  |──────── t1-t0: Producer→Consumer ────────|──── t3-t1: Consumer→Sink ─────|
+  |──────────────────── t3-t0: E2E Total ────────────────────────────────────|</code></pre>
+<blockquote>
+<p>↑ erstellt mit AI ↑</p>
+</blockquote>
+<h3 class="atx" id="durchsatz-messung">Durchsatz-Messung</h3>
+<p>Der E2E Monitor misst den Durchsatz in gleitenden Zeitfenstern (Standard: 10 Sekunden). Für jedes Fenster wird die Anzahl der empfangenen Nachrichten und die Rate (<code>msg/s</code>) in eine CSV-Datei geschrieben.</p>
+<h3 class="atx" id="stabilitats-analyse">Stabilitäts-Analyse</h3>
+<p>Für die Stabilitätsanalyse wird die Latenz über die gesamte Laufzeit in gleich grosse Buckets unterteilt. Der Durchschnitt jedes Buckets wird berechnet und die Drift zwischen dem ersten und letzten Bucket bestimmt:</p>
+<ul>
+<li><strong>&lt; 10% Drift:</strong> ✅ Stabil</li>
+<li><strong>10-20% Drift:</strong> ⚠ Moderate Drift</li>
+<li><strong>&gt; 20% Drift:</strong> ❌ Regression erkannt</li>
+</ul>
+<h3 class="atx" id="neue-dateien">Neue Dateien</h3>
+<table>
+<thead>
+<tr>
+<th>Datei</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>python-files/message_builder.py</code></td>
+<td>Erweitert mit <code>e2e_send_ts</code> Feld</td>
+</tr>
+<tr>
+<td><code>python-files/processing_consumer.py</code></td>
+<td>Erweitert mit <code>e2e_producer_to_consumer_ms</code> und <code>e2e_consumer_done_ts</code></td>
+</tr>
+<tr>
+<td><code>python-files/e2e_monitor.py</code></td>
+<td>Neuer Monitor-Consumer für E2E-Messungen</td>
+</tr>
+<tr>
+<td><code>docker-compose-e2e.yaml</code></td>
+<td>Docker Compose mit E2E Monitor Service</td>
+</tr>
+<tr>
+<td><code>analyze_e2e.py</code></td>
+<td>Analyse-Skript (Latenz, Durchsatz, Stabilität, Plots)</td>
+</tr>
+<tr>
+<td><code>run_e2e_experiment.sh</code></td>
+<td>Experiment-Runner für verschiedene Szenarien</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 class="atx" id="dateien-erklarungen">Dateien erklärungen</h2>
+<p>Hier werde ich die neuen Dateien kurz etwas erklären. Etwas mehr als in der Liste oben.</p>
+<h3 class="atx" id="docker-compose-e2eyaml">docker-compose-e2e.yaml</h3>
+<p>Ich habe einen neuen <code>e2e-monitor</code> Service hinzugefügt:</p>
+<pre><code class="fenced-code-block language-yaml">  <span class="token key atrule">e2e-monitor</span><span class="token punctuation">:</span>
+    <span class="token key atrule">build</span><span class="token punctuation">:</span>
+      <span class="token key atrule">context</span><span class="token punctuation">:</span> .
+      <span class="token key atrule">dockerfile</span><span class="token punctuation">:</span> Dockerfile
+    <span class="token key atrule">container_name</span><span class="token punctuation">:</span> e2e_monitor
+    <span class="token key atrule">restart</span><span class="token punctuation">:</span> on<span class="token punctuation">-</span>failure
+    <span class="token key atrule">depends_on</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> kafka1
+      <span class="token punctuation">-</span> data<span class="token punctuation">-</span>generator
+      <span class="token punctuation">-</span> data<span class="token punctuation">-</span>processor
+      <span class="token punctuation">-</span> data<span class="token punctuation">-</span>sink
+    <span class="token key atrule">command</span><span class="token punctuation">:</span> sh <span class="token punctuation">-</span>c "sleep 20 <span class="token important">&amp;&amp;</span> exec python e2e_monitor.py all"
+    <span class="token key atrule">environment</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> PYTHONUNBUFFERED=1
+      <span class="token punctuation">-</span> E2E_PUBLISH_INTERVAL=10
+      <span class="token punctuation">-</span> E2E_THROUGHPUT_WINDOW=10
+    <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> ./e2e_data<span class="token punctuation">:</span>/app/e2e_data</code></pre>
+<p>und überall die Flags <code>--profile/--bottleneck</code>und ungebrauchten Environments <code>PROFILE_SIMPLE_MSGS/PROFILE_COMPLEX_MSGS</code>gelöscht.</p>
+<h3 class="atx" id="run_generatorspy--processing_consumerspy--message_builderpy">run_generators.py / processing_consumers.py / message_builder.py</h3>
+<p>Bei den Python Dateien fasse ich mich kurz, denn ich finde es ist wichtiger die Resultate zu sehen und zu diskutieren als code. </p>
+<h4 class="atx" id="run_generatorspy-1">run_generators.py</h4>
+<p><code>frame</code>-Argument wurde bei <code>signal_handler</code> hinzugefügt. <code>num_messages</code> Entfernt für endlosen Loop. <code>sim_step_loop</code> Eingefügt für stille Simulationsschleifen. Diese berechnet die Simulationsschritte weiter.</p>
+<h3 class="atx" id="processing_consumerpy-1">processing_consumer.py</h3>
+<p>Aktuelle Zeit wurde hinzugefügt und das senden zu <code>e2e</code>.</p>
+<h3 class="atx" id="message_builderpy">message_builder.py</h3>
+<p><code>e2e_send_ts</code> wurde hinzugefügt.</p>
+<h3 class="atx" id="analyze_e2epy">analyze_e2e.py</h3>
+<p>Dieses Analysierungs Skript habe ich mit AI erstellt. Es dient hauptsächlich zur automatisierten Auswertung und Visualisierung.</p>
+<h4 class="atx" id="hauptfunktionen">Hauptfunktionen</h4>
+<ul>
+<li><strong>Latenz-Analyse:</strong> Berechnet durchschnittliche Latenzen, Standardabweichungen sowie wichtige Perzentile (P50, P90, P95, P99) für einfache und komplexe Nachrichten (<code>alerts</code>).</li>
+<li><strong>Durchsatz-Analyse:</strong> Ermittelt den durchschnittlichen, minimalen und maximalen Nachrichtendurchsatz (Messages per Second).</li>
+<li><strong>Pipeline-Breakdown:</strong> Schlüsselt die Gesamtlatenz in einzelne Segmente auf (z. B. <code>Producer → Consumer</code> vs. <code>Consumer → Sink</code>).</li>
+<li><strong>Stabilitätsanalyse (Drift Detection):</strong> Vergleicht die Latenzen der ersten 10 % der Nachrichten mit den letzten 10 %, um Performance-Einbrüche (Regressionen) oder Verzögerungen über die Zeit automatisch zu erkennen.</li>
+<li><strong>Automatisierte Visualisierung:</strong> Generiert bei installiertem <code>matplotlib</code> verschiedene PNG-Diagramme und speichert diese im Ordner <code>plots/</code>:<ul>
+<li>Latenz-Verlauf über Zeit (Scatter-Plot &amp; Rolling Average)</li>
+<li>Durchsatz-Verlauf über Zeit (Line-Chart)</li>
+<li>Pipeline-Breakdown (Bar-Chart)</li>
+</ul>
+</li>
+</ul>
+<h3 class="atx" id="bash-script-run_e2e_experimentsh">bash-script run_e2e_experiment.sh</h3>
+<p>Diesen <code>bash</code>-Skript habe ich mir auch mit AI erstellt damit ich das Experiment einfacher und automatisierter ausführen kann.</p>
+<h4 class="atx" id="hauptfunktionen-1">Hauptfunktionen</h4>
+<ul>
+<li><strong>Lebenszyklus-Management:</strong> Startet den gesamten Kafka- und Applikations-Stack via Docker Compose im Hintergrund und fährt ihn nach Testende sauber wieder herunter (Graceful Shutdown).</li>
+<li><strong>Infrastruktur-Setup:</strong> Erstellt bei Bedarf automatisch die benötigten Kafka-Topics (<code>room_temperature_mp</code>, <code>room_environment_mp</code>, <code>room_alerts_mp</code>) mit den passenden Partitionen im Cluster.</li>
+<li><strong>Datenbereinigung (<code>clean_data</code>):</strong> Löscht vor jedem Testlauf alte CSV-Dateien und Diagramme, um Messverfälschungen zu verhindern.</li>
+<li><strong>Dynamische Skalierung:</strong> Kann spezifische Container (wie den <code>data-processor</code>) während der Laufzeit hochskalieren, um das Verhalten des Systems unter veränderten Bedingungen zu testen.</li>
+<li><strong>Nahtlose Analyse-Integration:</strong> Führt am Ende der Erfassungsphase automatisch das Python-Skript (<code>analyze_e2e.py</code>) zur Datenvisualisierung aus.</li>
+</ul>
+<h4 class="atx" id="verfugbare-test-szenarien">Verfügbare Test-Szenarien</h4>
+<p>Das Skript bietet 5 vordefinierte Experimente, die über ein Kommandozeilenargument (1-5) ausgewählt werden können (Standard ist 2):</p>
+<ol>
+<li><strong>Kurz Test (~60s):</strong> Ein kurzer Sanity-Check, um zu prüfen, ob die Pipeline läuft und Daten generiert werden.</li>
+<li><strong>Standard test (~5 Min):</strong> Die reguläre E2E-Analyse für verlässliche Basis-Metriken (Baseline).</li>
+<li><strong>Dauerbelastung (~10 Min):</strong> Ein Dauertest zur Überprüfung der Systemstabilität und zur Erkennung von "Latency Drift" (schleichende Verzögerungen) unter anhaltender Last.</li>
+<li><strong>Stress test (~5 Min):</strong> Skaliert den <code>data-processor</code> auf 3 Instanzen, um das Systemverhalten bei paralleler Konsumierung (Consumer Scaling) zu evaluieren.</li>
+<li><strong>Vollständige Analyse (~15 Min):</strong> Ein umfassender 3-Phasen-Test. Erfasst erst die Baseline, skaliert dann die Consumer hoch und geht anschliessend wieder auf die Baseline zurück. Zwischendaten werden separat gesichert.</li>
+</ol>
+<p><strong>Experiment-Ausführer:</strong></p>
+<pre><code class="fenced-code-block language-bash">./run_e2e_experiment.sh <span class="token number">1</span>  <span class="token comment"># Kurz Test (~60s)</span>
+./run_e2e_experiment.sh <span class="token number">2</span>  <span class="token comment"># Standard Test (~5min)</span>
+./run_e2e_experiment.sh <span class="token number">3</span>  <span class="token comment"># Dauerbelastung (~10min)</span>
+./run_e2e_experiment.sh <span class="token number">4</span>  <span class="token comment"># Stress Test (3 Consumers, ~5min)</span>
+./run_e2e_experiment.sh <span class="token number">5</span>  <span class="token comment"># Vollständige Analyse (~15min, 3 aufeinanderfolgende Experimente)</span></code></pre>
+<h2 class="atx" id="experimente">Experimente</h2>
+<p>Alle drei Experimente wurden mit dem AI-unterstützten Automatisierungsskript als <strong>ein einziger durchgehender Lauf</strong> ausgeführt:</p>
+<pre><code class="fenced-code-block language-bash">./run_e2e_experiment.sh <span class="token number">5</span>   <span class="token comment"># Vollständige Analyse (~15min, 3 aufeinanderfolgende Experimente)</span></code></pre>
+<p>Dies startet den gesamten Stack, führt nacheinander drei 5-minütige Messphasen durch (Baseline → Skalierte Consumer → Zurück zur Baseline) und fährt den Stack am Ende sauber herunter. Die CSV-Daten zwischen den Experimenten werden separat gesichert (<code>plots/exp1_*.csv</code>, <code>plots/exp2_*.csv</code>), damit die Ergebnisse pro Experiment ausgewertet werden können. Am Ende führt das Skript automatisch <code>analyze_e2e.py</code> aus.</p>
+<h3 class="atx" id="experiment-1-baseline-e2e-latenz-5-minuten">Experiment 1: Baseline E2E-Latenz (5 Minuten)</h3>
+<p><strong>Ziel:</strong> Messen der E2E-Latenz unter normaler Last (1 Producer, 1 Consumer, 1 Sink), um eine Referenzbaseline zu etablieren.</p>
+<p><strong>Durchführung:</strong> Das Skript startet den gesamten Stack mit Standard-Konfiguration (1 <code>data-processor</code>, 1 <code>data-generator</code>, 1 <code>data-sink</code>) und sammelt 5 Minuten lang E2E-Messdaten. Danach werden die CSV-Dateien als <code>exp1_baseline/</code> gesichert, bevor der Stack heruntergefahren wird.</p>
+<p><strong>Gemessene Metriken (Experiment 1 — Baseline, 5 Minuten):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metrik</th>
+<th>room_temperature_mp (simple)</th>
+<th>room_alerts_mp (alerts)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Nachrichten analysiert</td>
+<td>3012</td>
+<td>308</td>
+</tr>
+<tr>
+<td>Avg E2E Latenz</td>
+<td>4.81 ms</td>
+<td>21.23 ms</td>
+</tr>
+<tr>
+<td>StdDev</td>
+<td>11.14 ms</td>
+<td>81.21 ms</td>
+</tr>
+<tr>
+<td>Min Latenz</td>
+<td>1.17 ms</td>
+<td>2.57 ms</td>
+</tr>
+<tr>
+<td>P50 Latenz</td>
+<td>3.87 ms</td>
+<td>6.12 ms</td>
+</tr>
+<tr>
+<td>P90 Latenz</td>
+<td>6.44 ms</td>
+<td>12.61 ms</td>
+</tr>
+<tr>
+<td>P95 Latenz</td>
+<td>7.52 ms</td>
+<td>23.86 ms</td>
+</tr>
+<tr>
+<td>P99 Latenz</td>
+<td>15.90 ms</td>
+<td>512.96 ms</td>
+</tr>
+<tr>
+<td>Max Latenz</td>
+<td>314.54 ms</td>
+<td>729.94 ms</td>
+</tr>
+<tr>
+<td>Durchsatz</td>
+<td>9.75 msg/s (±0.09)</td>
+<td>1.00 msg/s (±0.00)</td>
+</tr>
+</tbody></table>
+<p><strong>Pipeline-Aufschlüsselung (room_alerts_mp — Baseline):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Avg</th>
+<th>P50</th>
+<th>P99</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Producer → Consumer</td>
+<td>6.49 ms</td>
+<td>3.82 ms</td>
+<td>32.01 ms</td>
+</tr>
+<tr>
+<td>Consumer → Sink</td>
+<td>14.74 ms</td>
+<td>2.10 ms</td>
+<td>507.32 ms</td>
+</tr>
+<tr>
+<td>E2E Total</td>
+<td>21.23 ms</td>
+<td>6.12 ms</td>
+<td>512.96 ms</td>
+</tr>
+</tbody></table>
+<p>Die typische Latenz (P50) ist für beide Segmente sehr niedrig. Die hohen P99/Avg-Werte werden von wenigen Ausreissern dominiert — insbesondere im Consumer→Sink-Segment, was auf anfängliche Start-Effekte zurückzuführen ist.</p>
+<p><img alt="E2E Latenz Simple — Baseline" src="images/exp1_baseline_e2e_latency_simple.png">
+<img alt="E2E Latenz Alerts — Baseline" src="images/exp1_baseline_e2e_latency_alerts.png">
+<img alt="E2E Pipeline Breakdown — Baseline" src="images/exp1_baseline_e2e_pipeline_breakdown.png"></p>
+<h3 class="atx" id="experiment-2-skalierte-consumer--3-prozessoren-5-minuten">Experiment 2: Skalierte Consumer — 3 Prozessoren (5 Minuten)</h3>
+<p><strong>Ziel:</strong> Messen, ob sich die E2E-Latenz ändert, wenn der Processing Consumer auf 3 Instanzen skaliert wird (wie in Deep Dive 2).</p>
+<p><strong>Durchführung:</strong> Der Stack wird neu gestartet und der <code>data-processor</code> auf 3 Instanzen skaliert:</p>
+<pre><code class="fenced-code-block language-bash"><span class="token function">docker</span> compose -f docker-compose-e2e.yaml up -d --scale data-processor<span class="token operator">=</span><span class="token number">3</span></code></pre>
+<p>Es werden 5 Minuten Messdaten gesammelt und als <code>exp2_scaled/</code> gesichert. Dies löst ein Kafka Consumer Group Rebalancing aus — die 3 Partitionen werden auf die 3 Prozessoren aufgeteilt.</p>
+<p><strong>Gemessene Metriken (Experiment 2 — Skaliert, 5 Minuten):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metrik</th>
+<th>room_temperature_mp (simple)</th>
+<th>room_alerts_mp (alerts)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Nachrichten analysiert</td>
+<td>3022</td>
+<td>308</td>
+</tr>
+<tr>
+<td>Avg E2E Latenz</td>
+<td>4.26 ms</td>
+<td>21.60 ms</td>
+</tr>
+<tr>
+<td>P50 Latenz</td>
+<td>3.71 ms</td>
+<td>6.24 ms</td>
+</tr>
+<tr>
+<td>P90 Latenz</td>
+<td>6.31 ms</td>
+<td>9.48 ms</td>
+</tr>
+<tr>
+<td>P95 Latenz</td>
+<td>7.31 ms</td>
+<td>11.79 ms</td>
+</tr>
+<tr>
+<td>P99 Latenz</td>
+<td>10.57 ms</td>
+<td>266.37 ms</td>
+</tr>
+<tr>
+<td>Max Latenz</td>
+<td>111.38 ms</td>
+<td>2'651.95 ms</td>
+</tr>
+<tr>
+<td>Durchsatz</td>
+<td>9.78 msg/s (±0.04)</td>
+<td>1.00 msg/s (±0.01)</td>
+</tr>
+</tbody></table>
+<p><strong>Beobachtung:</strong> Die einfache Pipeline bleibt mit P50=3.71ms und P99=10.57ms sogar leicht besser als in der Baseline — die 3 Prozessoren teilen sich die Last effizient. Bei den Alerts führt das Consumer-Rebalancing jedoch zu massiven Ausreissern: Der Max-Wert springt auf 2.65s, da Nachrichten während des Rebalancing verzögert eintreffen. Die Stabilitätsanalyse zeigt einen negativen Drift von -95.2% bei Alerts, was paradox klingt, aber bedeutet, dass die anfänglichen Rebalancing-Spitzen (Avg 129.55ms im ersten Bucket) sich nach der Stabilisierung auf ~6ms einpendeln.</p>
+<p><img alt="E2E Latenz Simple — Skaliert" src="images/exp2_scaled_e2e_latency_simple.png">
+<img alt="E2E Latenz Alerts — Skaliert" src="images/exp2_scaled_e2e_latency_alerts.png"></p>
+<h3 class="atx" id="experiment-3-zuruck-zur-baseline--stabilitat-5-minuten">Experiment 3: Zurück zur Baseline — Stabilität (5 Minuten)</h3>
+<p><strong>Ziel:</strong> Nach dem Hochskalieren wieder auf 1 Prozessor zurückgehen und prüfen, ob sich die Latenz über die gesamte Laufzeit verschlechtert hat (Performance-Regression / Latency Drift).</p>
+<p><strong>Durchführung:</strong> Der Stack wird erneut mit 1 Prozessor gestartet und weitere 5 Minuten Daten als <code>exp3_stability/</code> gesichert.</p>
+<p><strong>Gemessene Metriken (Experiment 3 — Stabilität, 5 Minuten):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metrik</th>
+<th>room_temperature_mp (simple)</th>
+<th>room_alerts_mp (alerts)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Nachrichten analysiert</td>
+<td>3016</td>
+<td>308</td>
+</tr>
+<tr>
+<td>Avg E2E Latenz</td>
+<td>4.48 ms</td>
+<td>17.97 ms</td>
+</tr>
+<tr>
+<td>P50 Latenz</td>
+<td>3.67 ms</td>
+<td>6.20 ms</td>
+</tr>
+<tr>
+<td>P90 Latenz</td>
+<td>6.50 ms</td>
+<td>12.60 ms</td>
+</tr>
+<tr>
+<td>P95 Latenz</td>
+<td>7.59 ms</td>
+<td>22.66 ms</td>
+</tr>
+<tr>
+<td>P99 Latenz</td>
+<td>11.70 ms</td>
+<td>509.56 ms</td>
+</tr>
+<tr>
+<td>Max Latenz</td>
+<td>111.75 ms</td>
+<td>535.17 ms</td>
+</tr>
+<tr>
+<td>Durchsatz</td>
+<td>9.77 msg/s (±0.05)</td>
+<td>1.00 msg/s (±0.01)</td>
+</tr>
+</tbody></table>
+<p><strong>Stabilitäts-Resultat (Experiment 3 — Stabilitäts-Phase):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Erste 10% Avg</th>
+<th>Letzte 10% Avg</th>
+<th>Drift</th>
+<th>Bewertung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>room_temperature_mp</td>
+<td>4.10 ms</td>
+<td>5.00 ms</td>
+<td>+21.8%</td>
+<td>❌ Regression erkannt</td>
+</tr>
+<tr>
+<td>room_alerts_mp</td>
+<td>7.51 ms</td>
+<td>39.24 ms</td>
+<td>+422.4%</td>
+<td>❌ Regression erkannt</td>
+</tr>
+</tbody></table>
+<p><strong>Analyse — room_temperature_mp:</strong> Die einfache Pipeline zeigt einen Drift von +21.8%. Dies ist darauf zurückzuführen, dass die Latenz im ersten Bucket durch den Cold-Start des Kafka-Clusters niedrig ist (4.10ms) und im letzten Bucket durch JVM-Warmup und Cache-Effekte leicht ansteigt (5.00ms). Absolut bleibt der Unterschied mit ~1ms sehr klein.</p>
+<p><strong>Analyse — room_alerts_mp:</strong> Die Alerts-Pipeline zeigt einen massiven Drift von +422%, was primär auf die ansteigende P99-Latenz zurückzuführen ist. Der P50 bleibt stabil bei ~6.2ms, jedoch häufen sich über die Laufzeit vereinzelte Latenz-Spitzen, die den Durchschnitt verzerren.</p>
+<p><img alt="E2E Throughput Simple — Stabilität" src="images/exp3_stability_e2e_throughput_simple.png">
+<img alt="E2E Throughput Alerts — Stabilität" src="images/exp3_stability_e2e_throughput_alerts.png"></p>
+<hr>
+<h2 class="atx" id="bonus-5-system-level-bottleneck-consumer-starvation">Bonus 5: System-Level Bottleneck (Consumer-Starvation)</h2>
+<p><strong>Ziel:</strong> Ein systemweites Bottleneck provozieren, indem die Producer-Rate drastisch erhöht wird, während die Consumer-Kapazität gleich bleibt (Consumer-Starvation).</p>
+<h3 class="atx" id="versuchsaufbau">Versuchsaufbau</h3>
+<p>Die Producer-Rate wird verdreifacht (3 Generatoren statt 1), während die Consumer-Kapazität bei 1 Prozessor bleibt. Dadurch muss ein einzelner <code>data-processor</code> ~3x mehr Nachrichten verarbeiten als unter Baseline-Bedingungen.</p>
+<p><strong>Durchführung:</strong></p>
+<pre><code class="fenced-code-block language-bash">./run_e2e_experiment.sh <span class="token number">6</span>   <span class="token comment"># Bottleneck Test (~5min, 3 generators + 1 processor)</span></code></pre>
+<p>Dies startet den Stack mit <code>--scale data-generator=3 --scale data-processor=1</code>. Mit 3 Generatoren werden ~30 simple msg/s und ~3 complex msg/s produziert, was den einzelnen Processor überlastet.</p>
+<h3 class="atx" id="gemessene-metriken-5-minuten-3-generatoren--1-prozessor">Gemessene Metriken (5 Minuten, 3 Generatoren + 1 Prozessor)</h3>
+<p><strong>Latenz-Vergleich: Baseline (Exp 1, 1 Gen) vs. Bottleneck (Exp 6, 3 Gen)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metrik</th>
+<th>room_temperature_mp Baseline</th>
+<th>room_temperature_mp Bottleneck</th>
+<th>room_alerts_mp Baseline</th>
+<th>room_alerts_mp Bottleneck</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Nachrichten</td>
+<td>3012</td>
+<td>9064</td>
+<td>308</td>
+<td>923</td>
+</tr>
+<tr>
+<td>Avg E2E</td>
+<td>4.81 ms</td>
+<td>5.05 ms</td>
+<td>21.23 ms</td>
+<td>54.02 ms</td>
+</tr>
+<tr>
+<td>P50</td>
+<td>3.87 ms</td>
+<td>2.75 ms</td>
+<td>6.12 ms</td>
+<td>6.42 ms</td>
+</tr>
+<tr>
+<td>P90</td>
+<td>6.44 ms</td>
+<td>6.24 ms</td>
+<td>12.61 ms</td>
+<td>47.02 ms</td>
+</tr>
+<tr>
+<td>P95</td>
+<td>7.52 ms</td>
+<td>7.59 ms</td>
+<td>23.86 ms</td>
+<td>506.80 ms</td>
+</tr>
+<tr>
+<td>P99</td>
+<td>15.90 ms</td>
+<td>100.21 ms</td>
+<td>512.96 ms</td>
+<td>518.51 ms</td>
+</tr>
+<tr>
+<td>Max</td>
+<td>314.54 ms</td>
+<td>310.97 ms</td>
+<td>729.94 ms</td>
+<td>988.01 ms</td>
+</tr>
+<tr>
+<td>Durchsatz</td>
+<td>9.75 msg/s</td>
+<td>29.35 msg/s</td>
+<td>1.00 msg/s</td>
+<td>2.99 msg/s</td>
+</tr>
+</tbody></table>
+<p><strong>Pipeline-Aufschlüsselung (room_alerts_mp, Bottleneck):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Avg</th>
+<th>P50</th>
+<th>P99</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Producer → Consumer</td>
+<td>6.24 ms</td>
+<td>2.86 ms</td>
+<td>32.29 ms</td>
+</tr>
+<tr>
+<td>Consumer → Sink</td>
+<td>47.78 ms</td>
+<td>2.44 ms</td>
+<td>509.28 ms</td>
+</tr>
+<tr>
+<td>E2E Total</td>
+<td>54.02 ms</td>
+<td>6.42 ms</td>
+<td>518.51 ms</td>
+</tr>
+</tbody></table>
+<h3 class="atx" id="stabilitats-analyse-bottleneck">Stabilitäts-Analyse (Bottleneck)</h3>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Erste 10% Avg</th>
+<th>Letzte 10% Avg</th>
+<th>Drift</th>
+<th>Bewertung</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>room_temperature_mp</td>
+<td>6.10 ms</td>
+<td>6.58 ms</td>
+<td>+7.9%</td>
+<td>✅ Stabil (&lt; 10% Drift)</td>
+</tr>
+<tr>
+<td>room_alerts_mp</td>
+<td>42.61 ms</td>
+<td>66.90 ms</td>
+<td>+57.0%</td>
+<td>❌ Regression erkannt</td>
+</tr>
+</tbody></table>
+<h3 class="atx" id="interpretation">Interpretation</h3>
+<p><strong>Simple Nachrichten (room_temperature_mp):</strong> Die 3-fache Producer-Rate (~30 msg/s statt ~10 msg/s) erhöht den Durchsatz wie erwartet auf das 3-fache. Der P50 bleibt mit 2.75ms sogar tiefer als in der Baseline, was an der besseren Batch-Auslastung der Kafka-Consumer liegt. Allerdings steigt der P99 von 14.41ms auf 100.21ms — ein klares Zeichen dafür, dass der einzelne Processor gelegentlich nicht hinterherkommt und Nachrichten sich stauen. Die Stabilität ist mit +7.9% Drift noch im stabilen Bereich.</p>
+<p><strong>Alerts (room_alerts_mp):</strong> Hier zeigt sich das Bottleneck deutlich. Der P90 steigt von 13.18ms auf 47.02ms, und der P95 springt von 33.58ms auf 506.80ms — ein Anstieg um das 15-fache. Die Pipeline-Aufschlüsselung zeigt, dass das Bottleneck beim <code>Consumer → Sink</code>-Segment liegt (P99: 509ms), während <code>Producer → Consumer</code> relativ unauffällig bleibt (P99: 32ms). Dies bedeutet, dass der einzelne <code>data-processor</code> die 3-fache Nachrichtenrate noch verarbeiten kann, aber die resultierenden Alerts den nachgelagerten <code>data-sink</code> überlasten. Die Stabilitätsanalyse bestätigt dies mit einer Drift von +57% — die Latenz verschlechtert sich über die Zeit, da sich Nachrichten stauen.</p>
+<p><strong>Bottleneck identifiziert:</strong> Das systemweite Bottleneck liegt beim <code>data-sink</code> im Alerts-Pfad. Wenn die Producer-Rate verdreifacht wird, kann der einzelne Processor die Daten noch anreichern, aber der Sink kommt beim Schreiben der angereicherten Nachrichten nicht mehr nach. Die Mitigation wäre: (1) den <code>data-sink</code> horizontal skalieren (mehrere Sink-Instanzen), oder (2) die Schreibrate optimieren (z.B. Batch-Schreiben statt pro Nachricht flushen).</p>
+<p><img alt="Bottleneck Latenz Simple" src="images/e2e_bottleneck_latency_simple.png">
+<img alt="Bottleneck Latenz Alerts" src="images/e2e_bottleneck_latency_alerts.png">
+<img alt="Bottleneck Pipeline Breakdown" src="images/e2e_bottleneck_pipeline_breakdown.png">
+<img alt="Bottleneck Throughput Simple" src="images/e2e_bottleneck_throughput_simple.png">
+<img alt="Bottleneck Throughput Alerts" src="images/e2e_bottleneck_throughput_alerts.png"></p>
+<hr>
+<h2 class="atx" id="architektur-des-e2e-monitoring">Architektur des E2E-Monitoring</h2>
+<pre><code class="fenced-code-block language-text">┌──────────────┐     ┌─────────────────┐     ┌──────────────────────┐     ┌──────────┐
+│  Producer    │────→│  Kafka Cluster  │────→│  Processing Consumer │────→│  Kafka   │
+│ (Generator)  │     │  (3 Brokers)    │     │  (CO2-Anreicherung)  │     │ Cluster  │
+│  e2e_send_ts │     │                 │     │  e2e_consumer_done_ts│     │          │
+└──────────────┘     └─────────────────┘     └──────────────────────┘     └────┬─────┘
+                                                                               │
+                     ┌─────────────────┐     ┌──────────────────────┐          │
+                     │  Kafka Cluster  │────→│     Data Sink        │←─────────┘
+                     │                 │     │  (CSV-Dateien)       │
+                     └─────────────────┘     └──────────────────────┘
+
+                     ┌─────────────────┐     ┌──────────────────────┐
+                     │  Kafka Cluster  │────→│    E2E Monitor       │
+                     │                 │     │  (Latenz + Throughput│
+                     │                 │     │   Messung → CSV)     │
+                     └─────────────────┘     └──────────────────────┘</code></pre>
+<blockquote>
+<p>↑ erstellt mit AI ↑</p>
+</blockquote>
+<p>Der E2E Monitor ist ein <strong>separater Consumer</strong>, der nicht Teil der Datenpipeline ist. Er liest die Topics <code>room_temperature_mp</code> und <code>room_alerts_mp</code> mit eigenen Consumer Groups (<code>e2e_monitor_simple_group</code>, <code>e2e_monitor_alerts_group</code>) und misst die E2E-Latenz ohne den regulären Datenfluss zu beeinflussen.</p>
+<h1 class="atx" id="reflektion">Reflektion</h1>
+<h2 class="atx" id="was-lief-gut">Was lief gut?</h2>
+<ul>
+<li>Die initiale Implementierung der Daten-Generatoren und die saubere Anbindung an die simulierte Umgebung (SchoolSimulation) funktionierten reibungslos.</li>
+<li>Der Einsatz des binären Formats MessagePack anstelle von JSON konnte erfolgreich und performant umgesetzt werden.</li>
+<li>Die Experimente ("Deep Dives") lieferten hervorragende und eindeutige Ergebnisse. Die Visualisierungen belegten klar das Routing-Verhalten durch Message Keys sowie das Rebalancing bei der horizontalen Skalierung durch Consumer Groups.</li>
+<li>Die vollständige Automatisierung der End-to-End-Tests durch das Bash-Skript run_e2e_experiment.sh und das Python-Analyse-Skript erwies sich als äusserst effizient, um reproduzierbare Messdaten zu generieren.</li>
+</ul>
+<h2 class="atx" id="wo-traten-probleme-auf">Wo traten Probleme auf?</h2>
+<ul>
+<li>Gravierende Schwierigkeiten entstanden bei der Profiling-Implementierung mit cProfile in Teil 4 der Aufgabe.</li>
+<li>Da cProfile standardmässig nur Funktionsaufrufe im Hauptthread erfasst, wurden die eigentlichen Datenverarbeitungen in den Hintergrund-Threads vollständig ignoriert.</li>
+<li>Das Resultat waren Profiling-Dateien, die keine verwertbaren Metriken lieferten, sondern ausschliesslich das time.sleep des ruhenden Hauptthreads anzeigten.</li>
+</ul>
+<h2 class="atx" id="wofur-wurde-mehr-zeit-benotigt-als-geplant">Wofür wurde mehr Zeit benötigt als geplant?</h2>
+<ul>
+<li>Die Behebung des Multithreading-Problems mit cProfile beanspruchte massiv mehr Zeit als vorgesehen.</li>
+<li>Mehrere Lösungsansätze, wie der Einbau von Signal-Handlern zum Abfangen von Unterbrechungen, führten nicht zum gewünschten Ziel.</li>
+<li>Erst eine grundlegende Umstrukturierung des Codes (direkte Funktionsaufrufe im Hauptthread mit einer fixen Anzahl an Übermittlungen anstelle von Endlosschleifen in Background-Threads) brachte die Lösung, erforderte jedoch unerwartet hohen Refactoring-Aufwand.</li>
+</ul>
+<h2 class="atx" id="was-wurde-in-zukunft-anders-gemacht-werden">Was würde in Zukunft anders gemacht werden?</h2>
+<ul>
+<li>Profiling- und Test-Strategien sollten von Beginn an in die Architektur integriert werden, anstatt sie nachträglich in eine asynchrone Applikation einzubauen.</li>
+<li>Das Partitions-Design in Kafka sollte vorausschauender für zukünftige Skalierungen geplant werden. Das Experiment mit RabbitMQ und Kafka hat deutlich gemacht, dass bei Kafka ab dem vierten Skalierungs-Container Instanzen im Leerlauf bleiben, wenn das Topic initial nur mit drei Partitionen konfiguriert wurde.</li>
+</ul>
+<h2 class="atx" id="was-konnte-an-der-aufgabenstellung-geandert-werden">Was könnte an der Aufgabenstellung geändert werden?</h2>
+<ul>
+<li>Teil 4 der Aufgabe verlangt ein detailliertes Code-Level-Profiling für Applikationen, die architektonisch primär I/O-gebunden sind.</li>
+<li>Wie die Experimente zeigten, wird die Laufzeit bei solchen Message-Queue-Systemen zu über 99% von blockierendem Warten auf Netzwerk-Sockets (poll()) oder künstlichen Wartezeiten (time.sleep) dominiert.</li>
+<li>Die Aufgabenstellung wäre lehrreicher, wenn sie explizit eine rechenintensive Aufgabe für den Consumer vorschreiben würde (zum Beispiel aufwendige Matrizen-Berechnungen oder Machine-Learning-Inferenz). Erst dadurch würden sich im SnakeViz-Profil echte, optimierbare Code-Bottlenecks abzeichnen.</li>
+</ul>
+</article>
+</body>
+</html>
