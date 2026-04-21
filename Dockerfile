@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-RUN pip install kafka-python msgpack snakeviz
+RUN pip install kafka-python msgpack snakeviz matplotlib
 
 COPY python-files/ /app/
 
