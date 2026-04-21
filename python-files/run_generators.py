@@ -20,7 +20,7 @@ _profiler_output = None
 _shutdown_requested = False
 
 
-def signal_handler(signum):
+def signal_handler(signum, frame):
     global _shutdown_requested
     print(f"\nReceived signal {signum}, will shutdown gracefully...")
     _shutdown_requested = True
@@ -137,9 +137,7 @@ def run_profiled():
     print("Profiling complete.")
 
 
-def run_background():
-    sim = SchoolSimulation()
-
+def simple_producer_loop(sim, topic):
     producer = KafkaProducer(
         bootstrap_servers=['kafka1:9092', 'kafka2:9092', 'kafka3:9092'],
         # --- BASE SERIALIZATION (JSON) ---
@@ -151,19 +149,84 @@ def run_background():
 
         # JSON: room_temperature, room_environment | MessagePack: room_temperature_mp, room_environment_mp
 
-    sim_thread = threading.Thread(target=simulation_loop, args=(sim,))
+    room_index = 0
+    num_rooms = len(sim.rooms)
+    count = 0
+
+    while not _shutdown_requested:
+        room = sim.rooms[room_index]
+        message = message_builder.build_simple_message(room, sim)
+
+        producer.send(topic, key=room.room_id.encode('utf-8'), value=message)
+
+        room_index = (room_index + 1) % num_rooms
+        count += 1
+
+        if count % 100 == 0:
+            print(f"[Simple Producer] {count} messages sent")
+            sys.stdout.flush()
+
+        time.sleep(0.1)
+
+    producer.flush()
+    producer.close()
+
+
+def complex_producer_loop(sim, topic):
+    producer = KafkaProducer(
+        bootstrap_servers=['kafka1:9092', 'kafka2:9092', 'kafka3:9092'],
+        value_serializer=lambda v: msgpack.packb(v),
+    )
+
+    room_index = 0
+    num_rooms = len(sim.rooms)
+    count = 0
+
+    while not _shutdown_requested:
+        target_room = sim.rooms[room_index]
+        message = message_builder.build_complex_message(target_room, sim)
+
+        if "--bottleneck" in sys.argv:
+            time.sleep(0.2)
+            json_temp = json.dumps(message)
+            json_temp = json.loads(json_temp)
+            _ = hashlib.sha256(str(time.time()).encode()).hexdigest()
+
+        producer.send(topic, key=target_room.room_id.encode('utf-8'), value=message)
+
+        room_index = (room_index + 1) % num_rooms
+        count += 1
+
+        if count % 10 == 0:
+            print(f"[Complex Producer] {count} messages sent")
+            sys.stdout.flush()
+
+        time.sleep(1)
+
+    producer.flush()
+    producer.close()
+
+
+def sim_step_loop(sim):
+    while not _shutdown_requested:
+        sim.step()
+        time.sleep(1)
+
+
+def run_background():
+    global _shutdown_requested
+    sim = SchoolSimulation()
+
+    print("Starting simulation and producer loops. Press Ctrl+C to stop.")
+
+    sim_thread = threading.Thread(target=sim_step_loop, args=(sim,), daemon=True)
     simple_thread = threading.Thread(
-        target=simple_producer_work, args=(sim, "room_temperature_mp", producer)
+        target=simple_producer_loop, args=(sim, "room_temperature_mp"), daemon=True
     )
     complex_thread = threading.Thread(
-        target=complex_producer_work, args=(sim, "room_environment_mp", producer)
+        target=complex_producer_loop, args=(sim, "room_environment_mp"), daemon=True
     )
 
-    sim_thread.daemon = True
-    simple_thread.daemon = True
-    complex_thread.daemon = True
-
-    print("Starting simulation and producer threads. Press Ctrl+C to stop.")
     sim_thread.start()
     simple_thread.start()
     complex_thread.start()
@@ -173,9 +236,11 @@ def run_background():
             time.sleep(1)
     except KeyboardInterrupt:
         print("\nShutting down gracefully.")
-    finally:
-        producer.flush()
-        producer.close()
+        _shutdown_requested = True
+
+    sim_thread.join(timeout=3)
+    simple_thread.join(timeout=5)
+    complex_thread.join(timeout=5)
 
 
 if __name__ == "__main__":
@@ -186,16 +251,19 @@ if __name__ == "__main__":
     print("Profiling enabled - check /app/profiles for .prof files")
     print("=" * 60)
 
+    signal.signal(signal.SIGTERM, signal_handler)
+    signal.signal(signal.SIGINT, signal_handler)
+
     if "--profile" in sys.argv:
+        print("=" * 60)
         print("Running with cProfile profiling...")
+        print("Profiling enabled - check /app/profiles for .prof files")
+        print("=" * 60)
 
         if "--bottleneck" in sys.argv:
             _profiler_output = os.path.join(PROFILE_DIR, os.environ.get('PROFILE_OUTPUT', 'kafka_producer_bottleneck.prof'))
         else:
             _profiler_output = os.path.join(PROFILE_DIR, os.environ.get('PROFILE_OUTPUT', 'kafka_producer_baseline.prof'))
-
-        signal.signal(signal.SIGTERM, signal_handler)
-        signal.signal(signal.SIGINT, signal_handler)
 
         _profiler = cProfile.Profile()
         _profiler.runctx("run_profiled()", globals(), locals())
@@ -204,4 +272,7 @@ if __name__ == "__main__":
         print(f"\nProfile saved to {_profiler_output}")
         print(f"View with: snakeviz {_profiler_output}")
     else:
+        print("=" * 60)
+        print("Starting continuous producer loops. Press Ctrl+C to stop.")
+        print("=" * 60)
         run_background()
